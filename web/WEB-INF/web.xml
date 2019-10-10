@@ -6,6 +6,10 @@
     <display-name>A Simple Application</display-name>
     <description>Simple Servlet API application</description>
 
+    <welcome-file-list>
+        <welcome-file>/pages/index</welcome-file>
+    </welcome-file-list>
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -26,6 +30,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>app</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 </web-app>

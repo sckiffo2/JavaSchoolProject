@@ -7,13 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eae98d9e-53d4-4f0d-9420-5e097589c4a7" name="Default Changelist" comment="Merge branch 'master' of https://github.com/sckiffo2/JavaSchoolProject&#10;&#10;# Conflicts:&#10;#&#9;src/main/java/com/voronov/App.java">
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/pages/hello.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AnyWayTicket.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AnyWayTicket.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/StationDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Station.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/StationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Corvin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Corvin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/controllers/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/pages/hello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/station.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -77,6 +82,16 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="RailRoadDB@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="RailRoadDB: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="Stations: table" type="69fad909:PgImplModel$LocalTable" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="RailRoadDB@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="roles" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
@@ -86,69 +101,15 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/config/WebConfig.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/utils/HibernateSessionFactoryUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+            <state relative-caret-position="442">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#566#567#0" expanded="true" />
-                <element signature="e#612#613#0" expanded="true" />
-                <element signature="e#714#715#0" expanded="true" />
-                <element signature="e#740#741#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="72" lean-forward="true" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/applicationContext.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/hello.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AnyWayTicket.iml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -156,13 +117,162 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/controllers/HelloController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="187">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#282#283#0" expanded="true" />
-                <element signature="e#303#304#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/Station.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <folding>
+                <element signature="e#293#294#0" expanded="true" />
+                <element signature="e#316#317#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/StationDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="646">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#0#33#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/StationService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#518#519#0" expanded="true" />
+                <element signature="e#551#552#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/App.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+              <folding>
+                <element signature="e#81#82#0" expanded="true" />
+                <element signature="e#115#116#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="uml://DATABASE/1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>DATABASE</ID>
+              <OriginalElement>1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger</OriginalElement>
+              <nodes>
+                <node x="500.99999999999994" y="232.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Tickets</node>
+                <node x="450.0" y="508.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTickets</node>
+                <node x="136.99999999999994" y="55.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Stations</node>
+                <node x="503.49999999999994" y="22.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger</node>
+                <node x="346.99999999999994" y="276.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTrip</node>
+                <node x="0.0" y="287.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Wagon_Types</node>
+                <node x="0.0" y="679.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Roles</node>
+                <node x="130.0" y="646.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Users</node>
+                <node x="149.99999999999997" y="486.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainStructure</node>
+                <node x="162.99999999999994" y="276.5">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.RouteStation</node>
+                <node x="275.99999999999994" y="0.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Routes</node>
+                <node x="76.25" y="834.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.UserRoles</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.UserRoles" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Users">
+                  <point x="26.25" y="-35.5" />
+                  <point x="155.0" y="809.0" />
+                  <point x="202.5" y="809.0" />
+                  <point x="0.0" y="69.0" />
+                </edge>
+                <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.UserRoles" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Roles">
+                  <point x="-26.25" y="-35.5" />
+                  <point x="102.5" y="809.0" />
+                  <point x="55.0" y="809.0" />
+                  <point x="0.0" y="36.0" />
+                </edge>
+                <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Tickets" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger">
+                  <point x="0.0" y="-102.0" />
+                  <point x="0.0" y="69.0" />
+                </edge>
+                <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTickets" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Tickets">
+                  <point x="31.75" y="-35.5" />
+                  <point x="545.25" y="461.0" />
+                  <point x="579.5" y="461.0" />
+                  <point x="0.0" y="102.0" />
+                </edge>
+                <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTrip" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Routes">
+                  <point x="0.0" y="-58.0" />
+                  <point x="46.0" y="91.0" />
+                </edge>
+                <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainStructure" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTrip">
+                  <point x="38.0" y="-57.5" />
+                  <point x="264.0" y="461.0" />
+                  <point x="380.49999999999994" y="461.0" />
+                  <point x="-33.5" y="58.0" />
+                </edge>
+                <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.RouteStation" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Stations">
+                  <point x="-33.5" y="-57.5" />
+                  <point x="0.0" y="36.0" />
+                </edge>
+                <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTickets" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTrip">
+                  <point x="-31.75" y="-35.5" />
+                  <point x="481.75" y="461.0" />
+                  <point x="447.49999999999994" y="461.0" />
+                  <point x="33.5" y="58.0" />
+                </edge>
+                <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.RouteStation" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Routes">
+                  <point x="33.5" y="-57.5" />
+                  <point x="263.49999999999994" y="207.0" />
+                  <point x="321.99999999999994" y="207.0" />
+                  <point x="-46.0" y="91.0" />
+                </edge>
+                <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainStructure" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Wagon_Types">
+                  <point x="-38.0" y="-57.5" />
+                  <point x="187.99999999999997" y="461.0" />
+                  <point x="71.5" y="461.0" />
+                  <point x="0.0" y="47.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.697495183044316" x="-457.7651933701657" y="334.08839779005524" />
+              <SelectedNodes>
+                <node>1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Key columns</Category>
+                <Category>Columns</Category>
+              </Categories>
             </state>
           </provider>
         </entry>
@@ -172,6 +282,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
@@ -188,18 +299,30 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/webapp/mainPage.jsp" />
         <option value="$PROJECT_DIR$/web/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/App.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/config/AppInit.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/pages/hello.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/Controller/HelloController.java" />
         <option value="$PROJECT_DIR$/AnyWayTicket.iml" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/config/WebConfig.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/hello.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/station.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/viewpage.jsp" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/controllers/HelloController.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/viewPage.jsp" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/DAO/StationDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/DAO/StationDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/StationDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/StationService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/Station.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/utils/HibernateSessionFactoryUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/App.java" />
       </list>
     </option>
   </component>
@@ -239,9 +362,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="953" />
-    <option name="width" value="974" />
-    <option name="height" value="1167" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -385,18 +509,7 @@
               <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="voronov" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="voronov" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
@@ -411,7 +524,50 @@
             </path>
             <path>
               <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: javax.persistence:javax.persistence-api:2.2" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: javax.persistence:javax.persistence-api:2.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="javax.persistence-api-2.2.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: javax.persistence:javax.persistence-api:2.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="javax.persistence-api-2.2.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="persistence" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.hibernate:hibernate-core:5.4.3.Final" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.hibernate:hibernate-core:5.4.3.Final" type="70bed36:NamedLibraryElementNode" />
+              <item name="hibernate-core-5.4.3.Final.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: org.hibernate:hibernate-core:5.4.3.Final" type="70bed36:NamedLibraryElementNode" />
+              <item name="hibernate-core-5.4.3.Final.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="hibernate" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
@@ -440,7 +596,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../simpleMVC" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -449,7 +607,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.20358515" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
@@ -477,7 +635,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.22">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.voronov.App" />
       <module name="AnyWayTicket" />
@@ -587,12 +745,13 @@
       <workItem from="1570375508401" duration="7006000" />
       <workItem from="1570383180627" duration="1238000" />
       <workItem from="1570393934668" duration="563000" />
-      <workItem from="1570436950951" duration="2664000" />
+      <workItem from="1570436950951" duration="9352000" />
+      <workItem from="1570693103395" duration="12944000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16278000" />
+    <option name="totallyTimeSpent" value="35910000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -604,10 +763,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1167" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32822758" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18869936" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -624,7 +783,43 @@
       <window_info anchor="bottom" id="Messages" order="6" weight="0.32981783" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" />
-      <window_info anchor="bottom" id="Run" order="9" visible="true" weight="0.45551258" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.25503355" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="13" visible="true" weight="0.32981783" />
+      <window_info anchor="bottom" id="TODO" order="14" weight="0.32981783" />
+      <window_info anchor="bottom" id="Spring" order="15" weight="0.32981783" />
+      <window_info anchor="bottom" id="Database Console" order="16" weight="0.3106424" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32995737" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" weight="0.15618336" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1890625" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32981783" />
+      <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32981783" />
+      <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="5" weight="0.32981783" />
+      <window_info anchor="bottom" id="Messages" order="6" weight="0.32981783" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Find" order="8" />
+      <window_info anchor="bottom" id="Run" order="9" weight="0.39597315" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
@@ -641,7 +836,7 @@
       <window_info anchor="right" id="Database" order="6" weight="0.15618336" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -662,28 +857,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/mainPage.jsp" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://999feb4e-dfb9-4592-a10c-aefdf3c62fba/role/pg_monitor" />
     <entry file="das://999feb4e-dfb9-4592-a10c-aefdf3c62fba/role/postgres" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/999feb4e-dfb9-4592-a10c-aefdf3c62fba/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#81#82#0" expanded="true" />
-            <element signature="e#115#116#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="das://1e87b661-8c62-4607-b2ac-fb72edd2898a/database/RailRoadDB/schema/public/table/Passenger.sql">
       <provider selected="true" editor-type-id="text-editor">
@@ -699,37 +876,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger</OriginalElement>
-          <nodes>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTickets</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Stations</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.RouteStation</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTrip</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Roles</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Users</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainStructure</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Wagon_Types</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Tickets</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Routes</node>
-            <node x="" y="">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.UserRoles</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.8571428571428571" x="394.0" y="507.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
         </state>
       </provider>
     </entry>
@@ -771,34 +917,14 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/1e87b661-8c62-4607-b2ac-fb72edd2898a/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/config/AppInit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AnyWayTicket.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/config/AppInit.java" />
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/AnyWayTicket_war.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/hello.jsp">
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/AnyWayTicket_war_exploded.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="51" column="21" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+        <state relative-caret-position="617">
+          <caret line="43" column="12" lean-forward="true" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -823,22 +949,246 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/controllers/HelloController.java">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/viewPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#282#283#0" expanded="true" />
-            <element signature="e#303#304#0" expanded="true" />
-          </folding>
+          <caret line="7" column="65" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/station.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar!/javax/persistence/GenerationType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar!/javax/persistence/GeneratedValue.class">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="72" lean-forward="true" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://1e87b661-8c62-4607-b2ac-fb72edd2898a/database/RailRoadDB/schema/public/table/Stations/index/Stations_pkey">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="20" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/SharedSessionContract.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/SessionFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AnyWayTicket.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/Station.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding>
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#316#317#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger</OriginalElement>
+          <nodes>
+            <node x="500.99999999999994" y="232.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Tickets</node>
+            <node x="450.0" y="508.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTickets</node>
+            <node x="136.99999999999994" y="55.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Stations</node>
+            <node x="503.49999999999994" y="22.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger</node>
+            <node x="346.99999999999994" y="276.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTrip</node>
+            <node x="0.0" y="287.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Wagon_Types</node>
+            <node x="0.0" y="679.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Roles</node>
+            <node x="130.0" y="646.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Users</node>
+            <node x="149.99999999999997" y="486.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainStructure</node>
+            <node x="162.99999999999994" y="276.5">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.RouteStation</node>
+            <node x="275.99999999999994" y="0.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Routes</node>
+            <node x="76.25" y="834.0">1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.UserRoles</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.UserRoles" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Users">
+              <point x="26.25" y="-35.5" />
+              <point x="155.0" y="809.0" />
+              <point x="202.5" y="809.0" />
+              <point x="0.0" y="69.0" />
+            </edge>
+            <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.UserRoles" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Roles">
+              <point x="-26.25" y="-35.5" />
+              <point x="102.5" y="809.0" />
+              <point x="55.0" y="809.0" />
+              <point x="0.0" y="36.0" />
+            </edge>
+            <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Tickets" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger">
+              <point x="0.0" y="-102.0" />
+              <point x="0.0" y="69.0" />
+            </edge>
+            <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTickets" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Tickets">
+              <point x="31.75" y="-35.5" />
+              <point x="545.25" y="461.0" />
+              <point x="579.5" y="461.0" />
+              <point x="0.0" y="102.0" />
+            </edge>
+            <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTrip" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Routes">
+              <point x="0.0" y="-58.0" />
+              <point x="46.0" y="91.0" />
+            </edge>
+            <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainStructure" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTrip">
+              <point x="38.0" y="-57.5" />
+              <point x="264.0" y="461.0" />
+              <point x="380.49999999999994" y="461.0" />
+              <point x="-33.5" y="58.0" />
+            </edge>
+            <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.RouteStation" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Stations">
+              <point x="-33.5" y="-57.5" />
+              <point x="0.0" y="36.0" />
+            </edge>
+            <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTickets" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainTrip">
+              <point x="-31.75" y="-35.5" />
+              <point x="481.75" y="461.0" />
+              <point x="447.49999999999994" y="461.0" />
+              <point x="33.5" y="58.0" />
+            </edge>
+            <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.RouteStation" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Routes">
+              <point x="33.5" y="-57.5" />
+              <point x="263.49999999999994" y="207.0" />
+              <point x="321.99999999999994" y="207.0" />
+              <point x="-46.0" y="91.0" />
+            </edge>
+            <edge source="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.TrainStructure" target="1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Wagon_Types">
+              <point x="-38.0" y="-57.5" />
+              <point x="187.99999999999997" y="461.0" />
+              <point x="71.5" y="461.0" />
+              <point x="0.0" y="47.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.697495183044316" x="-457.7651933701657" y="334.08839779005524" />
+          <SelectedNodes>
+            <node>1e87b661-8c62-4607-b2ac-fb72edd2898a.TABLE:RailRoadDB.public.Passenger</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/StationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#518#519#0" expanded="true" />
+            <element signature="e#551#552#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/StationDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#0#33#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/controllers/HelloController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/utils/HibernateSessionFactoryUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding>
+            <element signature="e#81#82#0" expanded="true" />
+            <element signature="e#115#116#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -896,11 +1246,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Web|AnyWayTicket</last-edited>
+          <last-edited>AnyWayTicket</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.20358515" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
