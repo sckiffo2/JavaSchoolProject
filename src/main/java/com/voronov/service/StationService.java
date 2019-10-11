@@ -3,9 +3,11 @@ package com.voronov.service;
 
 import com.voronov.dao.StationDao;
 import com.voronov.entities.Station;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class StationService {
 
 	private StationDao stationDao = new StationDao();
@@ -13,8 +15,16 @@ public class StationService {
 	public StationService() {
 	}
 
-	public Station findStation(int id) {
+	public void setStationDao(StationDao stationDao) {
+		this.stationDao = stationDao;
+	}
+
+	public Station findById(int id) {
 		return stationDao.findById(id);
+	}
+
+	public Station findByName(String name) {
+		return stationDao.findByName(name);
 	}
 
 	public void saveStation(Station station) {

@@ -13,7 +13,7 @@
       <ObjectId>41037</ObjectId>
       <StateNumber>1106</StateNumber>
       <Owner>root</Owner>
-      <IntrospectionStateNumber>1161</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1209</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </database>
@@ -107,7 +107,7 @@
       <Comment>standard public schema</Comment>
       <StateNumber>1110</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1162</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1210</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -223,30 +223,30 @@
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <table id="33" parent="18" name="Passenger">
+    <table id="33" parent="18" name="Passengers">
       <ObjectId>49294</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1137</StateNumber>
+      <StateNumber>1204</StateNumber>
     </table>
     <table id="34" parent="18" name="Roles">
       <ObjectId>41044</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1130</StateNumber>
+      <StateNumber>1203</StateNumber>
     </table>
-    <table id="35" parent="18" name="RouteStation">
+    <table id="35" parent="18" name="Route_Station">
       <ObjectId>49353</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1149</StateNumber>
+      <StateNumber>1205</StateNumber>
     </table>
     <table id="36" parent="18" name="Routes">
       <ObjectId>49304</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1149</StateNumber>
+      <StateNumber>1206</StateNumber>
     </table>
     <table id="37" parent="18" name="Stations">
       <ObjectId>49280</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1149</StateNumber>
+      <StateNumber>1202</StateNumber>
     </table>
     <table id="38" parent="18" name="Tickets">
       <ObjectId>49287</ObjectId>
@@ -258,20 +258,20 @@
       <Owner>postgres</Owner>
       <StateNumber>1144</StateNumber>
     </table>
-    <table id="40" parent="18" name="TrainTickets">
-      <ObjectId>49366</ObjectId>
-      <Owner>postgres</Owner>
-      <StateNumber>1151</StateNumber>
-    </table>
-    <table id="41" parent="18" name="TrainTrip">
+    <table id="40" parent="18" name="TrainTrip">
       <ObjectId>49311</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1151</StateNumber>
     </table>
-    <table id="42" parent="18" name="UserRoles">
+    <table id="41" parent="18" name="Train_Tickets">
+      <ObjectId>49366</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>1207</StateNumber>
+    </table>
+    <table id="42" parent="18" name="User_Roles">
       <ObjectId>41041</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1130</StateNumber>
+      <StateNumber>1208</StateNumber>
     </table>
     <table id="43" parent="18" name="Users">
       <ObjectId>41038</ObjectId>
@@ -480,9 +480,9 @@
     </column>
     <column id="72" parent="37" name="name">
       <Position>2</Position>
-      <DataType>varchar(20)|0s</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>1134</StateNumber>
+      <StateNumber>1164</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="73" parent="37" name="Stations_pkey">
@@ -575,7 +575,7 @@
       <ColNames>passenger_id</ColNames>
       <RefTableId>49294</RefTableId>
       <RefColPositions>1</RefColPositions>
-      <RefTableName>Passenger</RefTableName>
+      <RefTableName>Passengers</RefTableName>
       <RefKeyName>Passenger_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
@@ -629,21 +629,74 @@
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="92" parent="40" name="ticket_id">
+    <column id="92" parent="40" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1139</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="93" parent="40" name="route_id">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1147</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="94" parent="40" name="start_date">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1139</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="95" parent="40" name="canceled">
+      <Position>4</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1139</StateNumber>
+      <DefaultExpression>false</DefaultExpression>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="96" parent="40" name="TrainTrip_pkey">
+      <ObjectId>49315</ObjectId>
+      <StateNumber>1145</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="97" parent="40" name="TrainTrip_pkey">
+      <ObjectId>49316</ObjectId>
+      <StateNumber>1139</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>TrainTrip_pkey</UnderlyingIndexName>
+    </key>
+    <foreign-key id="98" parent="40" name="FK_route_id">
+      <ObjectId>49348</ObjectId>
+      <StateNumber>1148</StateNumber>
+      <ColNames>route_id</ColNames>
+      <RefTableId>49304</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>Routes</RefTableName>
+      <RefKeyName>Routes_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="99" parent="41" name="ticket_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1151</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="93" parent="40" name="traintrip_id">
+    <column id="100" parent="41" name="traintrip_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1151</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="94" parent="40" name="FK_ticket_id">
+    <foreign-key id="101" parent="41" name="FK_ticket_id">
       <ObjectId>49374</ObjectId>
       <StateNumber>1151</StateNumber>
       <ColNames>ticket_id</ColNames>
@@ -653,7 +706,7 @@
       <RefKeyName>Tickets_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="95" parent="40" name="FK_train_trip_id">
+    <foreign-key id="102" parent="41" name="FK_train_trip_id">
       <ObjectId>49369</ObjectId>
       <StateNumber>1151</StateNumber>
       <ColNames>traintrip_id</ColNames>
@@ -661,59 +714,6 @@
       <RefColPositions>1</RefColPositions>
       <RefTableName>TrainTrip</RefTableName>
       <RefKeyName>TrainTrip_pkey</RefKeyName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="96" parent="41" name="id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1139</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="97" parent="41" name="route_id">
-      <Position>2</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1147</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="98" parent="41" name="start_date">
-      <Position>3</Position>
-      <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1139</StateNumber>
-      <TypeId>1082</TypeId>
-    </column>
-    <column id="99" parent="41" name="canceled">
-      <Position>4</Position>
-      <DataType>boolean|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>1139</StateNumber>
-      <DefaultExpression>false</DefaultExpression>
-      <TypeId>16</TypeId>
-    </column>
-    <index id="100" parent="41" name="TrainTrip_pkey">
-      <ObjectId>49315</ObjectId>
-      <StateNumber>1145</StateNumber>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-      <Primary>1</Primary>
-    </index>
-    <key id="101" parent="41" name="TrainTrip_pkey">
-      <ObjectId>49316</ObjectId>
-      <StateNumber>1139</StateNumber>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>TrainTrip_pkey</UnderlyingIndexName>
-    </key>
-    <foreign-key id="102" parent="41" name="FK_route_id">
-      <ObjectId>49348</ObjectId>
-      <StateNumber>1148</StateNumber>
-      <ColNames>route_id</ColNames>
-      <RefTableId>49304</RefTableId>
-      <RefColPositions>1</RefColPositions>
-      <RefTableName>Routes</RefTableName>
-      <RefKeyName>Routes_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="103" parent="42" name="user_id">
