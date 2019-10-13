@@ -1,17 +1,14 @@
 package com.voronov.entities;
 
-import com.sun.org.glassfish.gmbal.NameValue;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "`Stations`")
+@Table(name = "stations")
 public class Station {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(updatable = false, nullable = false)
 	private int id;
-
 
 	@Column(name = "name")
 	private String name;
@@ -37,8 +34,10 @@ public class Station {
 
 	@Override
 	public int hashCode() {
-		int result = id;
-		result = 31 * result + (name != null ? name.hashCode() : 0);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		result = prime * result + (name == null ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -51,7 +50,7 @@ public class Station {
 			return false;
 		}
 		Station that = (Station) obj;
-		return id != that.id && !name.equals(that.name);
+		return id == that.id && name.equals(that.name);
 	}
 
 	@Override
