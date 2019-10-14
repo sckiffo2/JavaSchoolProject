@@ -6,12 +6,27 @@
         <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <header>
-            <div>AnyWayTicket - any day, any way.</div>
-            <div>login/logout will be here. --->>>></div>
-        </header>
+    <div class="header">
+        <div>AnyWayTicket - any day, any way.</div>
+        <div>login/logout will be here. --->>>></div>
+    </div>
+    <div class="sidebar">
+        <div class="side-menu">
+            <ul class="side-menu-ul">
+                <li class="active">
+                    <a href="station">Stations</a>
+                </li>
+                <li>
+                    <a href="showViewPage">viewPage</a>
+                </li>
+                <li>
+                    <a href="testPage">testPage</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content">
         <h1>Main Page</h1>
-        <a href="station">stations</a>
-        <a href="showViewPage">viewPage</a>
+    </div>
     </body>
 </html>

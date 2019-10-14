@@ -69,7 +69,6 @@ public class Wagon {
                 && seatsNumber == that.seatsNumber;
     }
 
-
     @Override
     public String toString() {
         return "entities.Wagon{" +

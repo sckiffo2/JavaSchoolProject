@@ -24,4 +24,9 @@ public class HelloController {
 		map.addAttribute("message", "Baeldung");
 		return "viewPage";
 	}
+
+	@GetMapping("/testPage")
+	public String testPage(Model model) {
+		return "testPage";
+	}
 }

@@ -20,7 +20,8 @@ public class HibernateSessionFactoryUtil {
 				sessionFactory = configuration.buildSessionFactory(builder.build());
 
 			} catch (Exception e) {
-				e.printStackTrace();
+				System.err.println("Initial SessionFactory creation failed." + e);
+				throw new ExceptionInInitializerError(e);
 			}
 		}
 		return sessionFactory;

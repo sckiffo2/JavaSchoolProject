@@ -43,6 +43,15 @@ body {
     background-color: #393836;
     z-index: 9;
 }
+.title {
+    position: relative;
+    display: flex;
+}
+.login {
+
+    position: relative;
+    display: flex;
+}
 
 .sidebar {
     position: fixed;
@@ -83,6 +92,10 @@ body {
     padding: 12px;
     text-decoration: none;
     width: 100%;
+}
+
+.title a {
+    text-decoration: none;
 }
 
 ul {

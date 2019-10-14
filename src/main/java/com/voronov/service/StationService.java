@@ -1,45 +1,22 @@
 package com.voronov.service;
 
-
 import com.voronov.dao.StationDao;
 import com.voronov.entities.Station;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class StationService {
+public interface StationService {
+	void setStationDao(StationDao stationDao);
 
-	private StationDao stationDao = new StationDao();
+	Station findById(int id);
 
-	public StationService() {
-	}
+	Station findByName(String name);
 
-	public void setStationDao(StationDao stationDao) {
-		this.stationDao = stationDao;
-	}
+	void save(Station station);
 
-	public Station findById(int id) {
-		return stationDao.findById(id);
-	}
+	void update(Station station);
 
-	public Station findByName(String name) {
-		return stationDao.findByName(name);
-	}
+	void delete(Integer id);
 
-	public void saveStation(Station station) {
-		stationDao.save(station);
-	}
-
-	public void updateStation(Station station) {
-		stationDao.update(station);
-	}
-
-	public void deleteStation(Station station) {
-		stationDao.delete(station);
-	}
-
-	public List<Station> findAllStations() {
-		return stationDao.findAll();
-	}
+	List<Station> findAll();
 }

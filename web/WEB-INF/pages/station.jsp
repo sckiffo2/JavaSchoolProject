@@ -1,23 +1,49 @@
+<%@ page import="com.voronov.dao.StationDaoImpl" %>
+<%@ page import="com.voronov.entities.Station" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Stations</title>
-    </head>
-    <body>
-        <h3>Enter The Station name</h3>
-        <form method="post">
-            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-            <input type="text" name="name" placeholder="Введите название станции"/>
-            <button type="submit">Добавить</button>
-        </form>
+<head>
+    <title>Stations</title>
+    <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="resources/css/stations.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <h1>Stations</h1>
+    <form method="POST" action="station/save">
+        <label for="name">Добавление новой станции</label><br>
+        <input type="text" name="name" id="name" placeholder="Введите название станции"/>
+        <input type="submit" value="Добавить"/>
+    </form>
+    <br>
+    <label for="table">Зарегистрированные станции</label><br>
+    <table id="table">
+        <!-- here should go some titles... -->
+        <tr>
+            <th>id</th>
+            <th>Название</th>
+            <th> </th>
+            <th> </th>
+        </tr>
+        <c:forEach var="station" items="${stations}" >
+            <tr>
 
-<%--
-<form method="POST" action="/station/addStation">
-    <label path="name">Name</label>
-    <input path="name"/>
-    <input type="submit" value="Submit"/>
-</form>
---%>
+                <td>
+                    <c:out value="${station.getId()}" />
+                </td>
+                <td>
+                    <c:out value="${station.getName()}" />
+                </td>
+                <td>
+                    <a href="station\edit\<c:url value="${station.getId()}"/>">Изменить</a>
+                </td>
+                <td>
+                    <a href="station\delete\<c:url value="${station.getId()}"/>">Удалить</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
 
-    </body>
+</body>
 </html>
