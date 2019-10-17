@@ -1,6 +1,6 @@
 package com.voronov.service;
 
-import com.voronov.dao.StationDao;
+import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;
 
 import java.util.List;

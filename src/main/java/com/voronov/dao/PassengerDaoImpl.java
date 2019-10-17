@@ -1,12 +1,13 @@
 package com.voronov.dao;
 
+import com.voronov.dao.DAOinterfaces.PassengerDao;
 import com.voronov.entities.Passenger;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PassengerDaoImpl implements PassengerDao{
+public class PassengerDaoImpl implements PassengerDao {
 	@Override
 	public Passenger findById(int id) {
 		//todo implement

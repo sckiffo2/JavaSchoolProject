@@ -1,12 +1,13 @@
 package com.voronov.dao;
 
+import com.voronov.dao.DAOinterfaces.TicketDao;
 import com.voronov.entities.Ticket;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TicketDaoImpl implements TicketDao{
+public class TicketDaoImpl implements TicketDao {
 	@Override
 	public Ticket findById(int id) {
 		//todo implement

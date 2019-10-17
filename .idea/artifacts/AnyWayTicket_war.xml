@@ -1,7 +1,13 @@
 <component name="ArtifactManager">
   <artifact type="war" name="AnyWayTicket:war">
-    <output-path>$PROJECT_DIR$/out/artifacts/AnyWayTicket_war</output-path>
-    <root id="archive" name="AnyWayTicket_war.war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>AnyWayTicket</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="AnyWayTicket.war">
       <element id="artifact" artifact-name="AnyWayTicket:war exploded" />
     </root>
   </artifact>

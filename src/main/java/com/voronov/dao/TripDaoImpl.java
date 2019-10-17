@@ -1,12 +1,13 @@
 package com.voronov.dao;
 
+import com.voronov.dao.DAOinterfaces.TripDao;
 import com.voronov.entities.TrainTrip;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TripDaoImpl implements TripDao{
+public class TripDaoImpl implements TripDao {
 	@Override
 	public TrainTrip findById(int id) {
 		//todo implement

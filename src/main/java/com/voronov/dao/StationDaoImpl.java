@@ -1,15 +1,14 @@
 package com.voronov.dao;
 
+import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;
 import com.voronov.utils.HibernateSessionFactoryUtil;
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -29,8 +28,15 @@ public class StationDaoImpl implements StationDao {
 
 	@Override
 	public Station findByName(String name) {
-		//todo findByName
-		return null;
+		Station station = null;
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+			session.createQuery("from Station S where S.name = :name", Station.class);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return station;
 	}
 
 	@Override
@@ -47,11 +53,9 @@ public class StationDaoImpl implements StationDao {
 	@Override
 	public void update(Station station) {
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
-			Transaction transaction = session.beginTransaction();
-
+			session.beginTransaction();
 			session.update(station);
-
-			transaction.commit();
+			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
@@ -79,9 +83,7 @@ public class StationDaoImpl implements StationDao {
 
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
-			Criteria criteria = session.createCriteria(Station.class);
-
-			result = new ArrayList<Station>(criteria.list());
+			result = session.createQuery("from com.voronov.entities.Station", Station.class).getResultList();
 			result.sort(Comparator.comparingInt(Station::getId));
 
 			session.getTransaction().commit();

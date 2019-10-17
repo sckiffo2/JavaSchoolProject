@@ -1,8 +1,7 @@
 package com.voronov.service;
 
 
-import com.voronov.dao.StationDao;
-import com.voronov.dao.StationDaoImpl;
+import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

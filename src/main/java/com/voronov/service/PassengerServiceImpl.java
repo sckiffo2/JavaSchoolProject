@@ -1,7 +1,6 @@
 package com.voronov.service;
 
-import com.voronov.dao.PassengerDao;
-import com.voronov.dao.PassengerDaoImpl;
+import com.voronov.dao.DAOinterfaces.PassengerDao;
 import com.voronov.entities.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 

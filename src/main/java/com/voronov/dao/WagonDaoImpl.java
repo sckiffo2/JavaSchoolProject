@@ -1,10 +1,11 @@
 package com.voronov.dao;
 
+import com.voronov.dao.DAOinterfaces.WagonDao;
 import com.voronov.entities.Wagon;
 
 import java.util.List;
 
-public class WagonDaoImpl implements WagonDao{
+public class WagonDaoImpl implements WagonDao {
 	@Override
 	public Wagon findById(int id) {
 		//todo implement

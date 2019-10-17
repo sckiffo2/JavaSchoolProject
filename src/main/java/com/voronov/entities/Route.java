@@ -24,6 +24,6 @@ public class Route extends SuperEntity{
     @Column(name = "schedule_pattern")
     private String schedulePattern;
 
-    @OneToMany(mappedBy = "route", fetch = FetchType.LAZY)
-    private List<Station> stationsOnRoute = new ArrayList<>();
+    @OneToMany(mappedBy = "routeId", fetch = FetchType.LAZY)
+    private List<RouteStation> stationsOnRoute = new ArrayList<>();
 }

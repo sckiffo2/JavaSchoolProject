@@ -1,12 +1,13 @@
 package com.voronov.dao;
 
+import com.voronov.dao.DAOinterfaces.UserDao;
 import com.voronov.entities.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class UserDaoImpl implements UserDao{
+public class UserDaoImpl implements UserDao {
 	@Override
 	public User findById(int id) {
 		//todo implement

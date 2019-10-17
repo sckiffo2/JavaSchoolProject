@@ -9,15 +9,15 @@ import java.time.Duration;
 @Entity
 @Table(name = "route_station")
 @Data
-public class RouteStation {
+public class RouteStation extends SuperEntity {
 
-	@ManyToOne
+	@ManyToOne(targetEntity = Route.class)
 	@JoinColumn(name = "route_id")
-	private Integer routeId;
+	private int routeId;
 
-	@ManyToOne
+	@ManyToOne(targetEntity = Station.class)
 	@JoinColumn(name = "station_id")
-	private Integer stationId;
+	private int stationId;
 
 	@Column(name = "arrival_time",
 			columnDefinition = "interval")

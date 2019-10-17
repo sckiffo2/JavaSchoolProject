@@ -1,4 +1,4 @@
-package com.voronov.dao;
+package com.voronov.dao.DAOinterfaces;
 
 import com.voronov.entities.Passenger;
 

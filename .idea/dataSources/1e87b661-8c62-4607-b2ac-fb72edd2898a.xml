@@ -13,7 +13,7 @@
       <ObjectId>73870</ObjectId>
       <StateNumber>1318</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1453</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1465</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </database>
@@ -112,7 +112,7 @@
       <Comment>standard public schema</Comment>
       <StateNumber>352</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1454</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1466</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -249,7 +249,7 @@
     <table id="37" parent="19" name="route_station">
       <ObjectId>73910</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1376</StateNumber>
+      <StateNumber>1463</StateNumber>
     </table>
     <table id="38" parent="19" name="routes">
       <ObjectId>73913</ObjectId>
@@ -279,7 +279,7 @@
     <table id="43" parent="19" name="users">
       <ObjectId>73897</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1378</StateNumber>
+      <StateNumber>1462</StateNumber>
     </table>
     <table id="44" parent="19" name="users_roles">
       <ObjectId>73919</ObjectId>
@@ -414,7 +414,28 @@
       <StateNumber>1344</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="64" parent="37" name="FK_route_id">
+    <column id="64" parent="37" name="id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1464</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="65" parent="37" name="route_station_pk">
+      <ObjectId>81996</ObjectId>
+      <StateNumber>1464</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+    </index>
+    <key id="66" parent="37" name="route_station_pk">
+      <ObjectId>81997</ObjectId>
+      <StateNumber>1464</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>route_station_pk</UnderlyingIndexName>
+    </key>
+    <foreign-key id="67" parent="37" name="FK_route_id">
       <ObjectId>73961</ObjectId>
       <Deferrable>1</Deferrable>
       <StateNumber>1375</StateNumber>
@@ -425,7 +446,7 @@
       <RefKeyName>routes_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="65" parent="37" name="FK_station_id">
+    <foreign-key id="68" parent="37" name="FK_station_id">
       <ObjectId>73966</ObjectId>
       <StateNumber>1376</StateNumber>
       <ColNames>station_id</ColNames>
@@ -435,151 +456,151 @@
       <RefKeyName>Stations_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="66" parent="38" name="id">
+    <column id="69" parent="38" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1346</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="67" parent="38" name="name">
+    <column id="70" parent="38" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1346</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="68" parent="38" name="schedule_pattern">
+    <column id="71" parent="38" name="schedule_pattern">
       <Position>5</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1346</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="69" parent="38" name="route_number">
+    <column id="72" parent="38" name="route_number">
       <Position>6</Position>
       <DataType>varchar(50)|0s</DataType>
       <StateNumber>1346</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="70" parent="38" name="routes_pkey">
+    <index id="73" parent="38" name="routes_pkey">
       <ObjectId>73938</ObjectId>
       <StateNumber>1369</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="71" parent="38" name="routes_pkey">
+    <key id="74" parent="38" name="routes_pkey">
       <ObjectId>73939</ObjectId>
       <StateNumber>1369</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>routes_pkey</UnderlyingIndexName>
     </key>
-    <column id="72" parent="39" name="id">
+    <column id="75" parent="39" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1328</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="73" parent="39" name="name">
+    <column id="76" parent="39" name="name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1326</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="74" parent="39" name="Stations_pkey">
+    <index id="77" parent="39" name="Stations_pkey">
       <ObjectId>73922</ObjectId>
       <StateNumber>1361</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="75" parent="39" name="Stations_pkey">
+    <key id="78" parent="39" name="Stations_pkey">
       <ObjectId>73923</ObjectId>
       <StateNumber>1361</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>Stations_pkey</UnderlyingIndexName>
     </key>
-    <column id="76" parent="40" name="id">
+    <column id="79" parent="40" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1331</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="77" parent="40" name="passenger_id">
+    <column id="80" parent="40" name="passenger_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1329</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="78" parent="40" name="trip_id">
+    <column id="81" parent="40" name="trip_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1329</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="79" parent="40" name="start_station_id">
+    <column id="82" parent="40" name="start_station_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1329</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="80" parent="40" name="end_station_id">
+    <column id="83" parent="40" name="end_station_id">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1329</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="81" parent="40" name="wagon_number">
+    <column id="84" parent="40" name="wagon_number">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1329</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="82" parent="40" name="seat_number">
+    <column id="85" parent="40" name="seat_number">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1329</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="83" parent="40" name="price">
+    <column id="86" parent="40" name="price">
       <Position>8</Position>
       <DataType>money|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1329</StateNumber>
       <TypeId>790</TypeId>
     </column>
-    <index id="84" parent="40" name="Tickets_pkey">
+    <index id="87" parent="40" name="Tickets_pkey">
       <ObjectId>73924</ObjectId>
       <StateNumber>1362</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <index id="85" parent="40" name="fki_FK_trip_id">
+    <index id="88" parent="40" name="fki_FK_trip_id">
       <ObjectId>73940</ObjectId>
       <StateNumber>1370</StateNumber>
       <ColNames>trip_id</ColNames>
     </index>
-    <key id="86" parent="40" name="Tickets_pkey">
+    <key id="89" parent="40" name="Tickets_pkey">
       <ObjectId>73925</ObjectId>
       <StateNumber>1362</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>Tickets_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="87" parent="40" name="FK_passenger_id">
+    <foreign-key id="90" parent="40" name="FK_passenger_id">
       <ObjectId>73946</ObjectId>
       <StateNumber>1372</StateNumber>
       <ColNames>passenger_id</ColNames>
@@ -589,7 +610,7 @@
       <RefKeyName>passengers_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="88" parent="40" name="FK_trip_id">
+    <foreign-key id="91" parent="40" name="FK_trip_id">
       <ObjectId>73971</ObjectId>
       <StateNumber>1377</StateNumber>
       <ColNames>trip_id</ColNames>
@@ -599,35 +620,35 @@
       <RefKeyName>TrainTrip_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="89" parent="41" name="TrainTrip_id">
+    <column id="92" parent="41" name="TrainTrip_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1348</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="90" parent="41" name="wagon_number">
+    <column id="93" parent="41" name="wagon_number">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1348</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="91" parent="41" name="wagon_id">
+    <column id="94" parent="41" name="wagon_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1348</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="92" parent="41" name="create_date">
+    <column id="95" parent="41" name="create_date">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1348</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <foreign-key id="93" parent="41" name="FK_TrainTrip_id">
+    <foreign-key id="96" parent="41" name="FK_TrainTrip_id">
       <ObjectId>73941</ObjectId>
       <StateNumber>1371</StateNumber>
       <ColNames>TrainTrip_id</ColNames>
@@ -638,7 +659,7 @@
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="94" parent="41" name="FK_wagon_id">
+    <foreign-key id="97" parent="41" name="FK_wagon_id">
       <ObjectId>73981</ObjectId>
       <StateNumber>1379</StateNumber>
       <ColNames>wagon_id</ColNames>
@@ -649,21 +670,21 @@
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="95" parent="42" name="id">
+    <column id="98" parent="42" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1334</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="96" parent="42" name="start_date">
+    <column id="99" parent="42" name="start_date">
       <Position>2</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1332</StateNumber>
       <TypeId>1082</TypeId>
     </column>
-    <column id="97" parent="42" name="canceled">
+    <column id="100" parent="42" name="canceled">
       <Position>3</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
@@ -671,27 +692,27 @@
       <DefaultExpression>false</DefaultExpression>
       <TypeId>16</TypeId>
     </column>
-    <column id="98" parent="42" name="route_id">
+    <column id="101" parent="42" name="route_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1332</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="99" parent="42" name="TrainTrip_pkey">
+    <index id="102" parent="42" name="TrainTrip_pkey">
       <ObjectId>73926</ObjectId>
       <StateNumber>1363</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="100" parent="42" name="TrainTrip_pkey">
+    <key id="103" parent="42" name="TrainTrip_pkey">
       <ObjectId>73927</ObjectId>
       <StateNumber>1363</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>TrainTrip_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="101" parent="42" name="FK_route_id">
+    <foreign-key id="104" parent="42" name="FK_route_id">
       <ObjectId>73956</ObjectId>
       <StateNumber>1374</StateNumber>
       <ColNames>route_id</ColNames>
@@ -701,34 +722,34 @@
       <RefKeyName>routes_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="102" parent="43" name="id">
+    <column id="105" parent="43" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1337</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="103" parent="43" name="password">
+    <column id="106" parent="43" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1335</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="104" parent="43" name="mail">
+    <column id="107" parent="43" name="mail">
       <Position>3</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1335</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="105" parent="43" name="role_id">
+    <column id="108" parent="43" name="role_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1335</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="106" parent="43" name="active">
+    <column id="109" parent="43" name="active">
       <Position>5</Position>
       <DataType>boolean|0s</DataType>
       <NotNull>1</NotNull>
@@ -736,35 +757,41 @@
       <DefaultExpression>true</DefaultExpression>
       <TypeId>16</TypeId>
     </column>
-    <index id="107" parent="43" name="Users_pkey">
+    <column id="110" parent="43" name="roleid">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>1462</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="111" parent="43" name="Users_pkey">
       <ObjectId>73928</ObjectId>
       <StateNumber>1364</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="108" parent="43" name="Users_pkey">
+    <key id="112" parent="43" name="Users_pkey">
       <ObjectId>73929</ObjectId>
       <StateNumber>1364</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>Users_pkey</UnderlyingIndexName>
     </key>
-    <column id="109" parent="44" name="user_id">
+    <column id="113" parent="44" name="user_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1350</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="110" parent="44" name="role_id">
+    <column id="114" parent="44" name="role_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1350</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="111" parent="44" name="FK_user_id">
+    <foreign-key id="115" parent="44" name="FK_user_id">
       <ObjectId>73976</ObjectId>
       <StateNumber>1378</StateNumber>
       <ColNames>user_id</ColNames>
@@ -775,7 +802,7 @@
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="112" parent="44" name="FK_role_id">
+    <foreign-key id="116" parent="44" name="FK_role_id">
       <ObjectId>73951</ObjectId>
       <StateNumber>1373</StateNumber>
       <ColNames>role_id</ColNames>
@@ -786,34 +813,34 @@
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="113" parent="45" name="id">
+    <column id="117" parent="45" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1341</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="114" parent="45" name="seats_number">
+    <column id="118" parent="45" name="seats_number">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1338</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="115" parent="45" name="name">
+    <column id="119" parent="45" name="name">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <StateNumber>1338</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="116" parent="45" name="Wagon_Types_pkey">
+    <index id="120" parent="45" name="Wagon_Types_pkey">
       <ObjectId>73930</ObjectId>
       <StateNumber>1365</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="117" parent="45" name="Wagon_Types_pkey">
+    <key id="121" parent="45" name="Wagon_Types_pkey">
       <ObjectId>73931</ObjectId>
       <StateNumber>1365</StateNumber>
       <ColNames>id</ColNames>
