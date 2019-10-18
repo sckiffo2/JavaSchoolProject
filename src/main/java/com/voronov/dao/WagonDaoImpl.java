@@ -2,10 +2,15 @@ package com.voronov.dao;
 
 import com.voronov.dao.DAOinterfaces.WagonDao;
 import com.voronov.entities.Wagon;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@NoArgsConstructor
 public class WagonDaoImpl implements WagonDao {
+
 	@Override
 	public Wagon findById(int id) {
 		//todo implement
@@ -33,7 +38,7 @@ public class WagonDaoImpl implements WagonDao {
 	}
 
 	@Override
-	public void delete(Integer id) {
+	public void delete(Wagon wagon) {
 
 	}
 }

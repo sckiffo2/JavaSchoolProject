@@ -1,19 +1,20 @@
 package com.voronov.entities;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 @Table(name = "routes")
-@ToString(callSuper = true)
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-public class Route extends SuperEntity{
+public class Route extends SuperEntity {
 
     @Column(name = "route_number")
 	private String routeNumber;
@@ -24,6 +25,12 @@ public class Route extends SuperEntity{
     @Column(name = "schedule_pattern")
     private String schedulePattern;
 
-    @OneToMany(mappedBy = "routeId", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "route", fetch = FetchType.LAZY)
     private List<RouteStation> stationsOnRoute = new ArrayList<>();
+
+	public Route(String routeNumber, String name, String schedulePattern) {
+		this.routeNumber = routeNumber;
+		this.name = name;
+		this.schedulePattern = schedulePattern;
+	}
 }

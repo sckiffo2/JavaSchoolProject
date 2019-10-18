@@ -6,7 +6,6 @@ import com.voronov.entities.Station;
 import java.util.List;
 
 public interface StationService {
-	void setStationDao(StationDao stationDao);
 
 	Station findById(int id);
 
@@ -16,7 +15,7 @@ public interface StationService {
 
 	void update(Station station);
 
-	void delete(Integer id);
+	void delete(int id);
 
 	List<Station> findAll();
 }

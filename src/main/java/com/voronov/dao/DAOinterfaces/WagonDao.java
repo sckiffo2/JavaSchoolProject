@@ -16,5 +16,5 @@ public interface WagonDao {
 
 	void update(Wagon wagon);
 
-	void delete(Integer id);
+	void delete(Wagon wagon);
 }

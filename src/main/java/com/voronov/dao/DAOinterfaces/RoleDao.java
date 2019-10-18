@@ -16,5 +16,5 @@ public interface RoleDao {
 
 	void update(Role role);
 
-	void delete(Integer id);
+	void delete(Role role);
 }

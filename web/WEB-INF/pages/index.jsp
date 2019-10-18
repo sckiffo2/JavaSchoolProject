@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>AnyWayTicket</title>
-        <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
+        <link href="resources\css\index.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
     <div class="header">
@@ -15,6 +15,9 @@
             <ul class="side-menu-ul">
                 <li class="active">
                     <a href="station">Stations</a>
+                </li>
+                <li>
+                    <a href="route">Routes</a>
                 </li>
                 <li>
                     <a href="showViewPage">viewPage</a>

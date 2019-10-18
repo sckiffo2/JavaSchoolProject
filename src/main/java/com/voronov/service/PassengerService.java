@@ -6,7 +6,6 @@ import com.voronov.entities.Passenger;
 import java.util.List;
 
 public interface PassengerService {
-	void setPassengerDao(PassengerDao stationDao);
 
 	Passenger findById(int id);
 
@@ -16,7 +15,7 @@ public interface PassengerService {
 
 	void update(Passenger passenger);
 
-	void delete(Integer id);
+	void delete(int id);
 
 	List<Passenger> findAll();
 }

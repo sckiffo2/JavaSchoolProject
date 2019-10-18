@@ -1,27 +1,19 @@
 package com.voronov.service;
 
-
 import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@NoArgsConstructor
 public class StationServiceImpl implements StationService {
 
-
-	private StationDao stationDao;
-
-	public StationServiceImpl() {
-	}
-
 	@Autowired
-	@Override
-	public void setStationDao(StationDao stationDao) {
-		this.stationDao = stationDao;
-	}
+	private StationDao stationDao;
 
 	@Override
 	public Station findById(int id) {
@@ -44,12 +36,17 @@ public class StationServiceImpl implements StationService {
 	}
 
 	@Override
-	public void delete(Integer id) {
-		stationDao.delete(id);
+	public void delete(int id) {
+		Station deleteStation = stationDao.findById(id);
+		stationDao.delete(deleteStation);
 	}
 
 	@Override
 	public List<Station> findAll() {
 		return stationDao.findAll();
+	}
+
+	public void setStationDao(StationDao stationDao) {
+		this.stationDao = stationDao;
 	}
 }

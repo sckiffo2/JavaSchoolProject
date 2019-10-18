@@ -3,14 +3,21 @@ package com.voronov.dao;
 import com.voronov.dao.DAOinterfaces.RouteDao;
 import com.voronov.entities.Route;
 import com.voronov.utils.HibernateSessionFactoryUtil;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
+@NoArgsConstructor
 public class RouteDaoImpl implements RouteDao {
+
 	@Override
 	public Route findById(int id) {
 		Route route = null;
@@ -24,26 +31,66 @@ public class RouteDaoImpl implements RouteDao {
 
 	@Override
 	public Route findByName(String name) {
-		return null;
+		Route route= null;
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+			Query query = session.createQuery("from Route R where R.name = :name", Route.class);
+			query.setParameter("name", name);
+			route = (Route) query.getSingleResult();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return route;
 	}
 
 	@Override
 	public List<Route> findAll() {
-		return null;
+		List<Route> result = null;
+
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+
+			result = session.createQuery("from Route", Route.class).getResultList();
+			result.sort(Comparator.comparingInt(Route::getId));
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
 	public void save(Route route) {
-
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+			session.save(route);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void update(Route route) {
-
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+			session.update(route);
+			session.getTransaction().commit();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public void delete(Integer id) {
-
+	public void delete(Route route) {
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+			session.delete(route);
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

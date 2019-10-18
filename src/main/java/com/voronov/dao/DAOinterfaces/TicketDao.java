@@ -7,14 +7,14 @@ import java.util.List;
 public interface TicketDao {
 	Ticket findById(int id);
 
-	Ticket findByName(String name);
-
 	@SuppressWarnings("unchecked")
 	List<Ticket> findAll();
+
+	public List<Ticket> findByTripId(int id);
 
 	void save(Ticket ticket);
 
 	void update(Ticket ticket);
 
-	void delete(Ticket id);
+	void delete(Ticket ticket);
 }

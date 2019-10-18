@@ -16,5 +16,5 @@ public interface RouteDao {
 
 	void update(Route route);
 
-	void delete(Integer id);
+	void delete(Route route);
 }

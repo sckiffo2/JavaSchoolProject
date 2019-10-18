@@ -16,5 +16,5 @@ public interface PassengerDao {
 
 	void update(Passenger passenger);
 
-	void delete(Integer id);
+	void delete(Passenger passenger);
 }

@@ -2,6 +2,7 @@ package com.voronov.controllers;
 
 import com.voronov.entities.Station;
 import com.voronov.service.StationService;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,15 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller()
+@Setter
 public class StationController {
-
-	private StationService stationService;
 
 	@Autowired
 	@Qualifier("stationServiceImpl")
-	public void setPersonService(StationService stationService){
-		this.stationService = stationService;
-	}
+	private StationService stationService;
 
 	@GetMapping("/station")
 	public ModelAndView stations() {
@@ -45,6 +43,7 @@ public class StationController {
 	@GetMapping("/station/edit/{id}")
 	public String updatePage(@PathVariable int id, Model model) {
 		model.addAttribute(stationService.findById(id));
+		//todo get stations of route
 		return "stationEdit";
 	}
 

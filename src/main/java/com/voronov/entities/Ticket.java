@@ -35,4 +35,7 @@ public class Ticket extends SuperEntity{
 
     @Column(name = "price")
     private double price;
+
+	@Column(name = "booked")
+    private boolean isBooked;
 }

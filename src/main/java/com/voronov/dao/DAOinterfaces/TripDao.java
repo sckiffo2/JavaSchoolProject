@@ -16,5 +16,5 @@ public interface TripDao {
 
 	void update(TrainTrip trip);
 
-	void delete(TrainTrip id);
+	void delete(TrainTrip trip);
 }
