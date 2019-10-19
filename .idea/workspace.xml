@@ -6,57 +6,37 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eae98d9e-53d4-4f0d-9420-5e097589c4a7" name="Default Changelist" comment="... some features added">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/controllers/RouteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RouteStationDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/RouteStationDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/TicketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/TicketServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/voronov/utils/CharacterSetFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/pages/editStations.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/pages/route.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/pages/routeEdit.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1e87b661-8c62-4607-b2ac-fb72edd2898a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1e87b661-8c62-4607-b2ac-fb72edd2898a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1e87b661-8c62-4607-b2ac-fb72edd2898a/storage_v2/_src_/database/RailRoadDB.8N0n7A/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/1e87b661-8c62-4607-b2ac-fb72edd2898a/storage_v2/_src_/database/RailRoadDB.8N0n7A/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="eae98d9e-53d4-4f0d-9420-5e097589c4a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AnyWayTicket.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AnyWayTicket.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/controllers/RouteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/controllers/RouteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/controllers/StationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/controllers/StationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/PassengerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/PassengerDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RoleDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RouteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RouteDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/StationDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/StationDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/TicketDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/TicketDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/TripDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/TripDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/WagonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/WagonDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/PassengerDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/PassengerDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/RoleDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/RoleDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/RouteDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/RouteDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/StationDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/StationDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/TicketDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/TicketDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/TripDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/TripDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/WagonDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/WagonDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Passenger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Passenger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Route.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/entities/RouteStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entities/RouteStation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Station.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Station.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/entities/SuperEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entities/SuperEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/entities/TrainTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Trip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/PassengerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/StationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/StationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/RouteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/RouteStationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/StationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/StationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/StationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/StationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/TicketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/TicketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/TicketServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/utils/HibernateSessionFactoryUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/utils/HibernateSessionFactoryUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/pages/station.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/station.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/pages/routeEdit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/routeEdit.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -116,26 +96,6 @@
         <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="hibernate.cfg.xml/Hibernate" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="RailRoadDB: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="passengers: table" type="69fad909:PgImplModel$LocalTable" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="hibernate.cfg.xml/Hibernate" type="feb32156:DbDataSourceImpl" />
-        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="RailRoadDB: database" type="162271b6:PgImplModel$Database" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="tickets: table" type="69fad909:PgImplModel$LocalTable" />
-      </path>
     </expand>
     <select />
   </component>
@@ -143,105 +103,85 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/StationServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#492#493#0" expanded="true" />
-                <element signature="e#529#530#0" expanded="true" />
-                <element signature="e#583#584#0" expanded="true" />
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#673#674#0" expanded="true" />
-                <element signature="e#704#705#0" expanded="true" />
-                <element signature="e#755#756#0" expanded="true" />
-                <element signature="e#788#789#0" expanded="true" />
-                <element signature="e#966#967#0" expanded="true" />
-                <element signature="e#1000#1001#0" expanded="true" />
-                <element signature="e#1023#1024#0" expanded="true" />
-                <element signature="e#1058#1059#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/Ticket.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/TicketServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#485#486#0" expanded="true" />
-                <element signature="e#521#522#0" expanded="true" />
-                <element signature="e#670#671#0" expanded="true" />
-                <element signature="e#699#700#0" expanded="true" />
-                <element signature="e#954#955#0" expanded="true" />
-                <element signature="e#987#988#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
+    <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/controllers/RouteController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#update#0;class#RouteController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/routeEdit.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/route.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        <entry file="uml://DATABASE/b8e9f601-8f38-481e-95cf-c983705b9ba5.SCHEMA:RailRoadDB.public">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>DATABASE</ID>
+              <OriginalElement>b8e9f601-8f38-481e-95cf-c983705b9ba5.SCHEMA:RailRoadDB.public</OriginalElement>
+              <nodes>
+                <node x="0.0" y="177.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.passengers</node>
+                <node x="0.0" y="647.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users</node>
+                <node x="518.25" y="199.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.wagons</node>
+                <node x="172.0" y="166.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.route_station</node>
+                <node x="372.25" y="188.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.trips</node>
+                <node x="165.0" y="691.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.roles</node>
+                <node x="161.375" y="376.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.tickets</node>
+                <node x="92.5" y="857.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users_roles</node>
+                <node x="149.5" y="22.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.stations</node>
+                <node x="293.5" y="0.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.routes</node>
+                <node x="451.0" y="431.5">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.train_structure</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.train_structure" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.trips">
+                  <point x="-39.25" y="-57.5" />
+                  <point x="490.25" y="351.0" />
+                  <point x="466.75" y="351.0" />
+                  <point x="31.5" y="58.0" />
+                </edge>
+                <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.train_structure" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.wagons">
+                  <point x="39.25" y="-57.5" />
+                  <point x="568.75" y="351.0" />
+                  <point x="592.25" y="351.0" />
+                  <point x="0.0" y="47.0" />
+                </edge>
+                <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users_roles" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users">
+                  <point x="-27.5" y="-35.5" />
+                  <point x="120.0" y="832.0" />
+                  <point x="72.5" y="832.0" />
+                  <point x="0.0" y="80.0" />
+                </edge>
+                <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.route_station" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.routes">
+                  <point x="39.5" y="-80.0" />
+                  <point x="290.5" y="141.0" />
+                  <point x="340.75" y="141.0" />
+                  <point x="-47.25" y="58.0" />
+                </edge>
+                <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.tickets" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.trips">
+                  <point x="39.25" y="-113.0" />
+                  <point x="279.125" y="351.0" />
+                  <point x="403.75" y="351.0" />
+                  <point x="-31.5" y="58.0" />
+                </edge>
+                <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.tickets" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.passengers">
+                  <point x="-39.25" y="-113.0" />
+                  <point x="200.625" y="351.0" />
+                  <point x="76.0" y="351.0" />
+                  <point x="0.0" y="69.0" />
+                </edge>
+                <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.route_station" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.stations">
+                  <point x="-39.5" y="-80.0" />
+                  <point x="0.0" y="36.0" />
+                </edge>
+                <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.trips" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.routes">
+                  <point x="0.0" y="-58.0" />
+                  <point x="47.25" y="58.0" />
+                </edge>
+                <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users_roles" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.roles">
+                  <point x="27.5" y="-35.5" />
+                  <point x="175.0" y="832.0" />
+                  <point x="222.5" y="832.0" />
+                  <point x="0.0" y="36.0" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="1.0" x="333.50000000000017" y="486.0" />
+              <SelectedNodes />
+              <Categories>
+                <Category>Key columns</Category>
+                <Category>Columns</Category>
+              </Categories>
             </state>
           </provider>
         </entry>
@@ -271,7 +211,9 @@
       <find>station</find>
       <find>stationDao</find>
       <find>Station</find>
+      <find>train</find>
       <find>Ticket</find>
+      <find>ticketDao</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -281,57 +223,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/Wagon.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/utils/CharacterSetFilter.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/utils/HibernateUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/Dao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/utils/HibernateSessionFactoryUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/SuperEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/Station.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/controllers/StationController.java" />
         <option value="$PROJECT_DIR$/web/resources/css/stations.css" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/station.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/Route.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/RouteStation.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/editStations.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/Ticket.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/StationService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/TicketService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/TicketDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/TicketServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RouteDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/StationDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RouteStationDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/PassengerDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/TripDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/UserDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/WagonDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RoleDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/PassengerDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/RoleDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/RouteStationDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/StationDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/RouteDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/WagonDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/TicketDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/TripDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/UserDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/StationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/voronov/App.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/pages/routeEdit.jsp" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/controllers/StationController.java" />
         <option value="$PROJECT_DIR$/web/WEB-INF/pages/route.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/voronov/controllers/RouteController.java" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/pages/routeEdit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/PassengerDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/StationServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/TicketService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/StationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/utils/HibernateSessionFactoryUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/Passenger.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/TrainTrip.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/Ticket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/PassengerDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/Trip.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/TripService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/TripDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/TripDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/TicketDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RouteDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/RouteServiceImpl.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/SuperEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/dao/RouteDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/RouteStation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/PassengerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/entities/Route.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/voronov/service/TripServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -384,28 +326,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="AnyWayTicket" type="58d84e3e:PackageViewProjectNode" />
-              <item name="AnyWayTicket" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="58d84e3e:PackageViewProjectNode" />
-              <item name="AnyWayTicket" type="616d4139:PackageViewModuleNode" />
-              <item name="com.voronov" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="58d84e3e:PackageViewProjectNode" />
-              <item name="AnyWayTicket" type="616d4139:PackageViewModuleNode" />
-              <item name="com.voronov" type="1f31426a:PackageElementNode" />
-              <item name="Controller" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -438,24 +358,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="voronov" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="voronov" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="voronov" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
@@ -501,6 +403,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="voronov" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="servieInterfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="voronov" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -512,44 +424,59 @@
             </path>
             <path>
               <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AnyWayTicket" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
               <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: javax.persistence:javax.persistence-api:2.2" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: javax.persistence:javax.persistence-api:2.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="javax.persistence-api-2.2.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: javax.persistence:javax.persistence-api:2.2" type="70bed36:NamedLibraryElementNode" />
+              <item name="javax.persistence-api-2.2.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="persistence" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
@@ -568,14 +495,6 @@
               <item name="Maven: org.hibernate:hibernate-core:5.4.3.Final" type="70bed36:NamedLibraryElementNode" />
               <item name="hibernate-core-5.4.3.Final.jar" type="462c0819:PsiDirectoryNode" />
               <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.hibernate:hibernate-core:5.4.3.Final" type="70bed36:NamedLibraryElementNode" />
-              <item name="hibernate-core-5.4.3.Final.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-              <item name="cfg" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
@@ -625,7 +544,7 @@
               <item name="Maven: org.hibernate:hibernate-core:5.4.3.Final" type="70bed36:NamedLibraryElementNode" />
               <item name="hibernate-core-5.4.3.Final.jar" type="462c0819:PsiDirectoryNode" />
               <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
+              <item name="type" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
@@ -633,8 +552,8 @@
               <item name="Maven: org.hibernate:hibernate-core:5.4.3.Final" type="70bed36:NamedLibraryElementNode" />
               <item name="hibernate-core-5.4.3.Final.jar" type="462c0819:PsiDirectoryNode" />
               <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="type" type="462c0819:PsiDirectoryNode" />
+              <item name="descriptor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
@@ -642,67 +561,31 @@
               <item name="Maven: org.hibernate:hibernate-core:5.4.3.Final" type="70bed36:NamedLibraryElementNode" />
               <item name="hibernate-core-5.4.3.Final.jar" type="462c0819:PsiDirectoryNode" />
               <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="transaction" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="type" type="462c0819:PsiDirectoryNode" />
+              <item name="descriptor" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AnyWayTicket" type="58d84e3e:PackageViewProjectNode" />
+              <item name="AnyWayTicket" type="616d4139:PackageViewModuleNode" />
             </path>
             <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.hibernate:hibernate-core:5.4.3.Final" type="70bed36:NamedLibraryElementNode" />
-              <item name="hibernate-core-5.4.3.Final.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="transaction" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="AnyWayTicket" type="58d84e3e:PackageViewProjectNode" />
+              <item name="AnyWayTicket" type="616d4139:PackageViewModuleNode" />
+              <item name="com.voronov" type="1f31426a:PackageElementNode" />
             </path>
             <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.hibernate:hibernate-core:5.4.3.Final" type="70bed36:NamedLibraryElementNode" />
-              <item name="hibernate-core-5.4.3.Final.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="hibernate" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-              <item name="transaction" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework:spring-webmvc:5.1.8.RELEASE" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework:spring-webmvc:5.1.8.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-webmvc-5.1.8.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework:spring-webmvc:5.1.8.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-webmvc-5.1.8.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="servlet" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework:spring-webmvc:5.1.8.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-webmvc-5.1.8.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="servlet" type="462c0819:PsiDirectoryNode" />
-              <item name="mvc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AnyWayTicket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.springframework:spring-webmvc:5.1.8.RELEASE" type="70bed36:NamedLibraryElementNode" />
-              <item name="spring-webmvc-5.1.8.RELEASE.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="servlet" type="462c0819:PsiDirectoryNode" />
-              <item name="mvc" type="462c0819:PsiDirectoryNode" />
-              <item name="support" type="462c0819:PsiDirectoryNode" />
+              <item name="AnyWayTicket" type="58d84e3e:PackageViewProjectNode" />
+              <item name="AnyWayTicket" type="616d4139:PackageViewModuleNode" />
+              <item name="com.voronov" type="1f31426a:PackageElementNode" />
+              <item name="Controller" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -945,20 +828,20 @@
       <recent name="com.voronov.service" />
       <recent name="com.voronov.dao" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket\web\WEB-INF\pages" />
-      <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket\web\WEB-INF" />
-      <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket" />
-    </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="com.voronov.entities" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket\web\resources" />
       <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket\web" />
       <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket\web\WEB-INF" />
       <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket\web\WEB-INF\pages\css" />
       <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket\web\WEB-INF\pages" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="com.voronov.entities" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket\web\WEB-INF\pages" />
+      <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket\web\WEB-INF" />
+      <recent name="C:\Users\Corvin\IdeaProjects\AnyWayTicket" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -973,7 +856,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.26">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.voronov.App" />
       <module name="AnyWayTicket" />
@@ -1103,7 +986,8 @@
       <workItem from="1571296693209" duration="10633000" />
       <workItem from="1571307638577" duration="2706000" />
       <workItem from="1571310406408" duration="29371000" />
-      <workItem from="1571383402503" duration="13828000" />
+      <workItem from="1571383402503" duration="14626000" />
+      <workItem from="1571474761366" duration="30353000" />
     </task>
     <task id="LOCAL-00001" summary="added hibernate support for Stations(Entity, Dao, Service). Tested by main method.">
       <created>1570709586811</created>
@@ -1140,11 +1024,18 @@
       <option name="project" value="LOCAL" />
       <updated>1571308723408</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="... some features added">
+      <created>1571398319998</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1571398319999</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106251000" />
+    <option name="totallyTimeSpent" value="137402000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1159,7 +1050,7 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8180428" visible="true" weight="0.16044776" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7641419" visible="true" weight="0.17803837" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1167,22 +1058,22 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" sideWeight="0.375" side_tool="true" weight="0.18869936" />
-      <window_info id="Persistence" order="8" sideWeight="0.18195719" side_tool="true" weight="0.20788912" />
+      <window_info id="Persistence" order="8" sideWeight="0.2358581" side_tool="true" visible="true" weight="0.17803837" />
       <window_info anchor="bottom" id="Application Servers" order="0" weight="0.32981783" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50053304" side_tool="true" weight="0.32981783" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50053304" side_tool="true" weight="0.41418985" />
       <window_info anchor="bottom" id="Java Enterprise" order="3" weight="0.32981783" />
       <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="5" weight="0.32981783" />
-      <window_info anchor="bottom" id="Messages" order="6" visible="true" weight="0.32981783" />
+      <window_info anchor="bottom" id="Messages" order="6" weight="0.32981783" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32981783" />
-      <window_info anchor="bottom" id="Run" order="9" weight="0.41418985" />
-      <window_info anchor="bottom" id="Debug" order="10" weight="0.5254075" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49946696" weight="0.4333653" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.38638544" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="13" sideWeight="0.49946696" weight="0.29146692" />
-      <window_info anchor="bottom" id="TODO" order="14" weight="0.32981783" />
+      <window_info anchor="bottom" id="TODO" order="14" weight="0.22435282" />
       <window_info anchor="bottom" id="Spring" order="15" weight="0.32981783" />
       <window_info anchor="bottom" id="Database Console" order="16" weight="0.3106424" />
       <window_info anchor="bottom" id="Build" order="17" weight="0.32981783" />
@@ -1192,7 +1083,7 @@
       <window_info anchor="right" id="Maven" order="3" weight="0.21641791" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" sideWeight="0.49912128" weight="0.17377399" />
+      <window_info active="true" anchor="right" id="Database" order="6" sideWeight="0.49912128" visible="true" weight="0.15724947" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" x="0" y="0" width="434" height="976" id="Documentation" order="9" sideWeight="0.50087875" side_tool="true" weight="0.17377399" />
@@ -1260,323 +1151,314 @@
     <MESSAGE value="... some features added" />
     <option name="LAST_COMMIT_MESSAGE" value="... some features added" />
   </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AnyWayTicket$App.ic" NAME="App Coverage Results" MODIFIED="1571498383667" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.voronov.*</FILTER>
+    </SUITE>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.8.RELEASE/spring-webmvc-5.1.8.RELEASE.jar!/org/springframework/web/servlet/mvc/support/RedirectAttributes.class">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/route.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        <state relative-caret-position="699">
+          <caret line="54" column="7" lean-forward="true" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="das://1e87b661-8c62-4607-b2ac-fb72edd2898a/database/RailRoadDB/schema/public/table/route_station">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="cc51a605-f13c-4413-bc3e-7025401dd0d5">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1e87b661-8c62-4607-b2ac-fb72edd2898a/database/RailRoadDB/schema/public/table/stations">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="cc51a605-f13c-4413-bc3e-7025401dd0d5">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/stationEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/routeEdit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        <state relative-caret-position="459">
+          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/RouteStation.java">
+    <entry file="file://$PROJECT_DIR$/AnyWayTicket.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/StationDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="68">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/Session.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="197" column="37" selection-start-line="197" selection-start-column="37" selection-end-line="197" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/Passenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/StationServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/Trip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/TicketServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#521#522#0" expanded="true" />
+            <element signature="e#577#578#0" expanded="true" />
+            <element signature="e#617#618#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#699#700#0" expanded="true" />
+            <element signature="e#954#955#0" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8e9f601-8f38-481e-95cf-c983705b9ba5/database/RailRoadDB/schema/public/table/tickets">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="49490b09-49c0-4e4d-9ed3-6fe64c122a5c">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8e9f601-8f38-481e-95cf-c983705b9ba5/database/RailRoadDB/schema/public/table/trips">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="49490b09-49c0-4e4d-9ed3-6fe64c122a5c">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/RoleDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#783#784#0" expanded="true" />
+            <element signature="e#801#802#0" expanded="true" />
+            <element signature="e#0#9#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/TripDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="38" column="41" lean-forward="true" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+          <folding>
+            <element signature="e#399#407#0" />
+            <element signature="method#findById#0;class#TripDaoImpl#0" />
+            <element signature="e#625#669#0" />
+            <element signature="e#699#728#0" />
+            <element signature="e#749#758#0" />
+            <element signature="e#0#34#1" expanded="true" />
+            <element signature="e#1204#1233#0" />
+            <element signature="method#findAll#0;class#TripDaoImpl#0" />
+            <element signature="e#1414#1618#0" />
+            <element signature="e#0#9#1" expanded="true" />
+            <element signature="e#1639#1668#0" />
+            <element signature="method#save#0;class#TripDaoImpl#0" />
+            <element signature="e#1820#1917#0" />
+            <element signature="e#1938#1967#0" />
+            <element signature="method#update#0;class#TripDaoImpl#0" />
+            <element signature="e#2104#2203#0" />
+            <element signature="e#2224#2253#0" />
+            <element signature="method#delete#0;class#TripDaoImpl#0" />
+            <element signature="e#2390#2489#0" />
+            <element signature="e#2510#2539#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/utils/HibernateSessionFactoryUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="187">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/internal/SessionFactoryImpl.class">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/Station.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="423" selection-start-line="423" selection-end-line="423" />
-          <folding>
-            <element signature="e#23211#23212#0" expanded="true" />
-            <element signature="e#23281#23282#0" expanded="true" />
-            <element signature="e#36512#36513#0" expanded="true" />
-            <element signature="e#36548#36549#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/editStations.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1e87b661-8c62-4607-b2ac-fb72edd2898a/database/RailRoadDB/schema/public/table/tickets">
+    <entry file="das://b8e9f601-8f38-481e-95cf-c983705b9ba5/database/RailRoadDB/schema/public/table/stations">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="cc51a605-f13c-4413-bc3e-7025401dd0d5">
+        <state projectRestartId="49490b09-49c0-4e4d-9ed3-6fe64c122a5c">
           <filtering>
             <filter text="" />
           </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/Override.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/engine/spi/SharedSessionContractImplementor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.passengers">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.passengers</OriginalElement>
-          <nodes>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.passengers</node>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users</node>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.wagons</node>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.train_structure</node>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.trips</node>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.route_station</node>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.roles</node>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.tickets</node>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users_roles</node>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.stations</node>
-            <node x="" y="">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.routes</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.1907172995780588" x="270.91242951673297" y="215.15237420269318" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/StationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/controllers/StationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b8e9f601-8f38-481e-95cf-c983705b9ba5/database/RailRoadDB/schema/public/table/tickets">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="cc51a605-f13c-4413-bc3e-7025401dd0d5">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b8e9f601-8f38-481e-95cf-c983705b9ba5/database/RailRoadDB/schema/public/table/passengers">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="cc51a605-f13c-4413-bc3e-7025401dd0d5">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/Session.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="97" column="9" selection-start-line="97" selection-start-column="9" selection-end-line="97" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/Passenger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/RouteService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/RouteServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/TicketService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="28" lean-forward="true" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+        <state relative-caret-position="173">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-            <element signature="e#570#571#0" expanded="true" />
-            <element signature="e#629#630#0" expanded="true" />
-            <element signature="e#670#671#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#943#944#0" expanded="true" />
-            <element signature="e#1012#1013#0" expanded="true" />
-            <element signature="e#1065#1066#0" expanded="true" />
+            <element signature="e#2098#2099#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerService.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/query/Query.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        <state relative-caret-position="156">
+          <caret line="103" selection-start-line="103" selection-end-line="103" />
           <folding>
-            <element signature="e#505#506#0" expanded="true" />
-            <element signature="e#523#524#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-            <element signature="e#681#682#0" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-            <element signature="e#811#812#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
+            <element signature="e#3433#3434#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/WagonDaoImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/query/internal/AbstractProducedQuery.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        <state relative-caret-position="205">
+          <caret line="370" selection-start-line="370" selection-end-line="370" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/RouteDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/PassengerDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        <state relative-caret-position="153">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/PassengerDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
           <folding>
-            <element signature="e#0#33#1" expanded="true" />
-            <element signature="e#0#10#1" expanded="true" />
+            <element signature="e#0#70#1" expanded="true" />
+            <element signature="e#0#14#1" expanded="true" />
+            <element signature="method#save#0;class#PassengerDaoImpl#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/internal/AbstractSharedSessionContract.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="26" lean-forward="true" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/TripDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-229">
-          <caret line="16" column="38" lean-forward="true" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
+        <state relative-caret-position="205">
+          <caret line="228" selection-start-line="228" selection-end-line="228" />
           <folding>
-            <element signature="e#0#11#1" expanded="true" />
+            <element signature="e#10838#10839#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/UserDaoImpl.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="70" column="9" lean-forward="true" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#11#1" expanded="true" />
-          </folding>
+        <state relative-caret-position="220">
+          <caret line="1191" selection-start-line="1191" selection-end-line="1191" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar!/javax/persistence/FetchType.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/internal/SessionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="356" selection-start-line="356" selection-end-line="356" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/TicketDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="791">
-          <caret line="93" column="46" lean-forward="true" selection-start-line="93" selection-start-column="46" selection-end-line="93" selection-end-column="46" />
+        <state relative-caret-position="167">
+          <caret line="56" column="41" lean-forward="true" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
           <folding>
             <element signature="e#0#11#1" expanded="true" />
-            <element signature="e#0#34#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/StationDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
             <element signature="e#0#35#1" expanded="true" />
-            <element signature="e#0#12#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/RouteStationDaoImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.4.3.Final/hibernate-core-5.4.3.Final.jar!/org/hibernate/type/descriptor/java/IntegerTypeDescriptor.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        <state relative-caret-position="187">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
-            <element signature="e#0#17#1" expanded="true" />
-            <element signature="e#0#40#1" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#605#606#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/UserDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/SuperEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="119">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/Ticket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8e9f601-8f38-481e-95cf-c983705b9ba5/database/RailRoadDB/schema/public/table/route_station">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="49490b09-49c0-4e4d-9ed3-6fe64c122a5c">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b8e9f601-8f38-481e-95cf-c983705b9ba5/database/RailRoadDB/schema/public/table/routes">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="49490b09-49c0-4e4d-9ed3-6fe64c122a5c">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/PassengerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="33" column="40" lean-forward="true" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+          <folding>
+            <element signature="e#821#822#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1587,165 +1469,223 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/TicketDao.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_162/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="205">
+          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/StationDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+    <entry file="das://b8e9f601-8f38-481e-95cf-c983705b9ba5/database/RailRoadDB/schema/public/table/passengers">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="49490b09-49c0-4e4d-9ed3-6fe64c122a5c">
+          <filtering>
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RouteStationDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/RouteStationServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="340">
+          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#528#529#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+            <element signature="e#629#630#0" expanded="true" />
+            <element signature="e#670#671#0" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/PassengerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/StationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/TicketService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/RouteStationService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/RouteStation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/Route.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/RouteDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="56" column="72" lean-forward="true" selection-start-line="56" selection-start-column="72" selection-end-line="56" selection-end-column="72" />
+          <folding>
+            <element signature="e#0#33#1" expanded="true" />
+            <element signature="e#0#10#1" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RouteDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        <state relative-caret-position="204">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/RoleDao.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/RouteServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/PassengerDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/RoleDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="58" column="13" lean-forward="true" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+        <state relative-caret-position="300">
+          <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#0#9#1" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/PassengerDaoImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/RouteService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
-          <folding>
-            <element signature="method#findById#0;class#PassengerDaoImpl#0" />
-            <element signature="method#findAll#0;class#PassengerDaoImpl#0" />
-            <element signature="e#0#14#1" expanded="true" />
-            <element signature="method#save#0;class#PassengerDaoImpl#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/WagonDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/entities/Ticket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/TicketServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#670#671#0" expanded="true" />
-            <element signature="e#699#700#0" expanded="true" />
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#987#988#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/StationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#704#705#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#788#789#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#1000#1001#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#1058#1059#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="402">
+          <caret line="29" column="59" selection-start-line="29" selection-start-column="59" selection-end-line="29" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/routeEdit.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/TripServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/route.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/controllers/RouteController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+        <state relative-caret-position="294">
+          <caret line="40" column="35" lean-forward="true" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#update#0;class#RouteController#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/voronov/service/servieInterfaces/TripService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DATABASE/b8e9f601-8f38-481e-95cf-c983705b9ba5.SCHEMA:RailRoadDB.public">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DATABASE</ID>
+          <OriginalElement>b8e9f601-8f38-481e-95cf-c983705b9ba5.SCHEMA:RailRoadDB.public</OriginalElement>
+          <nodes>
+            <node x="0.0" y="177.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.passengers</node>
+            <node x="0.0" y="647.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users</node>
+            <node x="518.25" y="199.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.wagons</node>
+            <node x="172.0" y="166.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.route_station</node>
+            <node x="372.25" y="188.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.trips</node>
+            <node x="165.0" y="691.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.roles</node>
+            <node x="161.375" y="376.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.tickets</node>
+            <node x="92.5" y="857.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users_roles</node>
+            <node x="149.5" y="22.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.stations</node>
+            <node x="293.5" y="0.0">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.routes</node>
+            <node x="451.0" y="431.5">b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.train_structure</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.train_structure" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.trips">
+              <point x="-39.25" y="-57.5" />
+              <point x="490.25" y="351.0" />
+              <point x="466.75" y="351.0" />
+              <point x="31.5" y="58.0" />
+            </edge>
+            <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.train_structure" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.wagons">
+              <point x="39.25" y="-57.5" />
+              <point x="568.75" y="351.0" />
+              <point x="592.25" y="351.0" />
+              <point x="0.0" y="47.0" />
+            </edge>
+            <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users_roles" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users">
+              <point x="-27.5" y="-35.5" />
+              <point x="120.0" y="832.0" />
+              <point x="72.5" y="832.0" />
+              <point x="0.0" y="80.0" />
+            </edge>
+            <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.route_station" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.routes">
+              <point x="39.5" y="-80.0" />
+              <point x="290.5" y="141.0" />
+              <point x="340.75" y="141.0" />
+              <point x="-47.25" y="58.0" />
+            </edge>
+            <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.tickets" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.trips">
+              <point x="39.25" y="-113.0" />
+              <point x="279.125" y="351.0" />
+              <point x="403.75" y="351.0" />
+              <point x="-31.5" y="58.0" />
+            </edge>
+            <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.tickets" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.passengers">
+              <point x="-39.25" y="-113.0" />
+              <point x="200.625" y="351.0" />
+              <point x="76.0" y="351.0" />
+              <point x="0.0" y="69.0" />
+            </edge>
+            <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.route_station" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.stations">
+              <point x="-39.5" y="-80.0" />
+              <point x="0.0" y="36.0" />
+            </edge>
+            <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.trips" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.routes">
+              <point x="0.0" y="-58.0" />
+              <point x="47.25" y="58.0" />
+            </edge>
+            <edge source="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.users_roles" target="b8e9f601-8f38-481e-95cf-c983705b9ba5.TABLE:RailRoadDB.public.roles">
+              <point x="27.5" y="-35.5" />
+              <point x="175.0" y="832.0" />
+              <point x="222.5" y="832.0" />
+              <point x="0.0" y="36.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="333.50000000000017" y="486.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Key columns</Category>
+            <Category>Columns</Category>
+          </Categories>
         </state>
       </provider>
     </entry>

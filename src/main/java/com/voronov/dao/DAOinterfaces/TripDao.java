@@ -1,20 +1,20 @@
 package com.voronov.dao.DAOinterfaces;
 
-import com.voronov.entities.TrainTrip;
+import com.voronov.entities.Trip;
 
 import java.util.List;
 
 public interface TripDao {
-	TrainTrip findById(int id);
+	Trip findById(int id);
 
-	TrainTrip findByName(String name);
+	List<Trip> findByRouteId(int id);
 
 	@SuppressWarnings("unchecked")
-	List<TrainTrip> findAll();
+	List<Trip> findAll();
 
-	void save(TrainTrip trip);
+	void save(Trip trip);
 
-	void update(TrainTrip trip);
+	void update(Trip trip);
 
-	void delete(TrainTrip trip);
+	void delete(Trip trip);
 }

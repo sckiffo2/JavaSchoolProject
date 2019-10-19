@@ -2,6 +2,7 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.RouteDao;
 import com.voronov.entities.Route;
+import com.voronov.service.servieInterfaces.RouteService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class RouteServiceImpl implements RouteService {
 	@Override
 	public Route findByName(String name) {
 		return routeDao.findByName(name);
+	}
+
+	@Override
+	public List<Route> findRouteByStationId(int id) {
+		return routeDao.findRouteByStationId(id);
 	}
 
 	@Override

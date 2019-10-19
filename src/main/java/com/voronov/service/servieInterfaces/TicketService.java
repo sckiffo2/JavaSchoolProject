@@ -1,10 +1,13 @@
-package com.voronov.service;
+package com.voronov.service.servieInterfaces;
 
+import com.voronov.dao.DAOinterfaces.TicketDao;
 import com.voronov.entities.Ticket;
 
 import java.util.List;
 
 public interface TicketService {
+
+	void setTicketDao(TicketDao ticketDao);
 
 	Ticket findById(int id);
 

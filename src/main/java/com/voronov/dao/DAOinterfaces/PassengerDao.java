@@ -9,12 +9,14 @@ public interface PassengerDao {
 
 	Passenger findByName(String name);
 
-	@SuppressWarnings("unchecked")
-	List<Passenger> findAll();
+	List<Passenger> findPassengersOnTrip(int id);
 
 	void save(Passenger passenger);
 
 	void update(Passenger passenger);
 
 	void delete(Passenger passenger);
+
+	@SuppressWarnings("unchecked")
+	List<Passenger> findAll();
 }

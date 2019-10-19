@@ -2,10 +2,9 @@ package com.voronov.entities;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "passengers")
@@ -28,4 +27,7 @@ public class Passenger extends SuperEntity{
     @Column(name = "gender")
     private char gender;
 
+    @OneToMany
+	@JoinColumn(name = "passenger_id")
+    private List<Ticket> tickets;
 }

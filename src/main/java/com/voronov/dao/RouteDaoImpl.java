@@ -2,6 +2,7 @@ package com.voronov.dao;
 
 import com.voronov.dao.DAOinterfaces.RouteDao;
 import com.voronov.entities.Route;
+import com.voronov.entities.Station;
 import com.voronov.utils.HibernateSessionFactoryUtil;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -42,6 +44,25 @@ public class RouteDaoImpl implements RouteDao {
 			e.printStackTrace();
 		}
 		return route;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Route> findRouteByStationId(int id) {
+		List<Route> result = null;
+
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+
+			Query query = session.createQuery("select RS.route from RouteStation RS where RS.station.id = :id");
+			query.setParameter("id", id);
+			result = query.getResultList();
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override

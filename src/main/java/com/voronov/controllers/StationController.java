@@ -1,7 +1,7 @@
 package com.voronov.controllers;
 
 import com.voronov.entities.Station;
-import com.voronov.service.StationService;
+import com.voronov.service.servieInterfaces.StationService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -43,7 +43,6 @@ public class StationController {
 	@GetMapping("/station/edit/{id}")
 	public String updatePage(@PathVariable int id, Model model) {
 		model.addAttribute(stationService.findById(id));
-		//todo get stations of route
 		return "stationEdit";
 	}
 

@@ -13,20 +13,18 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class RouteStation extends SuperEntity {
 
-	@ManyToOne(targetEntity = Route.class)
-	@JoinColumn(name = "route_id")
+	@ManyToOne
 	private Route route;
 
-	@ManyToOne(targetEntity = Station.class)
-	@JoinColumn(name = "station_id")
+	@ManyToOne
 	private Station station;
 
 	@Column(name = "arrival_time")
-	private int arrivalTime;
+	private Integer arrivalTime;
 
 	@Column(name = "departure_time")
-	private int departureTime;
+	private Integer departureTime;
 
 	@Column(name = "index_in_route")
-	private Integer indexInRoute;
+	private int indexInRoute;
 }

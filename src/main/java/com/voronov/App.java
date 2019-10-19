@@ -1,29 +1,39 @@
 package com.voronov;
 
-import com.voronov.dao.RouteDaoImpl;
-import com.voronov.dao.RouteStationDaoImpl;
-import com.voronov.dao.StationDaoImpl;
-import com.voronov.entities.Route;
-import com.voronov.entities.RouteStation;
-import com.voronov.entities.Station;
+import com.voronov.dao.*;
+import com.voronov.entities.*;
 import com.voronov.service.*;
+import com.voronov.service.servieInterfaces.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class App {
 	public static void main(String[] args) {
-/*		StationService stationService = new StationServiceImpl();
-		stationService
-		stationService.setStationDao(new StationDaoImpl());
+		StationService stationService = new StationServiceImpl();
 		RouteService routeService = new RouteServiceImpl();
-		routeService.setRouteDao(new RouteDaoImpl());
 		RouteStationService routeStationService = new RouteStationServiceImpl();
+		PassengerService passengerService = new PassengerServiceImpl();
+		TripService tripService = new TripServiceImpl();
+		TicketService ticketService = new TicketServiceImpl();
+		stationService.setStationDao(new StationDaoImpl());
+		routeService.setRouteDao(new RouteDaoImpl());
 		routeStationService.setRouteStationDao(new RouteStationDaoImpl());
+		passengerService.setPassengerDao(new PassengerDaoImpl());
+		tripService.setTripDao(new TripDaoImpl());
+		ticketService.setTicketDao(new TicketDaoImpl());
 
-		RouteStation routeStation = new RouteStation();
 
-		List<RouteStation> list = routeStationService.findStationsOfRoute(1);
-		list.get(0).getIndexInRoute();
-		list.forEach(System.out::println);*/
+//		List<Trip> tripList = tripService.findByRouteId(1);
+//		List<Passenger> passengersList = passengerService.findPassengersOnTrip(1);
+//		List<Ticket> ticketList = ticketService.findByTripId(1);
+		List<Route> routesWithStation = routeService.findRouteByStationId(9);
+
+
+
+		LocalDate date = LocalDate.parse("2017-06-22");
+		System.out.println(date);
+
+		System.out.println();
 	}
 }

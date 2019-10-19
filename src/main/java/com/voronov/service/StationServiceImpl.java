@@ -2,13 +2,16 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;
+import com.voronov.service.servieInterfaces.StationService;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@Setter
 @NoArgsConstructor
 public class StationServiceImpl implements StationService {
 
@@ -44,9 +47,5 @@ public class StationServiceImpl implements StationService {
 	@Override
 	public List<Station> findAll() {
 		return stationDao.findAll();
-	}
-
-	public void setStationDao(StationDao stationDao) {
-		this.stationDao = stationDao;
 	}
 }

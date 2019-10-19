@@ -2,6 +2,7 @@ package com.voronov.entities;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -14,5 +15,5 @@ public abstract class SuperEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
-	@Getter protected int id;
+	@Getter @Setter	protected int id;
 }

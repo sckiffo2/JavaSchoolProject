@@ -2,17 +2,19 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.PassengerDao;
 import com.voronov.entities.Passenger;
+import com.voronov.service.servieInterfaces.PassengerService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 @Setter
 @NoArgsConstructor
-public class PassengerServiceImpl implements PassengerService{
+public class PassengerServiceImpl implements PassengerService {
 
 	@Autowired
 	private PassengerDao passengerDao;
@@ -23,8 +25,14 @@ public class PassengerServiceImpl implements PassengerService{
 	}
 
 	@Override
-	public Passenger findByName(String name) {
-		return passengerDao.findByName(name);
+	public Passenger findByName(String firstName, String lastName, LocalDate birthDate) {
+		//todo find? or verify passenger
+		return passengerDao.findByName(firstName);
+	}
+
+	@Override
+	public List<Passenger> findPassengersOnTrip(int id) {
+		return passengerDao.findPassengersOnTrip(id);
 	}
 
 	@Override
@@ -47,4 +55,5 @@ public class PassengerServiceImpl implements PassengerService{
 	public List<Passenger> findAll() {
 		return passengerDao.findAll();
 	}
+
 }

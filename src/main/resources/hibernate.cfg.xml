@@ -23,7 +23,7 @@
         <mapping class="com.voronov.entities.Ticket"/>
         <mapping class="com.voronov.entities.Passenger"/>
         <mapping class="com.voronov.entities.Role"/>
-        <mapping class="com.voronov.entities.TrainTrip"/>
+        <mapping class="com.voronov.entities.Trip"/>
         <mapping class="com.voronov.entities.User"/>
 <!--        <mapping class="com.voronov.entities.Wagon"/>-->
 

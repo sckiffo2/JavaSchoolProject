@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,11 +16,11 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class Ticket extends SuperEntity{
 
-    @Column(name = "passenger_id")
-    private int passengerId;
+	@ManyToOne
+    private Passenger passenger;
 
-    @Column(name = "trip_id")
-    private int tripId;
+    @ManyToOne
+    private Trip Trip;
 
     @Column(name = "start_station_id")
     private int startStationId;

@@ -16,17 +16,20 @@ import java.util.List;
 @NoArgsConstructor
 public class Route extends SuperEntity {
 
-    @Column(name = "route_number")
+	@Column(name = "route_number")
 	private String routeNumber;
 
 	@Column(name = "name")
-    private String name;
+	private String name;
 
-    @Column(name = "schedule_pattern")
-    private String schedulePattern;
+	@Column(name = "schedule_pattern")
+	private String schedulePattern;
 
-    @OneToMany(mappedBy = "route", fetch = FetchType.LAZY)
-    private List<RouteStation> stationsOnRoute = new ArrayList<>();
+	@OneToMany(mappedBy = "route", fetch = FetchType.EAGER)
+	private List<RouteStation> stationsOnRoute;
+
+	@OneToMany(mappedBy = "route")
+	private List<Trip> tripsList;
 
 	public Route(String routeNumber, String name, String schedulePattern) {
 		this.routeNumber = routeNumber;

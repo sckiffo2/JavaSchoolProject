@@ -1,11 +1,9 @@
 package com.voronov.controllers;
 
 import com.voronov.entities.Route;
-import com.voronov.entities.RouteStation;
-import com.voronov.entities.Station;
-import com.voronov.service.RouteService;
-import com.voronov.service.RouteStationService;
-import com.voronov.service.StationService;
+import com.voronov.service.servieInterfaces.RouteService;
+import com.voronov.service.servieInterfaces.RouteStationService;
+import com.voronov.service.servieInterfaces.StationService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -75,18 +73,14 @@ public class RouteController {
 
 		map.addAttribute("stations", stationService.findAll());
 		map.addAttribute("stationsOfRoute", routeStationService.findStationsOfRoute(id));
-//		RouteStation routeStation = new
-//		routeStationService.save();
-		System.out.println("1");
-//		redirectAttributes.addAttribute("rd", "rdValue");
-//		redirectAttributes.addFlashAttribute("route", "someFAvalue");
+
 		return "editStations";
 	}
 
-	@PostMapping("route/editStations/{id}")
+	@PostMapping("route/editStations/")
 	public String addStationToRoute(RedirectAttributes redirectAttributes) {
-
-		return "editStations";
+		//todo problem here
+		return "forward:route/editStations/{1}";
 	}
 
 	@GetMapping("/route/delete/{id}")

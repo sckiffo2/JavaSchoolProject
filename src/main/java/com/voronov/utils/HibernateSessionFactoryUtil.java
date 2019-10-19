@@ -18,11 +18,11 @@ public class HibernateSessionFactoryUtil {
 				configuration.addAnnotatedClass(Station.class);
 				configuration.addAnnotatedClass(Route.class);
 				configuration.addAnnotatedClass(RouteStation.class);
-//				configuration.addAnnotatedClass(Passenger.class);
-//				configuration.addAnnotatedClass(Role.class);
-//				configuration.addAnnotatedClass(Ticket.class);
-//				configuration.addAnnotatedClass(TrainTrip.class);
-//				configuration.addAnnotatedClass(User.class);
+				configuration.addAnnotatedClass(Passenger.class);
+				configuration.addAnnotatedClass(Role.class);
+				configuration.addAnnotatedClass(Ticket.class);
+				configuration.addAnnotatedClass(Trip.class);
+				configuration.addAnnotatedClass(User.class);
 //				configuration.addAnnotatedClass(Wagon.class);
 
 

@@ -53,7 +53,7 @@ public class TicketDaoImpl implements TicketDao {
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 
-			Query query = session.createQuery("from Ticket T where T.tripId = :id", Ticket.class);
+			Query query = session.createQuery("from Ticket T where T.Trip.id = :id", Ticket.class);
 			query.setParameter("id", id);
 			result = query.getResultList();
 
