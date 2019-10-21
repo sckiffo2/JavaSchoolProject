@@ -1,4 +1,4 @@
-package com.voronov.service.servieInterfaces;
+package com.voronov.service.serviceInterfaces;
 
 import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;

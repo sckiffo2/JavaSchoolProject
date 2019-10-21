@@ -1,6 +1,5 @@
-package com.voronov.service.servieInterfaces;
+package com.voronov.service.serviceInterfaces;
 
-import com.voronov.dao.DAOinterfaces.RouteDao;
 import com.voronov.dao.DAOinterfaces.RouteStationDao;
 import com.voronov.entities.RouteStation;
 

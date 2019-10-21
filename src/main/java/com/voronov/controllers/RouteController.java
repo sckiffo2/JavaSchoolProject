@@ -1,9 +1,9 @@
 package com.voronov.controllers;
 
 import com.voronov.entities.Route;
-import com.voronov.service.servieInterfaces.RouteService;
-import com.voronov.service.servieInterfaces.RouteStationService;
-import com.voronov.service.servieInterfaces.StationService;
+import com.voronov.service.serviceInterfaces.RouteService;
+import com.voronov.service.serviceInterfaces.RouteStationService;
+import com.voronov.service.serviceInterfaces.StationService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

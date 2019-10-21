@@ -2,7 +2,7 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.RouteDao;
 import com.voronov.entities.Route;
-import com.voronov.service.servieInterfaces.RouteService;
+import com.voronov.service.serviceInterfaces.RouteService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;

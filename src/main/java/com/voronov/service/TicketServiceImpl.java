@@ -2,7 +2,7 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.TicketDao;
 import com.voronov.entities.Ticket;
-import com.voronov.service.servieInterfaces.TicketService;
+import com.voronov.service.serviceInterfaces.TicketService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;

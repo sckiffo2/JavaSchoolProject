@@ -3,7 +3,7 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.RouteStationDao;
 import com.voronov.entities.RouteStation;
-import com.voronov.service.servieInterfaces.RouteStationService;
+import com.voronov.service.serviceInterfaces.RouteStationService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;

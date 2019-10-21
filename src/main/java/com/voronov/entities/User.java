@@ -17,13 +17,16 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class User extends SuperEntity{
 
+	@Column(name = "username")
+	private String username;
+
 	@Column(name = "password")
 	private String password;
 
 	@Column(name = "mail")
 	private String mail;
 
-	@Column(name = "roleId")
+	@Column(name = "role_id")
 	private Integer roleId;
 
 	@Column(name = "active")

@@ -20,6 +20,9 @@
                     <a href="route">Routes</a>
                 </li>
                 <li>
+                    <a href="user">Users</a>
+                </li>
+                <li>
                     <a href="showViewPage">viewPage</a>
                 </li>
                 <li>

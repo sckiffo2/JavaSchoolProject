@@ -2,7 +2,7 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;
-import com.voronov.service.servieInterfaces.StationService;
+import com.voronov.service.serviceInterfaces.StationService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
