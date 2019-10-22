@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -18,7 +19,7 @@ import java.util.List;
 public class Trip extends SuperEntity {
 
 	@Column(name = "start_date")
-	private Date startDate;
+	private LocalDate startDate;
 
 	@Column(name = "canceled")
 	private Boolean canceled;

@@ -13,6 +13,9 @@
     <div class="sidebar">
         <div class="side-menu">
             <ul class="side-menu-ul">
+                <li>
+                    <a href="scheduleOfStation">Schedule</a>
+                </li>
                 <li class="active">
                     <a href="station">Stations</a>
                 </li>

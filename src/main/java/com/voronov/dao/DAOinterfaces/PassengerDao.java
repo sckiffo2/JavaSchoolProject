@@ -5,11 +5,11 @@ import com.voronov.entities.Passenger;
 import java.util.List;
 
 public interface PassengerDao {
-	Passenger findById(int id);
+	Passenger findById(long id);
 
 	Passenger findByName(String name);
 
-	List<Passenger> findPassengersOnTrip(int id);
+	List<Passenger> findPassengersOnTrip(long id);
 
 	void save(Passenger passenger);
 

@@ -12,7 +12,7 @@ import java.util.List;
 public class WagonDaoImpl implements WagonDao {
 
 	@Override
-	public Wagon findById(int id) {
+	public Wagon findById(long id) {
 		//todo implement
 		return null;
 	}

@@ -18,7 +18,7 @@ import java.util.List;
 public class PassengerDaoImpl implements PassengerDao {
 
 	@Override
-	public Passenger findById(int id) {
+	public Passenger findById(long id) {
 		Passenger passenger = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			passenger = session.get(Passenger.class, id);
@@ -35,7 +35,7 @@ public class PassengerDaoImpl implements PassengerDao {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Passenger> findPassengersOnTrip(int id) {
+	public List<Passenger> findPassengersOnTrip(long id) {
 		List<Passenger> result = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
@@ -57,7 +57,6 @@ public class PassengerDaoImpl implements PassengerDao {
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 			result = session.createQuery("from Passenger", Passenger.class).getResultList();
-			result.sort(Comparator.comparingInt(Passenger::getId));
 
 			session.getTransaction().commit();
 		} catch (Exception e) {

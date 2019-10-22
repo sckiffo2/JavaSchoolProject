@@ -25,27 +25,25 @@ public class TripServiceImpl implements TripService {
 	private RouteService routeService;
 
 	@Override
-	public Trip findById(int id) {
+	public Trip findById(long id) {
 		return tripDao.findById(id);
 	}
 
 	@Override
-	public List<Trip> findByRouteId(int id) {
+	public List<Trip> findByRouteId(long id) {
 		return tripDao.findByRouteId(id);
 	}
 
 	@Override
-	public List<Trip> getScheduleOfStation(int id) {
+	public List<Trip> findTripsByStationId(long id) {
 
-		List<Route> routesWithStation = routeService.findRouteByStationId(id);
-		//todo getScheduleOfStation
+		List<Trip> result = tripDao.findTripsByStationId(id);
 
-		List<Trip> result = new ArrayList<>();
 		return result;
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(long id) {
 		Trip deleteTrip = tripDao.findById(id);
 		tripDao.delete(deleteTrip);
 	}

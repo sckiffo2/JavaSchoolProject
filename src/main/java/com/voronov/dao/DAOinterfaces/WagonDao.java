@@ -5,7 +5,7 @@ import com.voronov.entities.Wagon;
 import java.util.List;
 
 public interface WagonDao {
-	Wagon findById(int id);
+	Wagon findById(long id);
 
 	Wagon findByName(String name);
 

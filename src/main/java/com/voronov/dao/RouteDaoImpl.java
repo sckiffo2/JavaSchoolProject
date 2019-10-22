@@ -21,7 +21,7 @@ import java.util.List;
 public class RouteDaoImpl implements RouteDao {
 
 	@Override
-	public Route findById(int id) {
+	public Route findById(long id) {
 		Route route = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			route = session.get(Route.class, id);
@@ -48,7 +48,7 @@ public class RouteDaoImpl implements RouteDao {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Route> findRouteByStationId(int id) {
+	public List<Route> findRoutesByStationId(long id) {
 		List<Route> result = null;
 
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
@@ -73,7 +73,6 @@ public class RouteDaoImpl implements RouteDao {
 			session.beginTransaction();
 
 			result = session.createQuery("from Route", Route.class).getResultList();
-			result.sort(Comparator.comparingInt(Route::getId));
 
 			session.getTransaction().commit();
 		} catch (Exception e) {

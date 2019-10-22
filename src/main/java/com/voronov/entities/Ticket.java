@@ -23,10 +23,10 @@ public class Ticket extends SuperEntity{
     private Trip Trip;
 
     @Column(name = "start_station_id")
-    private int startStationId;
+    private Long startStationId;
 
     @Column(name = "end_station_id")
-    private int endStationId;
+    private Long endStationId;
 
     @Column(name = "wagon_number")
     private int wagonNumber;

@@ -5,9 +5,11 @@ import com.voronov.entities.Trip;
 import java.util.List;
 
 public interface TripDao {
-	Trip findById(int id);
+	Trip findById(long id);
 
-	List<Trip> findByRouteId(int id);
+	List<Trip> findByRouteId(long id);
+
+	public List<Trip> findTripsByStationId(long id);
 
 	@SuppressWarnings("unchecked")
 	List<Trip> findAll();

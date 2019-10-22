@@ -17,7 +17,7 @@ import java.util.List;
 public class UserDaoImpl implements UserDao {
 
 	@Override
-	public User findById(int id) {
+	public User findById(long id) {
 		User user = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			user = session.get(User.class, id);
@@ -40,7 +40,6 @@ public class UserDaoImpl implements UserDao {
 			session.beginTransaction();
 
 			result = session.createQuery("from User", User.class).getResultList();
-			result.sort(Comparator.comparingInt(User::getId));
 
 			session.getTransaction().commit();
 		} catch (Exception e) {

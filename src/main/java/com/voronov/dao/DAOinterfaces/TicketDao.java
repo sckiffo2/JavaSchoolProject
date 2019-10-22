@@ -5,12 +5,12 @@ import com.voronov.entities.Ticket;
 import java.util.List;
 
 public interface TicketDao {
-	Ticket findById(int id);
+	Ticket findById(long id);
 
 	@SuppressWarnings("unchecked")
 	List<Ticket> findAll();
 
-	public List<Ticket> findByTripId(int id);
+	public List<Ticket> findByTripId(long id);
 
 	void save(Ticket ticket);
 

@@ -29,8 +29,8 @@ public class RouteServiceImpl implements RouteService {
 	}
 
 	@Override
-	public List<Route> findRouteByStationId(int id) {
-		return routeDao.findRouteByStationId(id);
+	public List<Route> findRoutesByStationId(long id) {
+		return routeDao.findRoutesByStationId(id);
 	}
 
 	@Override

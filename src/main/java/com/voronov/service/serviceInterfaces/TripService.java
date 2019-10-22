@@ -6,13 +6,13 @@ import com.voronov.entities.Trip;
 import java.util.List;
 
 public interface TripService {
-	Trip findById(int id);
+	Trip findById(long id);
 
-	List<Trip> findByRouteId(int id);
+	List<Trip> findByRouteId(long id);
 
-	List<Trip> getScheduleOfStation(int id);
+	List<Trip> findTripsByStationId(long id);
 
-	void delete(int id);
+	void delete(long id);
 
 	List<Trip> findAll();
 

@@ -5,14 +5,14 @@ import com.voronov.entities.Route;
 import java.util.List;
 
 public interface RouteDao {
-	Route findById(int id);
+	Route findById(long id);
 
 	Route findByName(String name);
 
 	@SuppressWarnings("unchecked")
 	List<Route> findAll();
 
-	List<Route> findRouteByStationId(int id);
+	List<Route> findRoutesByStationId(long id);
 
 	void save(Route route);
 

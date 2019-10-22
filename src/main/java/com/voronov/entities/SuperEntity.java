@@ -1,13 +1,9 @@
 package com.voronov.entities;
 
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
-@ToString
 @EqualsAndHashCode
 @MappedSuperclass
 public abstract class SuperEntity {
@@ -15,5 +11,17 @@ public abstract class SuperEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
-	@Getter @Setter	protected int id;
+	protected Long id;
+
+	public String toString() {
+		return "SuperEntity(id=" + this.id + ")";
+	}
+
+	public Long getId() {
+		return this.id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

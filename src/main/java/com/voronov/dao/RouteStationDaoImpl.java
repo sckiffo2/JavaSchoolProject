@@ -18,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 public class RouteStationDaoImpl implements RouteStationDao {
 	@Override
-	public RouteStation findById(int id) {
+	public RouteStation findById(long id) {
 		RouteStation routeStation = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			routeStation = session.get(RouteStation.class, id);
@@ -36,7 +36,7 @@ public class RouteStationDaoImpl implements RouteStationDao {
 			session.beginTransaction();
 
 			result = session.createQuery("from RouteStation", RouteStation.class).getResultList();
-			result.sort(Comparator.comparingInt(RouteStation::getId));
+			result.sort(Comparator.comparingLong(RouteStation::getId));
 
 			session.getTransaction().commit();
 		} catch (Exception e) {
@@ -79,7 +79,7 @@ public class RouteStationDaoImpl implements RouteStationDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<RouteStation> findStationsOfRoute(int id) {
+	public List<RouteStation> findStationsOfRoute(long id) {
 		List<RouteStation> result = null;
 
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {

@@ -17,7 +17,7 @@ import java.util.List;
 public class TripDaoImpl implements TripDao {
 
 	@Override
-	public Trip findById(int id) {
+	public Trip findById(long id) {
 		Trip trip = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			trip = session.get(Trip.class, id);
@@ -29,13 +29,32 @@ public class TripDaoImpl implements TripDao {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Trip> findByRouteId(int id) {
+	public List<Trip> findByRouteId(long id) {
 		List<Trip> result = null;
 
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 
 			Query query = session.createQuery("from Trip T where T.route.id = :id", Trip.class);
+			query.setParameter("id", id);
+			result = query.getResultList();
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Trip> findTripsByStationId(long id) {
+		List<Trip> result = null;
+
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+
+			Query query = session.createQuery("select t from Trip t join fetch t.route r join fetch r.stationsOnRoute rs where rs.station.id = : id", Trip.class);
 			query.setParameter("id", id);
 			result = query.getResultList();
 
@@ -54,7 +73,6 @@ public class TripDaoImpl implements TripDao {
 			session.beginTransaction();
 
 			result = session.createQuery("from Trip", Trip.class).getResultList();
-			result.sort(Comparator.comparingInt(Trip::getId));
 
 			session.getTransaction().commit();
 		} catch (Exception e) {

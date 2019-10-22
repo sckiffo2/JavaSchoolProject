@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class RoleDaoImpl implements RoleDao {
 	@Override
-	public Role findById(int id) {
+	public Role findById(long id) {
 		Role role = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			role = session.get(Role.class, id);
@@ -37,7 +37,6 @@ public class RoleDaoImpl implements RoleDao {
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 			result = session.createQuery("from Role", Role.class).getResultList();
-			result.sort(Comparator.comparingInt(Role::getId));
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

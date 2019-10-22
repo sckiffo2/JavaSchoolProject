@@ -18,7 +18,7 @@ import java.util.List;
 public class TicketDaoImpl implements TicketDao {
 
 	@Override
-	public Ticket findById(int id) {
+	public Ticket findById(long id) {
 		Ticket ticket = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			ticket = session.get(Ticket.class, id);
@@ -36,7 +36,6 @@ public class TicketDaoImpl implements TicketDao {
 			session.beginTransaction();
 
 			result = session.createQuery("from Ticket", Ticket.class).getResultList();
-			result.sort(Comparator.comparingInt(Ticket::getId));
 
 			session.getTransaction().commit();
 		} catch (Exception e) {
@@ -47,7 +46,7 @@ public class TicketDaoImpl implements TicketDao {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Ticket> findByTripId(int id) {
+	public List<Ticket> findByTripId(long id) {
 		List<Ticket> result = null;
 
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {

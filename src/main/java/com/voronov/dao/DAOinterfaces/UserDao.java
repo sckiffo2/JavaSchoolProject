@@ -5,7 +5,7 @@ import com.voronov.entities.User;
 import java.util.List;
 
 public interface UserDao {
-	User findById(int id);
+	User findById(long id);
 
 	User findByName(String name);
 

@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface RouteStationDao {
 
-	RouteStation findById(int id);
+	RouteStation findById(long id);
 
 	List<RouteStation> findAll();
 
-	public List<RouteStation> findStationsOfRoute(int id);
+	public List<RouteStation> findStationsOfRoute(long id);
 
 	void save(RouteStation route);
 

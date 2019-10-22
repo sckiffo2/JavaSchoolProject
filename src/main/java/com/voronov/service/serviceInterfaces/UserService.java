@@ -6,7 +6,7 @@ import com.voronov.entities.User;
 import java.util.List;
 
 public interface UserService {
-    User findById(int id);
+    User findById(long id);
 
     User findByName(String name);
 
@@ -16,7 +16,7 @@ public interface UserService {
 
     void update(User user);
 
-    void delete(int id);
+    void delete(long id);
 
     void setUserDao(UserDao userDao);
 }

@@ -5,7 +5,7 @@ import com.voronov.entities.Role;
 import java.util.List;
 
 public interface RoleDao {
-	Role findById(int id);
+	Role findById(long id);
 
 	Role findByName(String name);
 

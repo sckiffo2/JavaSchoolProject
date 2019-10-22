@@ -5,7 +5,7 @@ import com.voronov.entities.Station;
 import java.util.List;
 
 public interface StationDao {
-	Station findById(int id);
+	Station findById(long id);
 
 	Station findByName(String name);
 

@@ -1,64 +1,42 @@
-create sequence "Passenger_id_seq"
-    as integer
-    maxvalue 2147483647;
-
-alter sequence "Passenger_id_seq" owner to postgres;
-
-create sequence "Roles_id_seq"
-    as integer
-    maxvalue 2147483647;
-
-alter sequence "Roles_id_seq" owner to postgres;
-
-create sequence "Stations_id_seq"
-    as integer
-    maxvalue 2147483647;
-
-alter sequence "Stations_id_seq" owner to postgres;
-
-create sequence "Tickets_id_seq"
-    as integer
-    maxvalue 2147483647;
-
-alter sequence "Tickets_id_seq" owner to postgres;
-
-create sequence "TrainTrip_id_seq"
-    as integer
-    maxvalue 2147483647;
-
-alter sequence "TrainTrip_id_seq" owner to postgres;
-
-create sequence "Users_id_seq"
-    as integer
-    maxvalue 2147483647;
-
-alter sequence "Users_id_seq" owner to postgres;
-
-create sequence "Wagon_Types_id_seq"
-    as integer
-    maxvalue 2147483647;
-
-alter sequence "Wagon_Types_id_seq" owner to postgres;
-
-create sequence hibernate_sequence;
-
-alter sequence hibernate_sequence owner to postgres;
-
-create sequence routes_id_seq
-    as integer
-    maxvalue 2147483647;
-
-alter sequence routes_id_seq owner to postgres;
-
-create sequence route_station_id_seq
-    as integer
-    maxvalue 2147483647;
-
-alter sequence route_station_id_seq owner to postgres;
+-- create sequence passengers_id_seq;
+--
+-- alter sequence passengers_id_seq owner to postgres;
+--
+-- create sequence roles_id_seq;
+--
+-- alter sequence roles_id_seq owner to postgres;
+--
+-- create sequence route_station_id_seq;
+--
+-- alter sequence route_station_id_seq owner to postgres;
+--
+-- create sequence routes_id_seq;
+--
+-- alter sequence routes_id_seq owner to postgres;
+--
+-- create sequence stations_id_seq;
+--
+-- alter sequence stations_id_seq owner to postgres;
+--
+-- create sequence tickets_id_seq;
+--
+-- alter sequence tickets_id_seq owner to postgres;
+--
+-- create sequence train_structure_id_seq;
+--
+-- alter sequence train_structure_id_seq owner to postgres;
+--
+-- create sequence trips_id_seq;
+--
+-- alter sequence trips_id_seq owner to postgres;
+--
+-- create sequence users_id_seq;
+--
+-- alter sequence users_id_seq owner to postgres;
 
 create table passengers
 (
-    id         integer     not null
+    id         bigserial      not null
         constraint passengers_pkey
             primary key,
     first_name varchar(15) not null,
@@ -72,7 +50,7 @@ alter table passengers
 
 create table roles
 (
-    id   integer     not null
+    id   bigserial      not null
         constraint roles_pkey
             primary key,
     role varchar(20) not null
@@ -85,7 +63,7 @@ alter table roles
 
 create table stations
 (
-    id   integer     not null
+    id   bigserial     not null
         constraint "Stations_pkey"
             primary key,
     name varchar(50) not null
@@ -96,13 +74,13 @@ alter table stations
 
 create table users
 (
-    id       integer              not null
+    id       bigserial               not null
         constraint "Users_pkey"
             primary key,
     username varchar(20)          not null,
     password varchar(20)          not null,
     mail     varchar(30)          not null,
-    role_id  integer,
+    role_id  bigint,
     active   boolean default true not null
 );
 
@@ -111,7 +89,7 @@ alter table users
 
 create table wagons
 (
-    id           integer not null
+    id           bigserial  not null
         constraint "Wagon_Types_pkey"
             primary key,
     seats_number integer not null,
@@ -125,11 +103,11 @@ alter table wagons
 
 create table users_roles
 (
-    user_id integer not null
+    user_id bigserial  not null
         constraint "FK_user_id"
             references users
             on delete cascade,
-    role_id integer not null
+    role_id bigint  not null
         constraint "FK_role_id"
             references roles
             on delete cascade
@@ -140,7 +118,7 @@ alter table users_roles
 
 create table routes
 (
-    id               integer     not null
+    id               bigserial      not null
         constraint routes_pkey
             primary key,
     route_number     varchar(50),
@@ -153,12 +131,12 @@ alter table routes
 
 create table trips
 (
-    id         integer               not null
+    id         bigserial                not null
         constraint "TrainTrip_pkey"
             primary key,
     start_date date                  not null,
     canceled   boolean default false not null,
-    route_id   integer
+    route_id   bigint
         constraint "FK_route_id"
             references routes
 );
@@ -168,17 +146,17 @@ alter table trips
 
 create table tickets
 (
-    id               integer              not null
+    id               bigserial               not null
         constraint "Tickets_pkey"
             primary key,
-    passenger_id     integer
+    passenger_id     bigint
         constraint "FK_passenger_id"
             references passengers,
-    trip_id          integer              not null
+    trip_id          bigint              not null
         constraint "FK_trip_id"
             references trips,
-    start_station_id integer              not null,
-    end_station_id   integer              not null,
+    start_station_id bigint               not null,
+    end_station_id   bigint               not null,
     wagon_number     integer              not null,
     seat_number      integer              not null,
     booked           boolean default true not null,
@@ -193,12 +171,12 @@ create index "fki_FK_trip_id"
 
 create table train_structure
 (
-    "TrainTrip_id" integer not null
+    "TrainTrip_id" bigserial  not null
         constraint "FK_TrainTrip_id"
             references trips
             on delete cascade,
     wagon_number   integer not null,
-    wagon_id       integer not null
+    wagon_id       bigint  not null
         constraint "FK_wagon_id"
             references wagons
             on delete cascade,
@@ -210,14 +188,14 @@ alter table train_structure
 
 create table route_station
 (
-    id             integer not null
+    id             bigserial  not null
         constraint route_station_pk
             primary key,
-    route_id       integer
+    route_id       bigint
         constraint "FK_route_id"
             references routes
             deferrable,
-    station_id     integer not null
+    station_id     bigint  not null
         constraint "FK_station_id"
             references stations,
     arrival_time   integer,

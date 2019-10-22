@@ -18,7 +18,7 @@ import java.util.List;
 public class StationDaoImpl implements StationDao {
 
 	@Override
-	public Station findById(int id) {
+	public Station findById(long id) {
 		Station station = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			station = session.get(Station.class, id);
@@ -83,7 +83,7 @@ public class StationDaoImpl implements StationDao {
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 			result = session.createQuery("from Station", Station.class).getResultList();
-			result.sort(Comparator.comparingInt(Station::getId));
+			result.sort(Comparator.comparingLong(Station::getId));
 
 			session.getTransaction().commit();
 		} catch (Exception e) {

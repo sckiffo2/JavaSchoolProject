@@ -27,7 +27,7 @@ public class User extends SuperEntity{
 	private String mail;
 
 	@Column(name = "role_id")
-	private Integer roleId;
+	private Long roleId;
 
 	@Column(name = "active")
 	private Boolean active;
