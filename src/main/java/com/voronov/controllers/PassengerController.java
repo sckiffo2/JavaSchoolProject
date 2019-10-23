@@ -41,6 +41,7 @@ public class PassengerController {
 		long routeId = routeService.findByNumber(number).getId();
 		LocalDate localDate = LocalDate.parse(date);
 		long tripId = tripService.findByRouteIdAndDate(routeId, localDate).getId();
+		model.addAttribute("routes", routeService.findAll());
 		model.addAttribute("passengers",passengerService.findPassengersOnTrip(tripId));
 		return "passenger";
 	}
