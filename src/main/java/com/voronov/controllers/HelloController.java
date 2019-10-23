@@ -17,16 +17,4 @@ public class HelloController {
 	public String main(Model model) {
 		return "index";
 	}
-
-	@GetMapping("/showViewPage")
-	public String passParametersWithModelMap(ModelMap map) {
-		map.addAttribute("welcomeMessage", "welcome");
-		map.addAttribute("message", "Baeldung");
-		return "viewPage";
-	}
-
-	@GetMapping("/testPage")
-	public String testPage(Model model) {
-		return "testPage";
-	}
 }

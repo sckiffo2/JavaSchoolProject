@@ -59,7 +59,6 @@ public class UserController {
         }
         user.setActive(active);
         userService.update(user);
-        //todo update user
         return "redirect:/user";
     }
 

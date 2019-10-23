@@ -10,11 +10,11 @@ public interface PassengerService {
 
 	void setPassengerDao(PassengerDao passengerDao);
 
-	Passenger findById(int id);
+	Passenger findById(long id);
 
 	Passenger findByName(String firstName, String lastName, LocalDate birthDate);
 
-	List<Passenger> findPassengersOnTrip(int id);
+	List<Passenger> findPassengersOnTrip(long id);
 
 	void save(Passenger passenger);
 

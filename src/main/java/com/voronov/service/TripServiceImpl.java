@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +31,8 @@ public class TripServiceImpl implements TripService {
 	}
 
 	@Override
-	public List<Trip> findByRouteId(long id) {
-		return tripDao.findByRouteId(id);
+	public Trip findByRouteIdAndDate(long id, LocalDate date) {
+		return tripDao.findByRouteIdAndDate(id, date);
 	}
 
 	@Override

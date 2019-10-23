@@ -29,6 +29,11 @@ public class RouteServiceImpl implements RouteService {
 	}
 
 	@Override
+	public Route findByNumber(String number) {
+		return routeDao.findByNumber(number);
+	}
+
+	@Override
 	public List<Route> findRoutesByStationId(long id) {
 		return routeDao.findRoutesByStationId(id);
 	}

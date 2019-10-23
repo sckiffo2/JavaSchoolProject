@@ -47,6 +47,21 @@ public class RouteDaoImpl implements RouteDao {
 	}
 
 	@Override
+	public Route findByNumber(String number) {
+		Route route= null;
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+			Query query = session.createQuery("from Route R where R.number = :number", Route.class);
+			query.setParameter("number", number);
+			route = (Route) query.getSingleResult();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return route;
+	}
+
+	@Override
 	@SuppressWarnings("unchecked")
 	public List<Route> findRoutesByStationId(long id) {
 		List<Route> result = null;

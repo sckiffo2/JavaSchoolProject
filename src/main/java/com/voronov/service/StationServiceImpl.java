@@ -44,7 +44,7 @@ public class StationServiceImpl implements StationService {
 		List<StationScheduleDTO> subResult = new ArrayList<>();
 		for (Trip trip : tripsOfStation) {
 			StationScheduleDTO scheduleRow = new StationScheduleDTO();
-			scheduleRow.setRouteNumber(trip.getRoute().getRouteNumber());
+			scheduleRow.setRouteNumber(trip.getRoute().getNumber());
 			scheduleRow.setRouteName(trip.getRoute().getName());
 			if (trip.getRoute().getStationsOnRoute().get(0).getArrivalTime() != null) {
 				LocalDateTime arrivalTime = trip.getStartDate().atStartOfDay();

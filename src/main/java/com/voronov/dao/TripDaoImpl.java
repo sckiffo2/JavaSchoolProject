@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 
@@ -29,15 +30,16 @@ public class TripDaoImpl implements TripDao {
 
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Trip> findByRouteId(long id) {
-		List<Trip> result = null;
+	public Trip findByRouteIdAndDate(long id, LocalDate date) {
+		Trip result = null;
 
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 
-			Query query = session.createQuery("from Trip T where T.route.id = :id", Trip.class);
+			Query query = session.createQuery("from Trip T where T.route.id = :id and T.startDate = :date", Trip.class);
 			query.setParameter("id", id);
-			result = query.getResultList();
+			query.setParameter("date", date);
+			result = (Trip)query.getSingleResult();
 
 			session.getTransaction().commit();
 		} catch (Exception e) {

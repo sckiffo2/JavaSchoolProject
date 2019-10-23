@@ -2,12 +2,13 @@ package com.voronov.dao.DAOinterfaces;
 
 import com.voronov.entities.Trip;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface TripDao {
 	Trip findById(long id);
 
-	List<Trip> findByRouteId(long id);
+	Trip findByRouteIdAndDate(long id, LocalDate date);
 
 	public List<Trip> findTripsByStationId(long id);
 
