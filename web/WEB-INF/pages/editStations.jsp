@@ -8,7 +8,7 @@
     <h1>Edit stations of route Page</h1>
     <br>
     <div>
-        <form method="POST" action="route/editStations/${route.getId()}">
+        <form method="POST" action="editStations">
             <label>Добавление станции в маршрут</label>
             <br>
             <input list="stations" id="station" name="station" />

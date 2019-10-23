@@ -14,7 +14,7 @@
         <input type="text" name="id" id="id" value="${route.getId()}" readonly/>
         <br>
         <label for="name">Номер поезда</label><br>
-        <input type="text" name="number" id="number" value="${route.getRouteNumber()}" />
+        <input type="text" name="number" id="number" value="${route.getNumber()}" />
         <br>
         <label for="name">Название поезда</label><br>
         <input type="text" name="name" id="name" value="${route.getName()}" />

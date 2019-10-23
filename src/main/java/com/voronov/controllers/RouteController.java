@@ -77,10 +77,10 @@ public class RouteController {
 		return "editStations";
 	}
 
-	@PostMapping("route/editStations/")
+	@PostMapping("editStations")
 	public String addStationToRoute(RedirectAttributes redirectAttributes) {
-		//todo problem here
-		return "forward:route/editStations/{1}";
+		System.out.println("--===tadam==---");
+		return "redirect:/editStations";
 	}
 
 	@GetMapping("/route/delete/{id}")
