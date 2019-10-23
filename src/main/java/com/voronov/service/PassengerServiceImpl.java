@@ -20,7 +20,7 @@ public class PassengerServiceImpl implements PassengerService {
 	private PassengerDao passengerDao;
 
 	@Override
-	public Passenger findById(int id) {
+	public Passenger findById(long id) {
 		return passengerDao.findById(id);
 	}
 
@@ -31,7 +31,7 @@ public class PassengerServiceImpl implements PassengerService {
 	}
 
 	@Override
-	public List<Passenger> findPassengersOnTrip(int id) {
+	public List<Passenger> findPassengersOnTrip(long id) {
 		return passengerDao.findPassengersOnTrip(id);
 	}
 

@@ -26,10 +26,7 @@
                     <a href="user">Users</a>
                 </li>
                 <li>
-                    <a href="showViewPage">viewPage</a>
-                </li>
-                <li>
-                    <a href="testPage">testPage</a>
+                    <a href="passenger">Зарегистрированные пассажиры</a>
                 </li>
             </ul>
         </div>

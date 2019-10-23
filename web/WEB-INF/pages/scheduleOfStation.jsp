@@ -5,12 +5,12 @@
 <html>
 <head>
     <title>Stations</title>
-    <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
-    <link href="resources/css/stations.css" rel="stylesheet" type="text/css"/>
+    <link href="resources\css\index.css" rel="stylesheet" type="text/css"/>
+    <link href="resources\css\stations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <h1>Schedule</h1>
-    <form method="POST" action="getSchedule${route.getId()}">
+    <form method="POST" action="getSchedule">
         <input list="stations" id="station" name="name" placeholder="Выберите станцию" />
         <datalist id="stations">
             <c:forEach var="station" items="${stations}" >

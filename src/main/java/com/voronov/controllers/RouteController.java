@@ -62,7 +62,7 @@ public class RouteController {
 						 @RequestParam String number,
 						 @RequestParam String name) {
 		Route route = routeService.findById(Integer.parseInt(id));
-		route.setRouteNumber(number);
+		route.setNumber(number);
 		route.setName(name);
 		routeService.update(route);
 		return "redirect:/route";

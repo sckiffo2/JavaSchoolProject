@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,7 +16,7 @@ import java.util.List;
 public class Route extends SuperEntity {
 
 	@Column(name = "route_number")
-	private String routeNumber;
+	private String number;
 
 	@Column(name = "name")
 	private String name;
@@ -31,8 +30,8 @@ public class Route extends SuperEntity {
 	@OneToMany(mappedBy = "route")
 	private List<Trip> tripsList;
 
-	public Route(String routeNumber, String name, String schedulePattern) {
-		this.routeNumber = routeNumber;
+	public Route(String number, String name, String schedulePattern) {
+		this.number = number;
 		this.name = name;
 		this.schedulePattern = schedulePattern;
 	}

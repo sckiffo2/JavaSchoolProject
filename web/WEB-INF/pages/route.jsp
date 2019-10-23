@@ -35,7 +35,7 @@
                 <c:out value="${route.getId()}" />
             </td>
             <td>
-                <c:out value="${route.getRouteNumber()}" />
+                <c:out value="${route.getNumber()}" />
             </td>
             <td>
                 <c:out value="${route.getName()}" />

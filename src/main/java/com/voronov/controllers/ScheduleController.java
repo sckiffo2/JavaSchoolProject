@@ -36,5 +36,4 @@ public class ScheduleController {
 		model.addAttribute("stations", stationService.findAll());
 		return "scheduleOfStation";
 	}
-
 }

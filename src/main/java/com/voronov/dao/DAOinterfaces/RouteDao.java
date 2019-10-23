@@ -9,6 +9,8 @@ public interface RouteDao {
 
 	Route findByName(String name);
 
+	Route findByNumber(String number);
+
 	@SuppressWarnings("unchecked")
 	List<Route> findAll();
 

@@ -13,6 +13,8 @@ public interface RouteService {
 
 	Route findByName(String name);
 
+	Route findByNumber(String name);
+
 	List<Route> findRoutesByStationId(long id);
 
 	void save(Route passenger);

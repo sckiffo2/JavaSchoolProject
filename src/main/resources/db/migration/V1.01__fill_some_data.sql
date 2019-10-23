@@ -27,7 +27,6 @@ INSERT INTO public.route_station (route_id, station_id, arrival_time, departure_
 INSERT INTO public.route_station (route_id, station_id, arrival_time, departure_time, index_in_route) VALUES (2, 7, 21720, 21840, 5);
 INSERT INTO public.route_station (route_id, station_id, arrival_time, departure_time, index_in_route) VALUES (2, 4, 40260, null, 6);
 
-
 INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-22', false, 1);
 INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-22', false, 2);
 INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-23', false, 1);
@@ -36,3 +35,14 @@ INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-24', 
 INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-24', false, 2);
 INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-25', false, 1);
 INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-25', false, 2);
+
+
+INSERT INTO public.passengers (first_name, last_name, birth_date, gender) VALUES ('Петр', 'Иванов', '1950-01-01', 'M');
+INSERT INTO public.passengers (first_name, last_name, birth_date, gender) VALUES ('Иван', 'Петров', '1950-01-01', 'M');
+INSERT INTO public.passengers (first_name, last_name, birth_date, gender) VALUES ('Александр', 'Жданов', '1950-01-01', 'M');
+INSERT INTO public.passengers (first_name, last_name, birth_date, gender) VALUES ('Василий', 'Теркин', '1950-01-01', 'M');
+INSERT INTO public.passengers (first_name, last_name, birth_date, gender) VALUES ('Александр', 'Цекало', '1950-01-01', 'M');
+INSERT INTO public.passengers (first_name, last_name, birth_date, gender) VALUES ('Олег', 'Газманов', '1950-01-01', 'M');
+
+INSERT INTO public.tickets (passenger_id, trip_id, start_station_id, end_station_id, wagon_number, seat_number, booked, price) VALUES (1, 1, 4, 1, 1, 1, true, 5000);
+INSERT INTO public.tickets (passenger_id, trip_id, start_station_id, end_station_id, wagon_number, seat_number, booked, price) VALUES (2, 1, 4, 1, 1, 2, true, 5000);
