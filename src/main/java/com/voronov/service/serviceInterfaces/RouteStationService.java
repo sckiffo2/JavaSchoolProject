@@ -11,7 +11,7 @@ public interface RouteStationService {
 
 	RouteStation findById(int id);
 
-	void save(RouteStation routeStation);
+	void save(String strId, String stationName, String strArrival, String strDeparture, String arrivalDayNumber, String departureDayNumber);
 
 	void update(RouteStation station);
 

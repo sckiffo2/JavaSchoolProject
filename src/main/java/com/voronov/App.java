@@ -7,6 +7,7 @@ import com.voronov.service.serviceInterfaces.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 public class App {
@@ -31,7 +32,6 @@ public class App {
 //		List<Route> routesWithStation = routeService.findRoutesByStationId(9);
 
 		LocalDate date = LocalDate.parse("2019-10-23");
-
 
 		List<StationScheduleDTO> scheduleOfStation = stationService.getScheduleOfStation(9, date);
 

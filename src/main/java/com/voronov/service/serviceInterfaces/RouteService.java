@@ -9,7 +9,7 @@ public interface RouteService {
 
 	void setRouteDao(RouteDao routeDao);
 
-	Route findById(int id);
+	Route findById(long id);
 
 	Route findByName(String name);
 

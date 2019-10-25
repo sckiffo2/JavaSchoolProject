@@ -19,7 +19,7 @@ public class RouteServiceImpl implements RouteService {
 	private RouteDao routeDao;
 
 	@Override
-	public Route findById(int id) {
+	public Route findById(long id) {
 		return routeDao.findById(id);
 	}
 

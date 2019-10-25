@@ -69,18 +69,43 @@ public class RouteController {
 	}
 
 	@GetMapping("route/editStations/{id}")
-	public String addStationsPage(@PathVariable int id, ModelMap map) {
+	public String addStationsPage1(@PathVariable int id, ModelMap map) {
 
+		map.addAttribute("id", id);
 		map.addAttribute("stations", stationService.findAll());
 		map.addAttribute("stationsOfRoute", routeStationService.findStationsOfRoute(id));
 
 		return "editStations";
 	}
 
-	@PostMapping("editStations")
-	public String addStationToRoute(RedirectAttributes redirectAttributes) {
-		System.out.println("--===tadam==---");
-		return "redirect:/editStations";
+	@GetMapping("route/editStations")
+	public String addStationsPage(ModelMap map) {
+		int id = 1;
+		map.addAttribute("stations", stationService.findAll());
+		map.addAttribute("stationsOfRoute", routeStationService.findStationsOfRoute(id));
+
+		return "editStations";
+	}
+
+	@PostMapping("route/editStations/addStationToRoute")
+	public String addStationToRoute(@RequestParam String id,
+									@RequestParam String station,
+									@RequestParam String arrival,
+									@RequestParam String departure,
+									@RequestParam String arrivalDay,
+									@RequestParam String departureDay,
+									RedirectAttributes redirectAttributes) {
+		if (id.equals("") || station.equals("") || (arrival.equals("") && departure.equals(""))) {
+			return "ErrorPage";
+		}
+		if (arrivalDay.isEmpty()) {
+			arrivalDay = "0";
+		}
+		if (departureDay.isEmpty()) {
+			departureDay = "0";
+		}
+		routeStationService.save(id, station, arrival, departure, arrivalDay, departureDay);
+		return "redirect:/route/editStations/"+ id;
 	}
 
 	@GetMapping("/route/delete/{id}")
