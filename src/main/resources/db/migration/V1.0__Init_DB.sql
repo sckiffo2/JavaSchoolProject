@@ -1,38 +1,3 @@
--- create sequence passengers_id_seq;
---
--- alter sequence passengers_id_seq owner to postgres;
---
--- create sequence roles_id_seq;
---
--- alter sequence roles_id_seq owner to postgres;
---
--- create sequence route_station_id_seq;
---
--- alter sequence route_station_id_seq owner to postgres;
---
--- create sequence routes_id_seq;
---
--- alter sequence routes_id_seq owner to postgres;
---
--- create sequence stations_id_seq;
---
--- alter sequence stations_id_seq owner to postgres;
---
--- create sequence tickets_id_seq;
---
--- alter sequence tickets_id_seq owner to postgres;
---
--- create sequence train_structure_id_seq;
---
--- alter sequence train_structure_id_seq owner to postgres;
---
--- create sequence trips_id_seq;
---
--- alter sequence trips_id_seq owner to postgres;
---
--- create sequence users_id_seq;
---
--- alter sequence users_id_seq owner to postgres;
 
 create table passengers
 (
@@ -183,15 +148,32 @@ create table train_structure
     create_date    date    not null
 );
 
-alter table train_structure
-    owner to postgres;
+alter table train_structure owner to postgres;
+
+create table if not exists trip_station
+(
+    id bigserial          not null
+        constraint trip_station_pk
+            primary key,
+    trip_id bigint        not null
+        constraint fk_trip_id
+            references trips,
+    station_id bigint     not null
+        constraint fk_station_id
+            references stations,
+    arrival_time timestamp,
+    departure_time timestamp,
+    index_in_trip integer not null
+);
+
+alter table trip_station owner to postgres;
 
 create table route_station
 (
     id             bigserial  not null
         constraint route_station_pk
             primary key,
-    route_id       bigint
+    route_id       bigint  not null
         constraint "FK_route_id"
             references routes
             deferrable,
@@ -203,6 +185,5 @@ create table route_station
     index_in_route integer not null
 );
 
-alter table route_station
-    owner to postgres;
+alter table route_station owner to postgres;
 

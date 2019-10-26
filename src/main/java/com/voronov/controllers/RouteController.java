@@ -60,10 +60,12 @@ public class RouteController {
 	@PostMapping("route/edit/updateRoute")
 	public String update(@RequestParam String id,
 						 @RequestParam String number,
-						 @RequestParam String name) {
+						 @RequestParam String name,
+						 @RequestParam String pattern) {
 		Route route = routeService.findById(Integer.parseInt(id));
 		route.setNumber(number);
 		route.setName(name);
+		route.setSchedulePattern(pattern);
 		routeService.update(route);
 		return "redirect:/route";
 	}

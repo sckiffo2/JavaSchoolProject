@@ -14,19 +14,22 @@
         <div class="side-menu">
             <ul class="side-menu-ul">
                 <li>
-                    <a href="scheduleOfStation">Schedule</a>
+                    <a href="tripSearch">Поиск рейса</a>
+                </li>
+                <li>
+                    <a href="scheduleOfStation">Расписание</a>
                 </li>
                 <li class="active">
-                    <a href="station">Stations</a>
+                    <a href="station">Станции</a>
                 </li>
                 <li>
-                    <a href="route">Routes</a>
+                    <a href="route">Маршруты</a>
                 </li>
                 <li>
-                    <a href="user">Users</a>
+                    <a href="user">Пользователи</a>
                 </li>
                 <li>
-                    <a href="passenger">Зарегистрированные пассажиры</a>
+                    <a href="passenger">Пассажиры рейса</a>
                 </li>
             </ul>
         </div>

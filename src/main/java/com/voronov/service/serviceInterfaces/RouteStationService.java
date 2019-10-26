@@ -9,7 +9,7 @@ public interface RouteStationService {
 
 	void setRouteStationDao(RouteStationDao routeStationDao);
 
-	RouteStation findById(int id);
+	RouteStation findById(long id);
 
 	void save(String strId, String stationName, String strArrival, String strDeparture, String arrivalDayNumber, String departureDayNumber);
 
@@ -19,5 +19,5 @@ public interface RouteStationService {
 
 	List<RouteStation> findAll();
 
-	public List<RouteStation> findStationsOfRoute(int id);
+	List<RouteStation> findStationsOfRoute(long id);
 }

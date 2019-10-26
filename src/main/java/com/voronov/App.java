@@ -7,7 +7,6 @@ import com.voronov.service.serviceInterfaces.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 
 public class App {
@@ -23,19 +22,26 @@ public class App {
 		routeStationService.setRouteStationDao(new RouteStationDaoImpl());
 		passengerService.setPassengerDao(new PassengerDaoImpl());
 		tripService.setTripDao(new TripDaoImpl());
+		tripService.setStationService(stationService);
+		tripService.setRouteService(routeService);
 		ticketService.setTicketDao(new TicketDaoImpl());
 		stationService.setTripService(tripService);
+		ticketService.setRouteService(routeService);
+		ticketService.setStationService(stationService);
+		ticketService.setTripService(tripService);
 
 //		List<Trip> tripList = tripService.findByRouteId(1);
 //		List<Passenger> passengersList = passengerService.findPassengersOnTrip(1);
 //		List<Ticket> ticketList = ticketService.findByTripId(1);
 //		List<Route> routesWithStation = routeService.findRoutesByStationId(9);
 
-		LocalDate date = LocalDate.parse("2019-10-23");
-
-		List<StationScheduleDTO> scheduleOfStation = stationService.getScheduleOfStation(9, date);
+		LocalDate date = LocalDate.parse("2019-10-22");
+//		List<Trip> routes = ticketService.findTripsByStationsAndDate(4, 1, date);
 
 //		System.out.println(tripsForSchedule.get(1).getRoute().getStationsOnRoute().get(1).getStation().getName());
 		System.out.println();
+
+		//todo error listener
+		//todo security
 	}
 }

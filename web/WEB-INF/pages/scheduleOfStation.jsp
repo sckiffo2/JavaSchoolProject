@@ -37,7 +37,6 @@
         </tr>
         <c:forEach var="scheduleRow" items="${schedule}" >
             <tr>
-
                 <td>
                     <c:out value="${scheduleRow.routeNumber}" />
                 </td>
@@ -45,10 +44,10 @@
                     <c:out value="${scheduleRow.routeName}" />
                 </td>
                 <td>
-                    ${scheduleRow.arrival}
+                    ${scheduleRow.getArrivalTimeString()}
                 </td>
                 <td>
-                    ${scheduleRow.departure}
+                    ${scheduleRow.getDepartureTimeString()}
                 </td>
             </tr>
         </c:forEach>

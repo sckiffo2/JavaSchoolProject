@@ -1,9 +1,8 @@
 package com.voronov.service.serviceInterfaces;
 
-import com.voronov.StationScheduleDTO;
+import com.voronov.entitiesDTO.StationScheduleDTO;
 import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;
-import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,7 +13,7 @@ public interface StationService {
 
 	void setTripService(TripService tripService);
 
-	Station findById(int id);
+	Station findById(long id);
 
 	Station findByName(String name);
 

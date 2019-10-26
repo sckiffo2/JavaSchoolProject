@@ -13,9 +13,15 @@ public interface TripService {
 
 	List<Trip> findTripsByStationId(long id);
 
+	List<Trip> findTripsByStationsAndDate(long firstStationId, long secondStationId, LocalDate date);
+
 	void delete(long id);
 
 	List<Trip> findAll();
 
 	void setTripDao(TripDao tripDao);
+
+	void setStationService(StationService stationService);
+
+	void setRouteService(RouteService routeService);
 }

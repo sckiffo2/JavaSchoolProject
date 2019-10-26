@@ -10,7 +10,9 @@ public interface TripDao {
 
 	Trip findByRouteIdAndDate(long id, LocalDate date);
 
-	public List<Trip> findTripsByStationId(long id);
+	List<Trip> findTripsByStationId(long id);
+
+	List<Trip> findTripsByStationAndDate(long firstStationId, LocalDate date);
 
 	@SuppressWarnings("unchecked")
 	List<Trip> findAll();

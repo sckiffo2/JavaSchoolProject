@@ -10,6 +10,7 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 
@@ -58,6 +59,25 @@ public class TripDaoImpl implements TripDao {
 
 			Query query = session.createQuery("select t from Trip t join fetch t.route r join fetch r.stationsOnRoute rs where rs.station.id = : id", Trip.class);
 			query.setParameter("id", id);
+			result = query.getResultList();
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public List<Trip> findTripsByStationAndDate(long firstStationId, LocalDate date) {
+		List<Trip> result = null;
+
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+
+			Query query = session.createQuery("select t from Trip t join fetch t.stationsOnTrip ST join fetch t.stations s where ST.station.id = :id and ST.arrivalTime.toLocalDate() = :date", Trip.class);
+			query.setParameter("id", firstStationId);
+			query.setParameter("date", date.atStartOfDay()); //todo compare datetime at same date ?
 			result = query.getResultList();
 
 			session.getTransaction().commit();

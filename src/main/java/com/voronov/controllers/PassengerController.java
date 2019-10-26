@@ -1,6 +1,5 @@
 package com.voronov.controllers;
 
-import com.voronov.entities.Route;
 import com.voronov.service.serviceInterfaces.PassengerService;
 import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.TripService;
@@ -38,11 +37,15 @@ public class PassengerController {
 	public String save(@RequestParam String number,
 					   @RequestParam String date,
 								   Model model) {
-		long routeId = routeService.findByNumber(number).getId();
-		LocalDate localDate = LocalDate.parse(date);
-		long tripId = tripService.findByRouteIdAndDate(routeId, localDate).getId();
 		model.addAttribute("routes", routeService.findAll());
-		model.addAttribute("passengers",passengerService.findPassengersOnTrip(tripId));
+		if (!number.isEmpty() && !date.isEmpty()) {
+			long routeId = routeService.findByNumber(number).getId();
+			LocalDate localDate = LocalDate.parse(date);
+			long tripId = tripService.findByRouteIdAndDate(routeId, localDate).getId();
+			model.addAttribute("passengers",passengerService.findPassengersOnTrip(tripId));
+		} else {
+			return "ErrorPage";
+		}
 		return "passenger";
 	}
 }

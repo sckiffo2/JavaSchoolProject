@@ -1,6 +1,6 @@
 package com.voronov.service;
 
-import com.voronov.StationScheduleDTO;
+import com.voronov.entitiesDTO.StationScheduleDTO;
 import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;
 import com.voronov.entities.Trip;
@@ -27,7 +27,7 @@ public class StationServiceImpl implements StationService {
 	private TripService tripService;
 
 	@Override
-	public Station findById(int id) {
+	public Station findById(long id) {
 		return stationDao.findById(id);
 	}
 

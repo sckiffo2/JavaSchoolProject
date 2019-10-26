@@ -34,7 +34,7 @@ public class RouteStationServiceImpl implements RouteStationService {
 	private RouteService routeService;
 
 	@Override
-	public RouteStation findById(int id) {
+	public RouteStation findById(long id) {
 		return routeStationDao.findById(id);
 	}
 
@@ -80,7 +80,7 @@ public class RouteStationServiceImpl implements RouteStationService {
 	}
 
 	@Override
-	public List<RouteStation> findStationsOfRoute(int id) {
+	public List<RouteStation> findStationsOfRoute(long id) {
 		List<RouteStation> stationsOfRoute = routeStationDao.findStationsOfRoute(id);
 		stationsOfRoute.sort(Comparator.comparing(RouteStation::getIndexInRoute));
 		return stationsOfRoute;

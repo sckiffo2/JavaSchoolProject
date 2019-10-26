@@ -36,6 +36,17 @@ INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-24', 
 INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-25', false, 1);
 INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-25', false, 2);
 
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (1, 4, null, '2019-10-22 00:40:00.000000', 1);
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (1, 9, '2019-10-22 04:12:00.000000', '2019-10-22 04:47:00.000000', 2);
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (1, 13, '2019-10-22 05:22:00.000000', '2019-10-22 05:23:00.000000', 3);
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (1, 10, '2019-10-22 07:30:00.000000', '2019-10-22 07:32:00.000000', 4);
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (1, 1, '2019-10-22 10:07:00.000000', null, 5);
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (2, 1, null, '2019-10-22 01:25:00.000000', 1);
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (2, 10, '2019-10-22 03:11:00.000000', '2019-10-22 03:13:00.000000', 2);
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (2, 13, '2019-10-22 04:25:00.000000', '2019-10-22 04:27:00.000000', 3);
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (2, 9, '2019-10-22 04:57:00.000000', '2019-10-22 05:14:00.000000', 4);
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (2, 7, '2019-10-22 06:02:00.000000', '2019-10-22 06:04:00.000000', 5);
+INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (2, 4, '2019-10-22 11:11:00.000000', null, 6);
 
 INSERT INTO public.passengers (first_name, last_name, birth_date, gender) VALUES ('Петр', 'Иванов', '1950-01-01', 'M');
 INSERT INTO public.passengers (first_name, last_name, birth_date, gender) VALUES ('Иван', 'Петров', '1950-01-01', 'M');

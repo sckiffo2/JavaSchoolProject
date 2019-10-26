@@ -40,20 +40,20 @@ public class StationController {
 		return "redirect:/station";
 	}
 
-//	@GetMapping("/station/edit/{id}")
-//	public String updatePage(@PathVariable int id, Model model) {
-//		model.addAttribute(stationService.findById(id));
-//		return "stationEdit";
-//	}
-//
-//	@PostMapping("station/edit/updateStation")
-//	public String update(@RequestParam String id,
-//						 @RequestParam String name) {
-//		Station station = stationService.findById(Integer.parseInt(id));
-//		station.setName(name);
-//		stationService.update(station);
-//		return "redirect:/station";
-//	}
+	@GetMapping("/station/edit/{id}")
+	public String updatePage(@PathVariable int id, Model model) {
+		model.addAttribute(stationService.findById(id));
+		return "stationEdit";
+	}
+
+	@PostMapping("station/edit/updateStation")
+	public String update(@RequestParam String id,
+						 @RequestParam String name) {
+		Station station = stationService.findById(Integer.parseInt(id));
+		station.setName(name);
+		stationService.update(station);
+		return "redirect:/station";
+	}
 
 	@GetMapping("/station/delete/{id}")
 	public String delete(@PathVariable int id) {
