@@ -1,6 +1,7 @@
 package com.voronov.dao.DAOinterfaces;
 
 import com.voronov.entities.Trip;
+import com.voronov.entities.TripStation;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,7 +13,7 @@ public interface TripDao {
 
 	List<Trip> findTripsByStationId(long id);
 
-	List<Trip> findTripsByStationAndDate(long firstStationId, LocalDate date);
+	List<TripStation> findTripStationsByTripId(long id);
 
 	@SuppressWarnings("unchecked")
 	List<Trip> findAll();

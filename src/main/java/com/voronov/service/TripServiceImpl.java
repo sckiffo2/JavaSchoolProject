@@ -5,6 +5,7 @@ import com.voronov.entities.Route;
 import com.voronov.entities.Station;
 import com.voronov.entities.Trip;
 import com.voronov.entities.TripStation;
+import com.voronov.entitiesDTO.TicketScheduleDTO;
 import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.StationService;
 import com.voronov.service.serviceInterfaces.TripService;
@@ -43,7 +44,8 @@ public class TripServiceImpl implements TripService {
 	}
 
 	@Override
-	public List<Trip> findTripsByStationsAndDate(long firstStationId, long secondStationId, LocalDate date) {
+	public List<TicketScheduleDTO> findTripsByStationsAndDate(long firstStationId, long secondStationId, LocalDate date) {
+
 		Station secondStation = stationService.findById(secondStationId);
 
 		List<Trip> tripsWithStationOne = tripDao.findTripsByStationId(firstStationId);
@@ -51,7 +53,7 @@ public class TripServiceImpl implements TripService {
 				.filter(x -> x.getStations().contains(secondStation))
 				.collect(Collectors.toList()
 				);
-		List<Trip> result = new ArrayList<>();
+		List<Trip> resultTrips = new ArrayList<>();
 		for (Trip trip : tripsWithBothStations) {
 			TripStation departureStation = null;
 			TripStation arrivalStation = null;
@@ -67,21 +69,42 @@ public class TripServiceImpl implements TripService {
 
 			if (departureStation != null && arrivalStation != null &&
 					departureStation.getIndexInRoute() < arrivalStation.getIndexInRoute()) {
-				result.add(trip);
+				resultTrips.add(trip);
 			}
 		}
 
-		System.out.println();
+		List<TicketScheduleDTO> result = new ArrayList<>();
+
+		for (Trip trip : resultTrips) {
+			TicketScheduleDTO ticketScheduleDTO = new TicketScheduleDTO();
+			ticketScheduleDTO.setTripId(trip.getId());
+			ticketScheduleDTO.setRouteNumber(trip.getRoute().getNumber());
+			ticketScheduleDTO.setRouteName(trip.getRoute().getName());
+			ticketScheduleDTO.setCanceled(trip.getCanceled());
+			for (TripStation tripStation : trip.getStationsOnTrip()) {
+				if (tripStation.getStation().getId() == firstStationId) {
+					ticketScheduleDTO.setDepartureStation(tripStation.getStation().getName());
+					ticketScheduleDTO.setDeparture(tripStation.getDepartureTime());
+				}
+				if (tripStation.getStation().getId() == secondStationId) {
+					ticketScheduleDTO.setArrivalStation(tripStation.getStation().getName());
+					ticketScheduleDTO.setArrival(tripStation.getArrivalTime());
+				}
+			}
+			result.add(ticketScheduleDTO);
+		}
 
 		return result;
 	}
 
 	@Override
 	public List<Trip> findTripsByStationId(long id) {
+		return tripDao.findTripsByStationId(id);
+	}
 
-		List<Trip> result = tripDao.findTripsByStationId(id);
-
-		return result;
+	@Override
+	public List<TripStation> findTripStations(long id) {
+		return tripDao.findTripStationsByTripId(id);
 	}
 
 	@Override

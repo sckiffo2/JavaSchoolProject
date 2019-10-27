@@ -2,6 +2,7 @@ package com.voronov.dao;
 
 import com.voronov.dao.DAOinterfaces.TripDao;
 import com.voronov.entities.Trip;
+import com.voronov.entities.TripStation;
 import com.voronov.utils.HibernateSessionFactoryUtil;
 import lombok.NoArgsConstructor;
 import org.hibernate.HibernateException;
@@ -69,15 +70,14 @@ public class TripDaoImpl implements TripDao {
 	}
 
 	@Override
-	public List<Trip> findTripsByStationAndDate(long firstStationId, LocalDate date) {
-		List<Trip> result = null;
+	public List<TripStation> findTripStationsByTripId(long id) {
+		List<TripStation> result = null;
 
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 
-			Query query = session.createQuery("select t from Trip t join fetch t.stationsOnTrip ST join fetch t.stations s where ST.station.id = :id and ST.arrivalTime.toLocalDate() = :date", Trip.class);
-			query.setParameter("id", firstStationId);
-			query.setParameter("date", date.atStartOfDay()); //todo compare datetime at same date ?
+			Query query = session.createQuery("select ts from Trip t join t.stationsOnTrip ts where t.id = : id", TripStation.class);
+			query.setParameter("id", id);
 			result = query.getResultList();
 
 			session.getTransaction().commit();

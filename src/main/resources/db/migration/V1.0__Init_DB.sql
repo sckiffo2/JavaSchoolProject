@@ -150,7 +150,7 @@ create table train_structure
 
 alter table train_structure owner to postgres;
 
-create table if not exists trip_station
+create table trip_station
 (
     id bigserial          not null
         constraint trip_station_pk

@@ -1,9 +1,22 @@
 package com.voronov.entitiesDTO;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class TicketScheduleDTO {
+
+    private final String TIME_FORMAT_PATTERN = "dd.MM.uuuu HH:mm";
+
+	private long tripId;
 
 	private String routeNumber;
 
@@ -15,11 +28,15 @@ public class TicketScheduleDTO {
 
 	private boolean canceled;
 
+	private String departureStation;
+
+	private String arrivalStation;
+
 	public String getArrivalTimeString() {
 		if (canceled) {
 			return "отменен";
 		}
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(TIME_FORMAT_PATTERN);
 		return arrival.format(formatter);
 	}
 
@@ -27,7 +44,7 @@ public class TicketScheduleDTO {
 		if (canceled) {
 			return "отменен";
 		}
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(TIME_FORMAT_PATTERN);
 		return departure.format(formatter);
 	}
 

@@ -2,10 +2,7 @@ package com.voronov.entities;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "tickets")
@@ -17,16 +14,20 @@ import javax.persistence.Table;
 public class Ticket extends SuperEntity{
 
 	@ManyToOne
+    @JoinColumn(name = "passenger_id")
     private Passenger passenger;
 
     @ManyToOne
-    private Trip Trip;
+    @JoinColumn(name = "trip_id")
+    private Trip trip;
 
-    @Column(name = "start_station_id")
-    private Long startStationId;
+    @ManyToOne
+    @JoinColumn(name = "start_station_id")
+    private Station departureStation;
 
-    @Column(name = "end_station_id")
-    private Long endStationId;
+    @ManyToOne
+    @JoinColumn(name = "end_station_id")
+    private Station arrivalStation;
 
     @Column(name = "wagon_number")
     private int wagonNumber;

@@ -14,9 +14,11 @@ import javax.persistence.*;
 public class RouteStation extends SuperEntity {
 
 	@ManyToOne
+	@JoinColumn(name = "route_id")
 	private Route route;
 
 	@ManyToOne
+	@JoinColumn(name = "station_id")
 	private Station station;
 
 	@Column(name = "arrival_time")

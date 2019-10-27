@@ -33,7 +33,7 @@ public class TicketController {
 		if (!departureStation.equals("") && !arrivalStation.equals("") && !stringDate.equals("")) {
 			model.addAttribute("stations", ticketService.findAllStations());
 			LocalDate date = LocalDate.parse(stringDate);
-			model.addAttribute("trips", ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, date));
+			model.addAttribute("TicketScheduleDTO", ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, date));
 		} else {
 			return "ErrorPage";
 		}

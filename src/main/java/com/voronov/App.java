@@ -2,6 +2,7 @@ package com.voronov;
 
 import com.voronov.dao.*;
 import com.voronov.entities.*;
+import com.voronov.entitiesDTO.TicketScheduleDTO;
 import com.voronov.service.*;
 import com.voronov.service.serviceInterfaces.*;
 
@@ -39,9 +40,20 @@ public class App {
 //		List<Trip> routes = ticketService.findTripsByStationsAndDate(4, 1, date);
 
 //		System.out.println(tripsForSchedule.get(1).getRoute().getStationsOnRoute().get(1).getStation().getName());
+//		String departureStation = "Санкт-Петербург-Главн.";
+//		String arrivalStation = "Москва Октябрьская";
+//		List<TicketScheduleDTO> list = ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, date);
+
+		List<List<Integer>> list = ticketService.findFreeSeats(1, 4, 1);
+
 		System.out.println();
 
 		//todo error listener
+		//todo trip create form
+		//todo validation
+		//todo wrong data input
 		//todo security
+		//todo logs
+		//todo tests
 	}
 }

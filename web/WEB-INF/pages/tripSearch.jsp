@@ -37,22 +37,25 @@
     <tr>
         <th>№ Поезда</th>
         <th>Название поезда</th>
-        <th></th>
-        <th></th>
+        <th>Отправление</th>
+        <th>Прибытие</th>
     </tr>
-    <c:forEach var="trip" items="${trips}" >
+    <c:forEach var="dto" items="${TicketScheduleDTO}" >
         <tr>
             <td>
-                <c:out value="${trip.getRoute().getNumber()}" />
+                <c:out value="${dto.getRouteNumber()}" />
             </td>
             <td>
-                <c:out value="${trip.getRoute().getName()}" />
+                <c:out value="${dto.getRouteName()}" />
             </td>
             <td>
-                <a href="bookTicket/<c:url value="${trip.getId()}"/>">Забронировать билет</a>
+                <c:out value="${dto.getDepartureTimeString()}" />
             </td>
             <td>
-
+                <c:out value="${dto.getArrivalTimeString()}" />
+            </td>
+            <td>
+                <a href="bookTicket/<c:url value="${dto.getTripId()}"/>">Забронировать билет</a>
             </td>
         </tr>
     </c:forEach>

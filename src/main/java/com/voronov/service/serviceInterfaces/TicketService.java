@@ -4,6 +4,7 @@ import com.voronov.dao.DAOinterfaces.TicketDao;
 import com.voronov.entities.Station;
 import com.voronov.entities.Ticket;
 import com.voronov.entities.Trip;
+import com.voronov.entitiesDTO.TicketScheduleDTO;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -22,7 +23,9 @@ public interface TicketService {
 
 	List<Ticket> findByTripId(long id);
 
-	List<Trip> findTripsByStationsAndDate(String firstStation, String secondStation, LocalDate departureDate);
+	List<TicketScheduleDTO> findTripsByStationsAndDate(String firstStation, String secondStation, LocalDate departureDate);
+
+	List<List<Integer>> findFreeSeats(long tripId, long departureStationId, long arrivalStationId);
 
 	void bookTicket(Ticket ticket);
 
