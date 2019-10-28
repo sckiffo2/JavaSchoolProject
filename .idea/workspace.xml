@@ -6,24 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eae98d9e-53d4-4f0d-9420-5e097589c4a7" name="Default Changelist" comment="fix route jsp bug">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="eae98d9e-53d4-4f0d-9420-5e097589c4a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AnyWayTicket.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AnyWayTicket.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/controllers/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/controllers/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/TripDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/DAOinterfaces/TripDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/TicketDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/TicketDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/dao/TripDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/dao/TripDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/entities/RouteStation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entities/RouteStation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entities/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/entitiesDTO/TicketScheduleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/entitiesDTO/TicketScheduleDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/TicketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/TicketServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/TripServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/TripServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/serviceInterfaces/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/serviceInterfaces/TicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/voronov/service/serviceInterfaces/TripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/voronov/service/serviceInterfaces/TripService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0__Init_DB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/migration/V1.0__Init_DB.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/pages/ErrorPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/ErrorPage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/WEB-INF/pages/tripSearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/tripSearch.jsp" afterDir="false" />
     </list>
     <list id="40814c73-4cdb-4cfb-b9a8-0cda77df4489" name="Revert: " comment="" />
@@ -196,7 +185,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.26">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.voronov.App" />
       <module name="AnyWayTicket" />
@@ -305,11 +294,6 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@c025c5f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@7d4dcf07" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@c025c5f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3923371f" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
@@ -356,7 +340,7 @@
       <workItem from="1571681198496" duration="9698000" />
       <workItem from="1571730126385" duration="28809000" />
       <workItem from="1571819097386" duration="5185000" />
-      <workItem from="1572166157650" duration="14671000" />
+      <workItem from="1572166157650" duration="24709000" />
     </task>
     <task id="LOCAL-00001" summary="added hibernate support for Stations(Entity, Dao, Service). Tested by main method.">
       <created>1570709586811</created>
@@ -435,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572027925458</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added TicketScheduleDTO, modified tripSearch.jsp to match TicketScheduleDTO representation,&#10;added findFreeSeats() method to TicketService">
+      <created>1572183228074</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1572183228075</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,7 +482,8 @@
     <MESSAGE value="added StationScheduleDTO, added getScheduleOfStation() method to StationService,&#10;added ScheduleController and view for it" />
     <MESSAGE value="added PassengerController and view for it" />
     <MESSAGE value="fix route jsp bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix route jsp bug" />
+    <MESSAGE value="added TicketScheduleDTO, modified tripSearch.jsp to match TicketScheduleDTO representation,&#10;added findFreeSeats() method to TicketService" />
+    <option name="LAST_COMMIT_MESSAGE" value="added TicketScheduleDTO, modified tripSearch.jsp to match TicketScheduleDTO representation,&#10;added findFreeSeats() method to TicketService" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

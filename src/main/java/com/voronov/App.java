@@ -40,11 +40,11 @@ public class App {
 //		List<Trip> routes = ticketService.findTripsByStationsAndDate(4, 1, date);
 
 //		System.out.println(tripsForSchedule.get(1).getRoute().getStationsOnRoute().get(1).getStation().getName());
-//		String departureStation = "Санкт-Петербург-Главн.";
-//		String arrivalStation = "Москва Октябрьская";
+		String departureStation = "Санкт-Петербург-Главн.";
+		String arrivalStation = "Москва Октябрьская";
 //		List<TicketScheduleDTO> list = ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, date);
 
-		List<List<Integer>> list = ticketService.findFreeSeats(1, 4, 1);
+		List<List<Integer>> list = ticketService.findFreePlaces(1, departureStation, arrivalStation);
 
 		System.out.println();
 

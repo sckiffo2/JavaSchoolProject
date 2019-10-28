@@ -33,7 +33,7 @@ public class Ticket extends SuperEntity{
     private int wagonNumber;
 
     @Column(name = "seat_number")
-    private int seatNumber;
+    private int place;
 
     @Column(name = "price")
     private double price;

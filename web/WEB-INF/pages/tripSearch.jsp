@@ -43,10 +43,10 @@
     <c:forEach var="dto" items="${TicketScheduleDTO}" >
         <tr>
             <td>
-                <c:out value="${dto.getRouteNumber()}" />
+                <c:out value="${dto.routeNumber}" />
             </td>
             <td>
-                <c:out value="${dto.getRouteName()}" />
+                <c:out value="${dto.routeName}" />
             </td>
             <td>
                 <c:out value="${dto.getDepartureTimeString()}" />
@@ -55,7 +55,7 @@
                 <c:out value="${dto.getArrivalTimeString()}" />
             </td>
             <td>
-                <a href="bookTicket/<c:url value="${dto.getTripId()}"/>">Забронировать билет</a>
+                <a href="freeplaces/<c:out value="${dto.tripId}" />">Забронировать билет</a>
             </td>
         </tr>
     </c:forEach>

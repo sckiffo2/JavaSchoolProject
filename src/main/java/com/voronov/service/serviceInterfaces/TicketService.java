@@ -25,7 +25,7 @@ public interface TicketService {
 
 	List<TicketScheduleDTO> findTripsByStationsAndDate(String firstStation, String secondStation, LocalDate departureDate);
 
-	List<List<Integer>> findFreeSeats(long tripId, long departureStationId, long arrivalStationId);
+	List<List<Integer>> findFreePlaces(long tripId, String departureStationId, String arrivalStationId);
 
 	void bookTicket(Ticket ticket);
 

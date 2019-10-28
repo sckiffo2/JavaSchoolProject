@@ -55,13 +55,16 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public List<List<Integer>> findFreeSeats(long tripId, long departureStationId, long arrivalStationId) {
-		int numberOfWagons = 15;
-		int numberOfWagonSeats = 36;
-		List<List<Integer>> seatsList = new ArrayList<>(numberOfWagons);
+	public List<List<Integer>> findFreePlaces(long tripId, String departureStationName, String arrivalStationName) {
+		Station departureStation = stationService.findByName(departureStationName);
+		Station arrivalStation = stationService.findByName(arrivalStationName);
+
+	    int numberOfWagons = 15;
+		int numberOfPlacesInWagon = 36;
+		List<List<Integer>> placesList = new ArrayList<>(numberOfWagons);
 		for (int i = 0; i < numberOfWagons; i++) {
-			List<Integer> wagonSeats = IntStream.rangeClosed(1, numberOfWagonSeats).boxed().collect(Collectors.toList());
-			seatsList.add(wagonSeats);
+			List<Integer> wagonPlaces = IntStream.rangeClosed(1, numberOfPlacesInWagon).boxed().collect(Collectors.toList());
+			placesList.add(wagonPlaces);
 		}
 
 		List<Ticket> ticketsOfTrip = findByTripId(tripId);
@@ -71,15 +74,15 @@ public class TicketServiceImpl implements TicketService {
 		int arrivalStationIndex = 0;
 		Map<Station, Integer> stations = new HashMap<>();
 		for (TripStation tripStation : stationsOfTrip) {
-			if (tripStation.getStation().getId() == departureStationId) {
+			if (tripStation.getStation().getId().equals(departureStation.getId())  ) {
 				departureStationIndex = tripStation.getIndexInRoute();
-			} else if (tripStation.getStation().getId() == arrivalStationId) {
+			} else if (tripStation.getStation().getId().equals(arrivalStation.getId())) {
 				arrivalStationIndex = tripStation.getIndexInRoute();
 			}
 			stations.put(tripStation.getStation(), tripStation.getIndexInRoute());
 		}
 
-		//here we delete seats what already taken by another tickets
+		//here we delete places what already taken by another tickets from PlacesList
 		for (Ticket ticket : ticketsOfTrip) {
 			int ticketArrivalStationIndex = stations.get(ticket.getArrivalStation());
 			int ticketDepartureStationIndex = stations.get(ticket.getDepartureStation());
@@ -88,10 +91,9 @@ public class TicketServiceImpl implements TicketService {
 			} else if (ticketDepartureStationIndex >= arrivalStationIndex && ticketArrivalStationIndex > arrivalStationIndex) {
 				continue;
 			}
-			seatsList.get(ticket.getWagonNumber() - 1).remove(new Integer(ticket.getSeatNumber()));
+			placesList.get(ticket.getWagonNumber() - 1).remove(new Integer(ticket.getPlace()));
 		}
-
-		return seatsList;
+		return placesList;
 	}
 
 	@Override
@@ -102,7 +104,7 @@ public class TicketServiceImpl implements TicketService {
 //		ticketToBook.setDepartureStation();
 //		ticketToBook.setArrivalStation();
 		ticketToBook.setWagonNumber(2);
-		ticketToBook.setSeatNumber(3);
+		ticketToBook.setPlace(3);
 //		ticketToBook.setArrivalStation();
 
 		ticketDao.save(ticketToBook);
