@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 
@@ -29,8 +30,24 @@ public class PassengerDaoImpl implements PassengerDao {
 	}
 
 	@Override
-	public Passenger findByName(String name) {
-		return null;
+	public Passenger findByPassengerData(String firstName, String lastName, LocalDate birthDate) {
+		Passenger result = null;
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+			Query query = session.createQuery("from Passenger P where P.firstName = :firstName and P.lastName = :lastName and P.birthDate = :birthDate", Passenger.class);
+			query.setParameter("firstName", firstName);
+			query.setParameter("lastName", lastName);
+			query.setParameter("birthDate", birthDate);
+
+			List list = query.getResultList();
+			if (!list.isEmpty()) {
+				result = (Passenger) list.get(0);
+			}
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
@@ -39,7 +56,7 @@ public class PassengerDaoImpl implements PassengerDao {
 		List<Passenger> result = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
-			Query query = session.createQuery("select P from Passenger P inner join P.tickets T where T.Trip.id = :id", Passenger.class);
+			Query query = session.createQuery("select P from Passenger P inner join P.tickets T where T.trip.id = :id", Passenger.class);
 			query.setParameter("id", id);
 
 			result = (List)query.getResultList();

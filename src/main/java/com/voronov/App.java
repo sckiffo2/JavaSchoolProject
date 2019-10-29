@@ -44,10 +44,16 @@ public class App {
 		String arrivalStation = "Москва Октябрьская";
 //		List<TicketScheduleDTO> list = ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, date);
 
-		List<List<Integer>> list = ticketService.findFreePlaces(1, departureStation, arrivalStation);
+//		List<List<Integer>> list = ticketService.findFreePlaces(1, departureStation, arrivalStation);
 
 		System.out.println();
 
+		//todo 10 min till trip start
+		//todo check if passenger already on the trip
+		//todo цена билета формируется из магич числа + цена зоны * кол-во зон. Цена одной зоны хранится в trip
+		//todo booked ticket delete if > 10 minutes pass
+		//todo ticket price on tripChoose page
+		//todo buy 2 tickets same time
 		//todo error listener
 		//todo trip create form
 		//todo validation

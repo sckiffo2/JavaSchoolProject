@@ -1,6 +1,7 @@
 package com.voronov.service.serviceInterfaces;
 
 import com.voronov.dao.DAOinterfaces.TicketDao;
+import com.voronov.entities.Passenger;
 import com.voronov.entities.Station;
 import com.voronov.entities.Ticket;
 import com.voronov.entities.Trip;
@@ -19,6 +20,8 @@ public interface TicketService {
 
 	void setStationService(StationService stationService);
 
+	void setPassengerService(PassengerService passengerService);
+
 	Ticket findById(long id);
 
 	List<Ticket> findByTripId(long id);
@@ -27,7 +30,13 @@ public interface TicketService {
 
 	List<List<Integer>> findFreePlaces(long tripId, String departureStationId, String arrivalStationId);
 
-	void bookTicket(Ticket ticket);
+	void bookTicket(long tripId, String departureStationName, String arrivalStationName, int placeNumber, int wagonNumber);
+
+	boolean isPlaceFree(Trip trip, int wagon, int place);
+
+	void registerPassengerToTrip(Passenger passenger, long tripId, int wagon, int place);
+
+	Ticket findTicketByTripAndPlace(long tripId, int wagon, int place);
 
 	void buyTicket(Ticket ticket);
 

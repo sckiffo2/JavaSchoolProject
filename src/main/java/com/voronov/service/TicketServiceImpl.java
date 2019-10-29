@@ -3,20 +3,15 @@ package com.voronov.service;
 import com.voronov.dao.DAOinterfaces.TicketDao;
 import com.voronov.entities.*;
 import com.voronov.entitiesDTO.TicketScheduleDTO;
-import com.voronov.service.serviceInterfaces.RouteService;
-import com.voronov.service.serviceInterfaces.StationService;
-import com.voronov.service.serviceInterfaces.TicketService;
-import com.voronov.service.serviceInterfaces.TripService;
+import com.voronov.service.serviceInterfaces.*;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDateTime;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -25,6 +20,7 @@ import java.util.stream.IntStream;
 @NoArgsConstructor
 public class TicketServiceImpl implements TicketService {
 
+	final static int STOP_SELL_TICKETS = 10;
 	@Autowired
 	private TicketDao ticketDao;
 
@@ -36,6 +32,9 @@ public class TicketServiceImpl implements TicketService {
 
 	@Autowired
 	private RouteService routeService;
+
+	@Autowired
+	private PassengerService passengerService;
 
 	@Override
 	public Ticket findById(long id) {
@@ -97,17 +96,68 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public void bookTicket(Ticket ticket) {
+	public void bookTicket(long tripId, String departureStationName, String arrivalStationName, int wagonNumber, int placeNumber) {
 		Ticket ticketToBook = new Ticket();
 		ticketToBook.setBooked(true);
-//		ticketToBook.setTrip();
-//		ticketToBook.setDepartureStation();
-//		ticketToBook.setArrivalStation();
-		ticketToBook.setWagonNumber(2);
-		ticketToBook.setPlace(3);
-//		ticketToBook.setArrivalStation();
+		Trip trip = tripService.findById(tripId);
+		ticketToBook.setTrip(tripService.findById(tripId));
+		ticketToBook.setDepartureStation(stationService.findByName(departureStationName));
+		ticketToBook.setArrivalStation(stationService.findByName(arrivalStationName));
+		ticketToBook.setWagonNumber(wagonNumber);
+		ticketToBook.setPlace(placeNumber);
 
-		ticketDao.save(ticketToBook);
+		if (isPlaceFree(trip, wagonNumber, placeNumber)) {
+			ticketDao.save(ticketToBook);
+		} else {
+			//todo throw Business logic exception
+		}
+	}
+
+	@Override
+	public boolean isPlaceFree(Trip trip, int wagon, int place) {
+		return ticketDao.isExists(trip, wagon, place);
+	}
+
+	@Override
+	public void registerPassengerToTrip(Passenger passenger, long tripId, int wagon, int place) {
+		Passenger passengerInDatabase = passengerService.findByPassengerData(passenger.getFirstName(), passenger.getLastName(), passenger.getBirthDate());
+		Ticket ticket = findTicketByTripAndPlace(tripId, wagon, place);
+		if (passengerInDatabase == null) {
+			passengerService.save(passenger);
+		} else {
+			passenger = passengerInDatabase;
+		}
+		if (!passengerService.isPassengerOnTrip(passenger, tripId)) {
+			if (!isTooLateToBuyTicket(ticket.getTrip(), ticket.getDepartureStation().getId())) {
+				ticket.setPassenger(passenger);
+				ticket.setBooked(false);
+				ticketDao.update(ticket);
+			} else {
+				System.out.println("До отправления поездла остается менее 10 минут. Покупка билета невозможна.");
+				//todo too late exception
+			}
+		} else {
+			System.out.println("Данный пассажир уже зарегистрирован на рейс");
+			//todo already on trip exception
+		}
+	}
+
+
+	public boolean isTooLateToBuyTicket(Trip trip, long departureStationId) {
+		TripStation tripStation =  trip.getStationsOnTrip()
+				.stream()
+				.filter(x -> x.getStation().getId() == departureStationId)
+				.findAny()
+				.get();
+
+		boolean before = LocalDateTime.now().isAfter(tripStation.getDepartureTime().minusMinutes(STOP_SELL_TICKETS));
+		System.out.println();
+		return before;
+	}
+
+	@Override
+	public Ticket findTicketByTripAndPlace(long tripId, int wagon, int place) {
+		return ticketDao.findTicketByTripAndPlace(tripId, wagon, place);
 	}
 
 	@Override

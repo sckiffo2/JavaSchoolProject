@@ -2,6 +2,7 @@ package com.voronov.dao;
 
 import com.voronov.dao.DAOinterfaces.TicketDao;
 import com.voronov.entities.Ticket;
+import com.voronov.entities.Trip;
 import com.voronov.utils.HibernateSessionFactoryUtil;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -64,6 +65,27 @@ public class TicketDaoImpl implements TicketDao {
 	}
 
 	@Override
+	public Ticket findTicketByTripAndPlace(long tripId, int wagon, int place) {
+		Ticket result = null;
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+
+			Query query = session.createQuery("from Ticket T where T.trip.id = :tripId and wagonNumber = :wagon and place = :place", Ticket.class);
+			query.setParameter("tripId", tripId);
+			query.setParameter("wagon", wagon);
+			query.setParameter("place", place);
+			result = (Ticket) query.getSingleResult();
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+
+
+	@Override
 	public void save(Ticket ticket) {
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
@@ -95,4 +117,24 @@ public class TicketDaoImpl implements TicketDao {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public boolean isExists(Trip trip, int wagon, int place) {
+		boolean result = false;
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+
+			Query query = session.createQuery("select count(*) from Ticket T where T.trip = :trip and wagonNumber = :wagon and place = :place");
+			query.setParameter("trip", trip);
+			query.setParameter("wagon", wagon);
+			query.setParameter("place", place);
+			result = (long)query.getSingleResult() == 0;
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
 }

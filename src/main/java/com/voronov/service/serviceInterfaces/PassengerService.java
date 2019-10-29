@@ -12,9 +12,11 @@ public interface PassengerService {
 
 	Passenger findById(long id);
 
-	Passenger findByName(String firstName, String lastName, LocalDate birthDate);
+	Passenger findByPassengerData(String firstName, String lastName, LocalDate birthDate);
 
 	List<Passenger> findPassengersOnTrip(long id);
+
+	boolean isPassengerOnTrip(Passenger passenger, long tripId);
 
 	void save(Passenger passenger);
 

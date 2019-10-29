@@ -30,4 +30,11 @@ public class Passenger extends SuperEntity{
     @OneToMany
 	@JoinColumn(name = "passenger_id")
     private List<Ticket> tickets;
+
+	public Passenger(String firstName, String lastName, LocalDate birthDate, char gender) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.birthDate = birthDate;
+		this.gender = gender;
+	}
 }

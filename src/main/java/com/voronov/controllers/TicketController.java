@@ -1,5 +1,7 @@
 package com.voronov.controllers;
 
+import com.voronov.entities.Passenger;
+import com.voronov.entities.Ticket;
 import com.voronov.service.serviceInterfaces.TicketService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +51,46 @@ public class TicketController {
 	public String getFreePlaces(@PathVariable int tripId,
 								HttpSession session,
 								Model model) {
+
 		String departureStation = (String) session.getAttribute("departureStation");
 		String arrivalStation = (String) session.getAttribute("arrivalStation");
+		session.setAttribute("tripId", tripId);
 		model.addAttribute("tripPlaces", ticketService.findFreePlaces(tripId,departureStation, arrivalStation));
 		return "freePlaces";
+	}
+
+	@GetMapping("/freeplaces/bookTicket/{wagon}/{place}")
+	public String bookTicket(@PathVariable int wagon,
+							 @PathVariable int place,
+							 HttpSession session, Model model) {
+
+		String departureStation = (String) session.getAttribute("departureStation");
+		String arrivalStation = (String) session.getAttribute("arrivalStation");
+		int tripId = (int) session.getAttribute("tripId");
+		ticketService.bookTicket(tripId, departureStation, arrivalStation, wagon, place);
+		session.removeAttribute(departureStation);
+		session.removeAttribute(arrivalStation);
+		session.setAttribute("wagon", wagon);
+		session.setAttribute("place", place);
+		return "regpassenger";
+	}
+
+	@PostMapping("/freeplaces/bookTicket/{tripId}/registerPassenger")
+	public String registerPassenger(@RequestParam String firstName,
+									@RequestParam String lastName,
+									@RequestParam String birthDate,
+									@RequestParam char gender,
+									HttpSession session, Model model) {
+		LocalDate date = LocalDate.parse(birthDate);
+
+		Passenger passenger = new Passenger(firstName, lastName, date, gender);
+		int tripId = (int) session.getAttribute("tripId");
+		int wagon = (int) session.getAttribute("wagon");
+		int place = (int) session.getAttribute("place");
+		ticketService.registerPassengerToTrip(passenger, tripId, wagon, place);
+		Ticket ticket = ticketService.findTicketByTripAndPlace(tripId, wagon, place);
+		model.addAttribute("ticket", ticket);
+		return "ticketSuccesRegister";
 	}
 
 }

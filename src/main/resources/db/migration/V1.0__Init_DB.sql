@@ -5,7 +5,7 @@ create table passengers
         constraint passengers_pkey
             primary key,
     first_name varchar(15) not null,
-    last_name  varchar(15),
+    last_name  varchar(15) not null,
     birth_date date        not null,
     gender     char        not null
 );

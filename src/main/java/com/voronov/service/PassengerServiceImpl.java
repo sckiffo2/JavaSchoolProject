@@ -25,14 +25,19 @@ public class PassengerServiceImpl implements PassengerService {
 	}
 
 	@Override
-	public Passenger findByName(String firstName, String lastName, LocalDate birthDate) {
-		//todo find? or verify passenger
-		return passengerDao.findByName(firstName);
+	public Passenger findByPassengerData(String firstName, String lastName, LocalDate birthDate) {
+		return passengerDao.findByPassengerData(firstName, lastName, birthDate);
 	}
 
 	@Override
 	public List<Passenger> findPassengersOnTrip(long id) {
 		return passengerDao.findPassengersOnTrip(id);
+	}
+
+	@Override
+	public boolean isPassengerOnTrip(Passenger passenger, long tripId) {
+		List<Passenger> passengersOnTrip = passengerDao.findPassengersOnTrip(tripId);
+		return passengersOnTrip.contains(passenger);
 	}
 
 	@Override
