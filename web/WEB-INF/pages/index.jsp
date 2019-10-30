@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
     <head>
@@ -9,6 +10,9 @@
     <div class="header">
         <div>AnyWayTicket - any day, any way.</div>
         <div>login/logout will be here. --->>>></div>
+        <div>
+            <a href="<c:url value="/logout" />">Logout</a>
+        </div>
     </div>
     <div class="sidebar">
         <div class="side-menu">
@@ -26,10 +30,13 @@
                     <a href="route">Маршруты</a>
                 </li>
                 <li>
-                    <a href="user">Пользователи</a>
+                    <a href="trip">Рейсы</a>
                 </li>
                 <li>
                     <a href="passenger">Пассажиры рейса</a>
+                </li>
+                <li>
+                    <a href="user">Пользователи</a>
                 </li>
             </ul>
         </div>

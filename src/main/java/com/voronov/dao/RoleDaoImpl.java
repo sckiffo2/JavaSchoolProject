@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -28,7 +29,17 @@ public class RoleDaoImpl implements RoleDao {
 
 	@Override
 	public Role findByName(String name) {
-		return null;
+		Role role = null;
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+			Query query = session.createQuery("from Role R where R.role = :name", Role.class);
+			query.setParameter("name", name);
+			role = (Role) query.getSingleResult();
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return role;
 	}
 
 	@Override

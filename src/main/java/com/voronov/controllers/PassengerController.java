@@ -44,7 +44,7 @@ public class PassengerController {
 			long tripId = tripService.findByRouteIdAndDate(routeId, localDate).getId();
 			model.addAttribute("passengers",passengerService.findPassengersOnTrip(tripId));
 		} else {
-			return "ErrorPage";
+			return "ErrorDefault";
 		}
 		return "passenger";
 	}

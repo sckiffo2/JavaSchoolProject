@@ -1,20 +1,19 @@
 package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.TripDao;
-import com.voronov.entities.Route;
-import com.voronov.entities.Station;
-import com.voronov.entities.Trip;
-import com.voronov.entities.TripStation;
+import com.voronov.entities.*;
 import com.voronov.entitiesDTO.TicketScheduleDTO;
 import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.StationService;
 import com.voronov.service.serviceInterfaces.TripService;
+import com.voronov.service.serviceInterfaces.TripStationService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -32,6 +31,9 @@ public class TripServiceImpl implements TripService {
 
 	@Autowired
 	private StationService stationService;
+
+	@Autowired
+	private TripStationService tripStationService;
 
 	@Override
 	public Trip findById(long id) {
@@ -80,7 +82,7 @@ public class TripServiceImpl implements TripService {
 			ticketScheduleDTO.setTripId(trip.getId());
 			ticketScheduleDTO.setRouteNumber(trip.getRoute().getNumber());
 			ticketScheduleDTO.setRouteName(trip.getRoute().getName());
-			ticketScheduleDTO.setCanceled(trip.getCanceled());
+			ticketScheduleDTO.setCanceled(trip.isCanceled());
 			for (TripStation tripStation : trip.getStationsOnTrip()) {
 				if (tripStation.getStation().getId() == firstStationId) {
 					ticketScheduleDTO.setDepartureStation(tripStation.getStation().getName());
@@ -107,6 +109,28 @@ public class TripServiceImpl implements TripService {
 		return tripDao.findTripStationsByTripId(id);
 	}
 
+	public void createTrip(String routeNumber, LocalDate date) {
+		Route route = routeService.findByNumber(routeNumber);
+		Trip trip = new Trip(route, date);
+		List<TripStation> stationsList = new ArrayList<>();
+		for (RouteStation routeStation : route.getStationsOnRoute()) {
+			TripStation tripStation = new TripStation();
+			tripStation.setTrip(trip);
+			tripStation.setIndexInRoute(routeStation.getIndexInRoute());
+			tripStation.setStation(routeStation.getStation());
+			LocalDateTime tripStartDate = date.atStartOfDay();
+			if (routeStation.getDepartureTime() != null) {
+				tripStation.setDepartureTime(tripStartDate.plusSeconds(routeStation.getDepartureTime()));
+			}
+			if (routeStation.getArrivalTime() != null) {
+				tripStation.setArrivalTime(tripStartDate.plusSeconds(routeStation.getArrivalTime()));
+			}
+			stationsList.add(tripStation);
+		}
+		tripDao.save(trip);
+		stationsList.forEach(tripStationService::save);
+	}
+
 	@Override
 	public void delete(long id) {
 		Trip deleteTrip = tripDao.findById(id);
@@ -116,5 +140,10 @@ public class TripServiceImpl implements TripService {
 	@Override
 	public List<Trip> findAll() {
 		return tripDao.findAll();
+	}
+
+	@Override
+	public List<Route> findAllRoutes() {
+		return routeService.findAll();
 	}
 }

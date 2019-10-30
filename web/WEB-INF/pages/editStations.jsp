@@ -31,6 +31,7 @@
             <label for="departureDay">Дней в пути</label>
             <input type="text" name="departureDay" id="departureDay">
             <br>
+            <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
             <input type="submit" value="Добавить"/>
         </form>
     </div>

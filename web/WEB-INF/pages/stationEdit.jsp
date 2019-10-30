@@ -12,6 +12,7 @@
         <label for="name">Название станции</label><br>
         <input type="text" name="name" id="name" value="${station.getName()}" />
         <br>
+        <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
         <input type="submit" value="Изменить"/>
     </form>
 </body>

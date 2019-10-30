@@ -15,6 +15,7 @@
     <input type="text" name="username" id="username" placeholder="Введите имя пользователя"/><br>
     <input type="text" name="password" id="password" placeholder="Введите пароль"/><br>
     <input type="text" name="mail" id="mail" placeholder="Введите eMail"/><br>
+    <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
     <input type="submit" value="Добавить"/>
 </form>
 <br>

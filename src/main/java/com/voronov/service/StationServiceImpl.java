@@ -56,7 +56,7 @@ public class StationServiceImpl implements StationService {
 				departureTime = departureTime.plusSeconds(trip.getRoute().getStationsOnRoute().get(0).getDepartureTime());
 				scheduleRow.setDeparture(departureTime);
 			}
-			scheduleRow.setCanceled(trip.getCanceled());
+			scheduleRow.setCanceled(trip.isCanceled());
 			subResult.add(scheduleRow);
 		}
 

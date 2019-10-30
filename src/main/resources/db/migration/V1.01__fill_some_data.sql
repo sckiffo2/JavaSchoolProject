@@ -27,14 +27,14 @@ INSERT INTO public.route_station (route_id, station_id, arrival_time, departure_
 INSERT INTO public.route_station (route_id, station_id, arrival_time, departure_time, index_in_route) VALUES (2, 7, 21720, 21840, 5);
 INSERT INTO public.route_station (route_id, station_id, arrival_time, departure_time, index_in_route) VALUES (2, 4, 40260, null, 6);
 
-INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-22', false, 1);
-INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-22', false, 2);
-INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-23', false, 1);
-INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-23', false, 2);
-INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-24', false, 1);
-INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-24', false, 2);
-INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-25', false, 1);
-INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-10-25', false, 2);
+INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-11-22', false, 1);
+INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-11-22', false, 2);
+INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-11-23', false, 1);
+INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-11-23', false, 2);
+INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-11-24', false, 1);
+INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-11-24', false, 2);
+INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-11-25', false, 1);
+INSERT INTO public.trips (start_date, canceled, route_id) VALUES ('2019-11-25', false, 2);
 
 INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (1, 4, null, '2019-10-22 00:40:00.000000', 1);
 INSERT INTO public.trip_station (trip_id, station_id, arrival_time, departure_time, index_in_trip) VALUES (1, 9, '2019-10-22 04:12:00.000000', '2019-10-22 04:47:00.000000', 2);

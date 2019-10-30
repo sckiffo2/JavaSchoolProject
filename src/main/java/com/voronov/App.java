@@ -18,6 +18,7 @@ public class App {
 		PassengerService passengerService = new PassengerServiceImpl();
 		TripService tripService = new TripServiceImpl();
 		TicketService ticketService = new TicketServiceImpl();
+		UserService userService = new UserServiceImpl();
 		stationService.setStationDao(new StationDaoImpl());
 		routeService.setRouteDao(new RouteDaoImpl());
 		routeStationService.setRouteStationDao(new RouteStationDaoImpl());
@@ -30,6 +31,8 @@ public class App {
 		ticketService.setRouteService(routeService);
 		ticketService.setStationService(stationService);
 		ticketService.setTripService(tripService);
+		userService.setUserDao(new UserDaoImpl());
+
 
 //		List<Trip> tripList = tripService.findByRouteId(1);
 //		List<Passenger> passengersList = passengerService.findPassengersOnTrip(1);
@@ -46,10 +49,19 @@ public class App {
 
 //		List<List<Integer>> list = ticketService.findFreePlaces(1, departureStation, arrivalStation);
 
+
+		User user = userService.findByName("admin");
 		System.out.println();
 
-		//todo 10 min till trip start
-		//todo check if passenger already on the trip
+
+		//todo show all routes
+		//todo show all trips
+		//todo add trips(with tripStations) service and form
+		//todo security
+		//todo not to show trips what is already in past
+		//todo busines exceptions handle
+		//todo business exceptions
+		//todo sort station schedule
 		//todo цена билета формируется из магич числа + цена зоны * кол-во зон. Цена одной зоны хранится в trip
 		//todo booked ticket delete if > 10 minutes pass
 		//todo ticket price on tripChoose page
@@ -58,7 +70,7 @@ public class App {
 		//todo trip create form
 		//todo validation
 		//todo wrong data input
-		//todo security
+
 		//todo logs
 		//todo tests
 	}

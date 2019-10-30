@@ -1,6 +1,7 @@
 package com.voronov.service.serviceInterfaces;
 
 import com.voronov.dao.DAOinterfaces.TripDao;
+import com.voronov.entities.Route;
 import com.voronov.entities.Trip;
 import com.voronov.entities.TripStation;
 import com.voronov.entitiesDTO.TicketScheduleDTO;
@@ -19,9 +20,13 @@ public interface TripService {
 
 	List<TripStation> findTripStations(long id);
 
+	void createTrip(String routeName, LocalDate date);
+
 	void delete(long id);
 
 	List<Trip> findAll();
+
+	List<Route> findAllRoutes();
 
 	void setTripDao(TripDao tripDao);
 

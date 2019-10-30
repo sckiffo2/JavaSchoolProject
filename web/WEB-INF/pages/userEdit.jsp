@@ -22,6 +22,7 @@
     <label for="active">Активация\деактивация аккаунта</label>
     <input type="checkbox" name="active" id="active" <c:if test="${user.active == true}">checked="checked"</c:if>>
     <br>
+    <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
     <input type="submit" value="Изменить"/>
 </form>
 </body>

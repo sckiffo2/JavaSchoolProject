@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "roles")
-@ToString(callSuper = true)
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,4 +17,9 @@ public class Role extends SuperEntity {
 
 	@Column(name = "role")
 	private String role;
+
+	@Override
+	public String toString() {
+		return "role";
+	}
 }

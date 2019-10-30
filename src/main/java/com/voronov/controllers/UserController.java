@@ -33,7 +33,7 @@ public class UserController {
     public String addUser(@RequestParam String username,
                                 @RequestParam String password,
                                 @RequestParam String mail) {
-        User user = new User(username, password, mail, 1L, true);
+        User user = new User(username, password, mail);
         userService.addUser(user);
         return "redirect:/user";
     }

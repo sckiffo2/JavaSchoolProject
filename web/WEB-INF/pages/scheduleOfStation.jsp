@@ -4,22 +4,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Stations</title>
+    <title>Расписание по станции</title>
     <link href="resources\css\index.css" rel="stylesheet" type="text/css"/>
     <link href="resources\css\stations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <h1>Schedule</h1>
+    <h1>Расписание по станции</h1>
     <form method="POST" action="getSchedule">
-        <input list="stations" id="station" name="name" placeholder="Выберите станцию" />
+        <input list="stations" id="station" name="name" placeholder="Выберите станцию" required/>
         <datalist id="stations">
             <c:forEach var="station" items="${stations}" >
                 <option value="${station.getName()}"></option>
             </c:forEach>
         </datalist>
         <br>
-        <label for="date"> Время прибытия</label>
-        <input type="date" name="stringDate" id="date">
+        <label for="date">Дата</label>
+        <input type="date" name="stringDate" id="date" required>
+        <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
         <br>
         <br>
         <input type="submit" value="Поиск"/>
@@ -27,7 +28,6 @@
     <br>
     <label for="table">Расписание станции: ${station} на ${date}</label><br>
     <table id="table">
-        <!-- here should go some titles... -->
         <tr>
             <th>№ Поезда</th>
             <th>Название поезда</th>

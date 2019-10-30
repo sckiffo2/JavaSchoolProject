@@ -28,6 +28,7 @@
     <input type="date" name="stringDate" id="date">
     <br>
     <br>
+    <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
     <input type="submit" value="Поиск"/>
 </form>
 <br>

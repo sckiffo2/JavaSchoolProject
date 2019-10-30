@@ -45,7 +45,6 @@ create table users
     username varchar(20)          not null,
     password varchar(20)          not null,
     mail     varchar(30)          not null,
-    role_id  bigint,
     active   boolean default true not null
 );
 

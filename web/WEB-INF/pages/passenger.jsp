@@ -23,12 +23,12 @@
         <input type="date" name="date" id="date">
         <br>
         <br>
+        <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
         <input type="submit" value="Поиск"/>
     </form>
     <br>
-    <label for="table">Пассажиры зарегистрированные на поезд: ${РЕЙС} на ${date}</label><br>
+    <label for="table">Пассажиры зарегистрированные на поезд:</label><br>
     <table id="table">
-        <!-- here should go some titles... -->
         <tr>
             <th>Фамилия</th>
             <th>Имя</th>
@@ -36,14 +36,12 @@
         </tr>
         <c:forEach var="passenger" items="${passengers}" >
             <tr>
-
                 <td>
                     <c:out value="${passenger.firstName}" />
                 </td>
                 <td>
                     <c:out value="${passenger.lastName}" />
                 </td>
-
             </tr>
         </c:forEach>
     </table>

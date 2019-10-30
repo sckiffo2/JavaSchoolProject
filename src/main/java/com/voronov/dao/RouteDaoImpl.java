@@ -51,7 +51,7 @@ public class RouteDaoImpl implements RouteDao {
 		Route route= null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
-			Query query = session.createQuery("from Route R where R.number = :number", Route.class);
+			Query query = session.createQuery("from Route R join fetch R.stationsOnRoute where R.number = :number", Route.class);
 			query.setParameter("number", number);
 			route = (Route) query.getSingleResult();
 			session.getTransaction().commit();

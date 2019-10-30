@@ -14,6 +14,8 @@ import java.time.format.DateTimeFormatter;
 @AllArgsConstructor
 public class StationScheduleDTO {
 
+	private final String TIME_FORMAT_PATTERN = "HH:mm";
+
 	private String routeNumber;
 
 	private String routeName;
@@ -25,13 +27,19 @@ public class StationScheduleDTO {
 	private boolean canceled;
 
 	public String getArrivalTimeString() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-		return arrival.format(formatter);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(TIME_FORMAT_PATTERN);
+		if (arrival != null) {
+			return arrival.format(formatter);
+		}
+		return "-";
 	}
 
 	public String getDepartureTimeString() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-		return departure.format(formatter);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(TIME_FORMAT_PATTERN);
+		if (departure != null) {
+			return departure.format(formatter);
+		}
+		return "-";
 	}
 
 	@Override

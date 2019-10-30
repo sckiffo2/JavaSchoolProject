@@ -6,13 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 
+@Getter
 @Entity
 @Table(name = "trips")
-@Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,7 +21,7 @@ public class Trip extends SuperEntity {
 	private LocalDate startDate;
 
 	@Column(name = "canceled")
-	private Boolean canceled;
+	private boolean canceled;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
@@ -41,4 +40,10 @@ public class Trip extends SuperEntity {
 
 	@ManyToOne
 	private Route route;
+
+	public Trip(Route route, LocalDate startDate) {
+		this.route = route;
+		this.startDate = startDate;
+	}
+
 }

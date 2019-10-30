@@ -22,6 +22,7 @@
         <input type="radio" name="gender" value="M" checked>Мужской
         <input type="radio" name="gender" value="F">Женский
         <br>
+        <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
         <input type="submit" value="Зарегистрировать"/>
     </form>
 </body>

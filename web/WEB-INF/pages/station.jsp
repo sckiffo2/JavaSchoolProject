@@ -4,15 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Stations</title>
+    <title>Станции</title>
     <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
     <link href="resources/css/stations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <h1>Stations</h1>
+    <h1>Станции</h1>
     <form method="POST" action="station/save">
         <label for="name">Добавление новой станции</label><br>
         <input type="text" name="name" id="name" placeholder="Введите название станции"/>
+        <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
         <input type="submit" value="Добавить"/>
     </form>
     <br>

@@ -2,13 +2,17 @@ package com.voronov.service;
 
 
 import com.voronov.dao.DAOinterfaces.UserDao;
+import com.voronov.entities.Role;
 import com.voronov.entities.User;
+import com.voronov.service.serviceInterfaces.RoleService;
 import com.voronov.service.serviceInterfaces.UserService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -18,6 +22,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+	private RoleService roleService;
 
     @Override
     public User findById(long id) {
@@ -36,7 +43,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void addUser(User user) {
-        userDao.save(user);
+		user.setActive(true);
+		Role userRole = roleService.findByName("USER");
+		List<Role> roleList = new ArrayList<>();
+		roleList.add(userRole);
+        user.setUserRoles(roleList);
+    	userDao.save(user);
     }
 
     @Override
