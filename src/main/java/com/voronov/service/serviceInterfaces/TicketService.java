@@ -5,7 +5,7 @@ import com.voronov.entities.Passenger;
 import com.voronov.entities.Station;
 import com.voronov.entities.Ticket;
 import com.voronov.entities.Trip;
-import com.voronov.entitiesDTO.TicketScheduleDTO;
+import com.voronov.dto.TicketScheduleDTO;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -26,7 +26,7 @@ public interface TicketService {
 
 	List<Ticket> findByTripId(long id);
 
-	List<TicketScheduleDTO> findTripsByStationsAndDate(String firstStation, String secondStation, LocalDate departureDate);
+	List<TicketScheduleDTO> findTripsByStationsAndDate(String departureStation, String arrivalStation, LocalDate departureDate);
 
 	List<List<Integer>> findFreePlaces(long tripId, String departureStationId, String arrivalStationId);
 
@@ -38,9 +38,7 @@ public interface TicketService {
 
 	Ticket findTicketByTripAndPlace(long tripId, int wagon, int place);
 
-	void buyTicket(Ticket ticket);
-
-	void delete(long id);
+	void deleteLongBookedTickets();
 
 	List<Ticket> findAll();
 

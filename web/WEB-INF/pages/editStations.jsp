@@ -2,10 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Edit stations of route Page</title>
+    <title>Добавление станций в маршрут</title>
 </head>
 <body>
-    <h1>Edit stations of route Page</h1>
+    <h1>Добавление станций в маршрут</h1>
     <br>
     <div>
         <form method="POST" action="addStationToRoute">
@@ -59,12 +59,11 @@
                     <c:out value="${station.getStation().getName()}" />
                 </td>
                 <td>
-                    <c:out value="${station.getArrivalTime()}" />
+                    <c:out value="${station.getArrivalTimeToString()}" />
                 </td>
                 <td>
-                    <c:out value="${station.getDepartureTime()}" />
+                    <c:out value="${station.getDepartureTimeToString()}" />
                 </td>
-
             </tr>
         </c:forEach>
     </table>

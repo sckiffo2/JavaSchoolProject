@@ -123,7 +123,7 @@ create table tickets
     end_station_id   bigint               not null,
     wagon_number     integer              not null,
     seat_number      integer              not null,
-    booked           boolean default true not null,
+    booked_till      timestamp,
     price            double precision
 );
 

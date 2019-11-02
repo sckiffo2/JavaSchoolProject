@@ -1,6 +1,6 @@
 package com.voronov.service;
 
-import com.voronov.entitiesDTO.StationScheduleDTO;
+import com.voronov.dto.StationScheduleDTO;
 import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;
 import com.voronov.entities.Trip;

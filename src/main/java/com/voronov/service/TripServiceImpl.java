@@ -2,7 +2,7 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.TripDao;
 import com.voronov.entities.*;
-import com.voronov.entitiesDTO.TicketScheduleDTO;
+import com.voronov.dto.TicketScheduleDTO;
 import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.StationService;
 import com.voronov.service.serviceInterfaces.TripService;
@@ -46,11 +46,14 @@ public class TripServiceImpl implements TripService {
 	}
 
 	@Override
-	public List<TicketScheduleDTO> findTripsByStationsAndDate(long firstStationId, long secondStationId, LocalDate date) {
+	public List<TicketScheduleDTO> findTripsByStationsAndDate(long departureStationId, long arrivalStationId, LocalDate date) {
+		if (departureStationId == arrivalStationId) {
+			return new ArrayList<>();
+		}
 
-		Station secondStation = stationService.findById(secondStationId);
+		Station secondStation = stationService.findById(arrivalStationId);
 
-		List<Trip> tripsWithStationOne = tripDao.findTripsByStationId(firstStationId);
+		List<Trip> tripsWithStationOne = tripDao.findTripsByStationId(departureStationId);
 		List<Trip> tripsWithBothStations = tripsWithStationOne.stream()
 				.filter(x -> x.getStations().contains(secondStation))
 				.collect(Collectors.toList()
@@ -62,7 +65,9 @@ public class TripServiceImpl implements TripService {
 
 			for (TripStation tripStation : trip.getStationsOnTrip()){
 				if (tripStation.getDepartureTime() != null && tripStation.getDepartureTime().toLocalDate().equals(date)) {
-					departureStation = tripStation;
+					if (tripStation.getStation().getId() == departureStationId) {
+						departureStation = tripStation;
+					}
 				}
 				if (tripStation.getStation().equals(secondStation)) {
 					arrivalStation = tripStation;
@@ -84,11 +89,11 @@ public class TripServiceImpl implements TripService {
 			ticketScheduleDTO.setRouteName(trip.getRoute().getName());
 			ticketScheduleDTO.setCanceled(trip.isCanceled());
 			for (TripStation tripStation : trip.getStationsOnTrip()) {
-				if (tripStation.getStation().getId() == firstStationId) {
+				if (tripStation.getStation().getId() == departureStationId) {
 					ticketScheduleDTO.setDepartureStation(tripStation.getStation().getName());
 					ticketScheduleDTO.setDeparture(tripStation.getDepartureTime());
 				}
-				if (tripStation.getStation().getId() == secondStationId) {
+				if (tripStation.getStation().getId() == arrivalStationId) {
 					ticketScheduleDTO.setArrivalStation(tripStation.getStation().getName());
 					ticketScheduleDTO.setArrival(tripStation.getArrivalTime());
 				}

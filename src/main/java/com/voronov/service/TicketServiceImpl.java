@@ -2,7 +2,7 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.TicketDao;
 import com.voronov.entities.*;
-import com.voronov.entitiesDTO.TicketScheduleDTO;
+import com.voronov.dto.TicketScheduleDTO;
 import com.voronov.service.serviceInterfaces.*;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -75,11 +75,16 @@ public class TicketServiceImpl implements TicketService {
 		for (TripStation tripStation : stationsOfTrip) {
 			if (tripStation.getStation().getId().equals(departureStation.getId())  ) {
 				departureStationIndex = tripStation.getIndexInRoute();
+				if (tripStation.getDepartureTime().minusMinutes(10).isBefore(LocalDateTime.now())) {
+					// todo Exception до отправления поезда осталось менее 10 минут, бронирование билета невозможно
+				}
 			} else if (tripStation.getStation().getId().equals(arrivalStation.getId())) {
 				arrivalStationIndex = tripStation.getIndexInRoute();
 			}
 			stations.put(tripStation.getStation(), tripStation.getIndexInRoute());
 		}
+
+
 
 		//here we delete places what already taken by another tickets from PlacesList
 		for (Ticket ticket : ticketsOfTrip) {
@@ -98,7 +103,7 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public void bookTicket(long tripId, String departureStationName, String arrivalStationName, int wagonNumber, int placeNumber) {
 		Ticket ticketToBook = new Ticket();
-		ticketToBook.setBooked(true);
+		ticketToBook.setBookedTill(LocalDateTime.now().plusMinutes(10));
 		Trip trip = tripService.findById(tripId);
 		ticketToBook.setTrip(tripService.findById(tripId));
 		ticketToBook.setDepartureStation(stationService.findByName(departureStationName));
@@ -130,7 +135,7 @@ public class TicketServiceImpl implements TicketService {
 		if (!passengerService.isPassengerOnTrip(passenger, tripId)) {
 			if (!isTooLateToBuyTicket(ticket.getTrip(), ticket.getDepartureStation().getId())) {
 				ticket.setPassenger(passenger);
-				ticket.setBooked(false);
+				ticket.setBookedTill(null);
 				ticketDao.update(ticket);
 			} else {
 				System.out.println("До отправления поездла остается менее 10 минут. Покупка билета невозможна.");
@@ -160,15 +165,8 @@ public class TicketServiceImpl implements TicketService {
 		return ticketDao.findTicketByTripAndPlace(tripId, wagon, place);
 	}
 
-	@Override
-	public void buyTicket(Ticket ticket) {
-		ticketDao.update(ticket);
-	}
-
-	@Override
-	public void delete(long id) {
-		Ticket deleteTicket = ticketDao.findById(id);
-		ticketDao.delete(deleteTicket);
+	public void deleteLongBookedTickets() {
+		ticketDao.deleteLongBookedTickets();
 	}
 
 	@Override

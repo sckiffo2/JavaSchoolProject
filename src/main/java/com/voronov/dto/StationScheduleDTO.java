@@ -1,4 +1,4 @@
-package com.voronov.entitiesDTO;
+package com.voronov.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

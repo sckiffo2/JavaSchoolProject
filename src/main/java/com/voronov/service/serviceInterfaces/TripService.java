@@ -4,7 +4,7 @@ import com.voronov.dao.DAOinterfaces.TripDao;
 import com.voronov.entities.Route;
 import com.voronov.entities.Trip;
 import com.voronov.entities.TripStation;
-import com.voronov.entitiesDTO.TicketScheduleDTO;
+import com.voronov.dto.TicketScheduleDTO;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,7 +16,7 @@ public interface TripService {
 
 	List<Trip> findTripsByStationId(long id);
 
-	List<TicketScheduleDTO> findTripsByStationsAndDate(long firstStationId, long secondStationId, LocalDate date);
+	List<TicketScheduleDTO> findTripsByStationsAndDate(long departureStation, long arrivalStation, LocalDate date);
 
 	List<TripStation> findTripStations(long id);
 

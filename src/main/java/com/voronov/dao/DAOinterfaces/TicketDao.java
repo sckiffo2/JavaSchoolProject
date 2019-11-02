@@ -15,6 +15,8 @@ public interface TicketDao {
 
 	Ticket findTicketByTripAndPlace(long tripId, int wagon, int place);
 
+	void deleteLongBookedTickets();
+
 	void save(Ticket ticket);
 
 	void update(Ticket ticket);

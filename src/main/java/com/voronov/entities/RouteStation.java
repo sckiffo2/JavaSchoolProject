@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "route_station")
@@ -29,4 +31,22 @@ public class RouteStation extends SuperEntity {
 
 	@Column(name = "index_in_route")
 	private int indexInRoute;
+
+	public String getArrivalTimeToString() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+		if (arrivalTime != null) {
+			LocalTime time = LocalTime.ofSecondOfDay(arrivalTime % 86400);
+			return time.format(formatter);
+		}
+		return "-";
+	}
+
+	public String getDepartureTimeToString() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+		if (departureTime != null) {
+			LocalTime time = LocalTime.ofSecondOfDay(departureTime % 86400);
+			return time.format(formatter);
+		}
+		return "-";
+	}
 }

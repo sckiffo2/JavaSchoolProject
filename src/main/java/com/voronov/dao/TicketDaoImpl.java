@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 
@@ -81,6 +82,21 @@ public class TicketDaoImpl implements TicketDao {
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	@Override
+	public void deleteLongBookedTickets() {
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+
+			Query query = session.createQuery("delete Ticket T where T.bookedTill is not null and T.bookedTill < :timeNow");
+			query.setParameter("timeNow", LocalDateTime.now());
+			int result = query.executeUpdate();
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 

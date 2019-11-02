@@ -2,13 +2,10 @@ package com.voronov;
 
 import com.voronov.dao.*;
 import com.voronov.entities.*;
-import com.voronov.entitiesDTO.TicketScheduleDTO;
 import com.voronov.service.*;
 import com.voronov.service.serviceInterfaces.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
 
 public class App {
 	public static void main(String[] args) {
@@ -53,13 +50,17 @@ public class App {
 		User user = userService.findByName("admin");
 		System.out.println();
 
-
+		//todo busines exceptions handle
+		//todo user registration
+		//todo древние рейсы не отображаем (отмправление менее чем через 10 минут)
+		//todo user login before take trip
+		//todo
+		//todo
 		//todo show all routes
 		//todo show all trips
 		//todo add trips(with tripStations) service and form
 		//todo security
 		//todo not to show trips what is already in past
-		//todo busines exceptions handle
 		//todo business exceptions
 		//todo sort station schedule
 		//todo цена билета формируется из магич числа + цена зоны * кол-во зон. Цена одной зоны хранится в trip

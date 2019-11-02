@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Routes</title>
+    <title>Маршруты</title>
     <link href="resources\css\index.css" rel="stylesheet" type="text/css"/>
     <link href="resources\css\stations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-    <h1>Routes</h1>
+    <h1>Маршруты</h1>
     <form method="POST" action="route\save">
         <label for="name">Добавление нового поезда</label><br>
         <input type="text" name="number" id="number" placeholder="Введите номер поезда"/><br>

@@ -3,6 +3,7 @@ package com.voronov.entities;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tickets")
@@ -38,6 +39,6 @@ public class Ticket extends SuperEntity{
     @Column(name = "price")
     private double price;
 
-	@Column(name = "booked")
-    private boolean isBooked;
+	@Column(name = "booked_till")
+    private LocalDateTime bookedTill;
 }
