@@ -28,7 +28,7 @@
                       </div>
                   </c:if>
                   <div class="form-group-material">
-                      <input id="login-username" type="text" name="username" required class="input-material" placeholder="Имя пользователя">
+                      <input id="login-username" type="text" name="username" required autofocus class="input-material" placeholder="Имя пользователя">
 
                   </div>
                   <div class="form-group-material">

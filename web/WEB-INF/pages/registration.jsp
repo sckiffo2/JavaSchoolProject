@@ -17,13 +17,15 @@
                 <p>Добро пожаловать! Для регистации введите данные</p>
                 <form class="text-left form-validate" method="post" action="registerUser">
                     <div class="form-group-material">
-                        <input id="register-username" type="text" name="username" required class="input-material" placeholder="Имя пользователя" pattern="[A-Za-z_]{6,15}">
+                        <input id="register-username" type="text" name="username" required autofocus class="input-material" placeholder="Имя пользователя" pattern="[A-Za-z1-9_]{6,20}"
+                               title="6-20 символов, латинские буквы, цыфры, подчеркивание">
                     </div>
                     <div class="form-group-material">
-                        <input id="register-password" type="password" name="password" required class="input-material" placeholder="Пароль" pattern="^.{6,20}$">
+                        <input id="register-password" type="password" name="password" required class="input-material" placeholder="Пароль" pattern="^.{6,20}$" title="6-20 символов">
                     </div>
                     <div class="form-group-material">
-                        <input id="register-email" type="email" name="mail" required class="input-material" placeholder="Электронная почта">
+                        <input id="register-email" type="text" name="mail" required class="input-material" placeholder="Электронная почта"
+                               pattern="[^@]+@[^\.]+\..+" title="user@example.com">
                     </div>
                     <div class="form-group text-center">
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
