@@ -1,6 +1,7 @@
 package com.voronov.service.serviceInterfaces;
 
 import com.voronov.dao.DAOinterfaces.UserDao;
+import com.voronov.entities.Role;
 import com.voronov.entities.User;
 
 import java.util.List;
@@ -10,9 +11,13 @@ public interface UserService {
 
     User findByName(String name);
 
-    List<User> findAll();
+	boolean isExists(User user);
 
-    void addUser(User user);
+	List<User> findAll();
+
+	List<Role> findAllRoles();
+
+	void addUser(User user);
 
     void update(User user);
 

@@ -5,14 +5,14 @@
 <html>
 <head>
     <title>Станции</title>
-    <link href="resources/css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="../../resources/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="resources/css/stations.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <h1>Станции</h1>
     <form method="POST" action="station/save">
         <label for="name">Добавление новой станции</label><br>
-        <input type="text" name="name" id="name" placeholder="Введите название станции"/>
+        <input type="text" name="name" id="name" placeholder="Введите название станции" required pattern="^.{3,30}$"/>
         <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
         <input type="submit" value="Добавить"/>
     </form>
@@ -23,7 +23,6 @@
         <tr>
             <th>id</th>
             <th>Название</th>
-            <th> </th>
             <th> </th>
         </tr>
         <c:forEach var="station" items="${stations}" >
@@ -37,9 +36,6 @@
                 </td>
                 <td>
                     <a href="station\edit\<c:url value="${station.getId()}"/>">Изменить</a>
-                </td>
-                <td>
-                    <a href="station\delete\<c:url value="${station.getId()}"/>">Удалить</a>
                 </td>
             </tr>
         </c:forEach>

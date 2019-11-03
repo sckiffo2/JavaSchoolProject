@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Setter
@@ -67,6 +68,7 @@ public class StationServiceImpl implements StationService {
 				result.add(row);
 			}
 		}
+		Collections.sort(result);
 
 		return result;
 	}

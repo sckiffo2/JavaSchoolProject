@@ -44,6 +44,24 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
+	public boolean isExists(String username, String mail) {
+		boolean result = false;
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+
+			Query query = session.createQuery("select count(*) from User U where U.username = :username and U.mail = :mail");
+			query.setParameter("username", username);
+			query.setParameter("mail", mail);
+			result = !((long)query.getSingleResult() == 0);
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
 	public List<User> findAll() {
 		List<User> result = null;
 

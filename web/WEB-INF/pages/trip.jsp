@@ -26,32 +26,24 @@
 <label for="table">Рейсы</label><br>
 <table id="table">
     <tr>
-        <th>id</th>
+
         <th>Номер</th>
         <th>Название поезда</th>
-        <th>Периодичность</th>
-        <th> </th>
-        <th> </th>
+        <th>Дата отправления</th>
     </tr>
-    <c:forEach var="route" items="${}" >
+    <c:forEach var="trip" items="${trips}" >
         <tr>
             <td>
-                <c:out value="${route.getId()}" />
+                <c:out value="${trip.getRoute().getNumber()}" />
             </td>
             <td>
-                <c:out value="${route.getNumber()}" />
+                <c:out value="${trip.getRoute().getName()}" />
             </td>
             <td>
-                <c:out value="${route.getName()}" />
+                <c:out value="${trip.getStartDate()}" />
             </td>
             <td>
                 <c:out value="${route.getSchedulePattern()}" />
-            </td>
-            <td>
-                <a href="route\edit\<c:url value="${route.getId()}"/>">Редактировать</a>
-            </td>
-            <td>
-                <a href="route\editStations\<c:url value="${route.getId()}"/>">Добавить станции</a>
             </td>
         </tr>
     </c:forEach>

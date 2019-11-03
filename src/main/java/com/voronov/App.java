@@ -40,39 +40,33 @@ public class App {
 //		List<Trip> routes = ticketService.findTripsByStationsAndDate(4, 1, date);
 
 //		System.out.println(tripsForSchedule.get(1).getRoute().getStationsOnRoute().get(1).getStation().getName());
-		String departureStation = "Санкт-Петербург-Главн.";
-		String arrivalStation = "Москва Октябрьская";
+		String departureStation = "Санкт-Петербург";
+		String arrivalStation = "Москва";
 //		List<TicketScheduleDTO> list = ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, date);
 
 //		List<List<Integer>> list = ticketService.findFreePlaces(1, departureStation, arrivalStation);
 
 
-		User user = userService.findByName("admin");
+//		User user = userService.findByName("admin");
 		System.out.println();
 
-		//todo busines exceptions handle
-		//todo user registration
+
 		//todo древние рейсы не отображаем (отмправление менее чем через 10 минут)
 		//todo user login before take trip
+		//todo add succes ticket buy form
+		//todo ticket pricing
+		//todo login\logout change
+		//todo admin\manager menu visibility
 		//todo
 		//todo
-		//todo show all routes
-		//todo show all trips
-		//todo add trips(with tripStations) service and form
-		//todo security
-		//todo not to show trips what is already in past
-		//todo business exceptions
-		//todo sort station schedule
 		//todo цена билета формируется из магич числа + цена зоны * кол-во зон. Цена одной зоны хранится в trip
-		//todo booked ticket delete if > 10 minutes pass
 		//todo ticket price on tripChoose page
-		//todo buy 2 tickets same time
-		//todo error listener
-		//todo trip create form
 		//todo validation
 		//todo wrong data input
 
 		//todo logs
 		//todo tests
+
+		//todo css a without lines
 	}
 }

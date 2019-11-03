@@ -148,6 +148,11 @@ public class TripServiceImpl implements TripService {
 	}
 
 	@Override
+	public List<Trip> findAllFutureTrips() {
+		return tripDao.findAllFutureTrips();
+	}
+
+	@Override
 	public List<Route> findAllRoutes() {
 		return routeService.findAll();
 	}

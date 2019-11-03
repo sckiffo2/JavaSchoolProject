@@ -45,5 +45,4 @@ public class Trip extends SuperEntity {
 		this.route = route;
 		this.startDate = startDate;
 	}
-
 }

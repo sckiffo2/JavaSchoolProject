@@ -24,10 +24,15 @@ public class ScheduleController {
 		return "scheduleOfStation";
 	}
 
-	@PostMapping("getSchedule")
+	@PostMapping("/scheduleOfStation")
 	public String save(@RequestParam String name,
 					   @RequestParam String stringDate, Model model) {
-		LocalDate date = LocalDate.parse(stringDate);
+		LocalDate date = null;
+		try {
+			date = LocalDate.parse(stringDate);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Введена неверная дата");
+		}
 		long id = stationService.findByName(name).getId();
 
 		model.addAttribute("station", name);

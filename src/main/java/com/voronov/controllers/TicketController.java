@@ -32,26 +32,18 @@ public class TicketController {
 	public String findTrip(@RequestParam String departureStation,
 						   @RequestParam String arrivalStation,
 						   @RequestParam String stringDate,
-						   HttpSession session,
-						   Model model) {
-
-		if (!departureStation.equals("") && !arrivalStation.equals("") && !stringDate.equals("")) {
-			session.setAttribute("departureStation", departureStation);
-			session.setAttribute("arrivalStation", arrivalStation);
-			model.addAttribute("stations", ticketService.findAllStations());
-			LocalDate date = LocalDate.parse(stringDate);
-			model.addAttribute("TicketScheduleDTO", ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, date));
-		} else {
-			return "ErrorPage";
-		}
+						   HttpSession session, Model model) {
+		session.setAttribute("departureStation", departureStation);
+		session.setAttribute("arrivalStation", arrivalStation);
+		model.addAttribute("stations", ticketService.findAllStations());
+		LocalDate date = LocalDate.parse(stringDate);
+		model.addAttribute("TicketScheduleDTO", ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, date));
 		return "tripSearch";
 	}
 
 	@GetMapping("/freeplaces/{tripId}")
 	public String getFreePlaces(@PathVariable int tripId,
-								HttpSession session,
-								Model model) {
-
+								HttpSession session, Model model) {
 		String departureStation = (String) session.getAttribute("departureStation");
 		String arrivalStation = (String) session.getAttribute("arrivalStation");
 		session.setAttribute("tripId", tripId);
@@ -61,9 +53,7 @@ public class TicketController {
 
 	@GetMapping("/freeplaces/bookTicket/{wagon}/{place}")
 	public String bookTicket(@PathVariable int wagon,
-							 @PathVariable int place,
-							 HttpSession session, Model model) {
-
+							 @PathVariable int place, HttpSession session, Model model) {
 		String departureStation = (String) session.getAttribute("departureStation");
 		String arrivalStation = (String) session.getAttribute("arrivalStation");
 		int tripId = (int) session.getAttribute("tripId");
@@ -79,10 +69,9 @@ public class TicketController {
 	public String registerPassenger(@RequestParam String firstName,
 									@RequestParam String lastName,
 									@RequestParam String birthDate,
-									@RequestParam char gender,
-									HttpSession session, Model model) {
-		LocalDate date = LocalDate.parse(birthDate);
+									@RequestParam char gender, HttpSession session, Model model) {
 
+		LocalDate date = LocalDate.parse(birthDate);
 		Passenger passenger = new Passenger(firstName, lastName, date, gender);
 		int tripId = (int) session.getAttribute("tripId");
 		int wagon = (int) session.getAttribute("wagon");
@@ -92,5 +81,4 @@ public class TicketController {
 		model.addAttribute("ticket", ticket);
 		return "ticketSuccesRegister";
 	}
-
 }

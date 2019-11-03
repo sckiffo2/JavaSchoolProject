@@ -23,4 +23,6 @@ public interface TripDao {
 	void update(Trip trip);
 
 	void delete(Trip trip);
+
+	List<Trip> findAllFutureTrips();
 }

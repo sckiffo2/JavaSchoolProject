@@ -12,8 +12,8 @@
     <h1>Маршруты</h1>
     <form method="POST" action="route\save">
         <label for="name">Добавление нового поезда</label><br>
-        <input type="text" name="number" id="number" placeholder="Введите номер поезда"/><br>
-        <input type="text" name="name" id="name" placeholder="Введите название поезда"/><br>
+        <input type="text" name="number" id="number" placeholder="Введите номер поезда" required/><br>
+        <input type="text" name="name" id="name" placeholder="Введите название поезда" required pattern="^.{3,50}$"/><br>
         <input type="text" name="pattern" id="pattern" placeholder="Введите тип расписания"/><br>
         <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
         <input type="submit" value="Добавить"/>

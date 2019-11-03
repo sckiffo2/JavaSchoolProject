@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 
-    <c:set var="title" value="Произошла ошибка" />
+    <c:set var="title" value="AnyWayTicket" />
     <jsp:include page="parts/head.jsp">
         <jsp:param name="title" value="${title}"/>
     </jsp:include>
@@ -17,8 +17,8 @@
                             <div class="col-lg-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4>Если вы видите эту стараницу <br>
-                                            значит что-то пошло не так</h4>
+                                    <h4>Данная операция не может быть выполнена</h4>
+                                    <h4>${exception}</h4>
                                     </div>
                                 </div>
                             </div>

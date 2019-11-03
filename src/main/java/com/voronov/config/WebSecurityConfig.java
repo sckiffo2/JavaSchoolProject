@@ -28,12 +28,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers("/").permitAll()
+				.antMatchers("/freeplaces/bookTicket/**").access("hasRole('USER')")
 				.antMatchers("/station/**","/route/**", "/passenger/**", "/trip/**").access("hasRole('ADMIN') or hasRole('MANAGER')")
 				.antMatchers("/user/**").access("hasRole('ADMIN')")
 				.and().formLogin().loginPage("/login")
 				.usernameParameter("username").passwordParameter("password")
 				.and().csrf()
-				.and().exceptionHandling().accessDeniedPage("/access-denied");
+				.and().exceptionHandling().accessDeniedPage("/accessDenied");
 	}
 
 }

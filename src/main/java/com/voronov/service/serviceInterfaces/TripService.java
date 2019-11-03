@@ -26,6 +26,8 @@ public interface TripService {
 
 	List<Trip> findAll();
 
+	List<Trip> findAllFutureTrips();
+
 	List<Route> findAllRoutes();
 
 	void setTripDao(TripDao tripDao);

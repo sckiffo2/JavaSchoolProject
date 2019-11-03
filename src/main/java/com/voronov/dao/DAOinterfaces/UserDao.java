@@ -9,6 +9,8 @@ public interface UserDao {
 
 	User findByName(String name);
 
+	boolean isExists(String username, String mail);
+
 	@SuppressWarnings("unchecked")
 	List<User> findAll();
 

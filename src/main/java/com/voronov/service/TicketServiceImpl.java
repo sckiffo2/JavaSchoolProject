@@ -3,6 +3,7 @@ package com.voronov.service;
 import com.voronov.dao.DAOinterfaces.TicketDao;
 import com.voronov.entities.*;
 import com.voronov.dto.TicketScheduleDTO;
+import com.voronov.service.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.*;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -76,15 +77,13 @@ public class TicketServiceImpl implements TicketService {
 			if (tripStation.getStation().getId().equals(departureStation.getId())  ) {
 				departureStationIndex = tripStation.getIndexInRoute();
 				if (tripStation.getDepartureTime().minusMinutes(10).isBefore(LocalDateTime.now())) {
-					// todo Exception до отправления поезда осталось менее 10 минут, бронирование билета невозможно
+					throw new BusinessLogicException("До отправления поезда осталось менее 10 минут, бронирование билета невозможно.");
 				}
 			} else if (tripStation.getStation().getId().equals(arrivalStation.getId())) {
 				arrivalStationIndex = tripStation.getIndexInRoute();
 			}
 			stations.put(tripStation.getStation(), tripStation.getIndexInRoute());
 		}
-
-
 
 		//here we delete places what already taken by another tickets from PlacesList
 		for (Ticket ticket : ticketsOfTrip) {
@@ -114,7 +113,7 @@ public class TicketServiceImpl implements TicketService {
 		if (isPlaceFree(trip, wagonNumber, placeNumber)) {
 			ticketDao.save(ticketToBook);
 		} else {
-			//todo throw Business logic exception
+			throw new BusinessLogicException("Увы данное место уже кто-то забронировал.");
 		}
 	}
 
@@ -127,6 +126,9 @@ public class TicketServiceImpl implements TicketService {
 	public void registerPassengerToTrip(Passenger passenger, long tripId, int wagon, int place) {
 		Passenger passengerInDatabase = passengerService.findByPassengerData(passenger.getFirstName(), passenger.getLastName(), passenger.getBirthDate());
 		Ticket ticket = findTicketByTripAndPlace(tripId, wagon, place);
+		if (ticket.getPassenger() != null || ticket.getBookedTill() == null) {
+			throw new BusinessLogicException("Данный билет уже выкуплен.");
+		}
 		if (passengerInDatabase == null) {
 			passengerService.save(passenger);
 		} else {
@@ -138,12 +140,10 @@ public class TicketServiceImpl implements TicketService {
 				ticket.setBookedTill(null);
 				ticketDao.update(ticket);
 			} else {
-				System.out.println("До отправления поездла остается менее 10 минут. Покупка билета невозможна.");
-				//todo too late exception
+				throw new BusinessLogicException("До отправления поездла остается менее 10 минут. Покупка билета невозможна.");
 			}
 		} else {
-			System.out.println("Данный пассажир уже зарегистрирован на рейс");
-			//todo already on trip exception
+			throw new BusinessLogicException("Данный пассажир уже зарегистрирован на рейс.");
 		}
 	}
 

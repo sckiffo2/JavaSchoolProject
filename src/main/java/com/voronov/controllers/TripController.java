@@ -26,8 +26,8 @@ public class TripController {
 	@GetMapping("/trip")
 	public String trips(Model model) {
 		ModelAndView modelAndView = new ModelAndView();
-		List<Route> routes = tripService.findAllRoutes();
-		model.addAttribute("routes", routes);
+		model.addAttribute("routes", tripService.findAllRoutes());
+		model.addAttribute("trips", tripService.findAllFutureTrips());
 		return "trip";
 	}
 

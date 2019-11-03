@@ -1,6 +1,7 @@
 package com.voronov.service;
 
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.voronov.dao.DAOinterfaces.UserDao;
 import com.voronov.entities.Role;
 import com.voronov.entities.User;
@@ -14,6 +15,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.function.BooleanSupplier;
 
 @Service
 @Setter
@@ -32,29 +35,49 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByName(String name) {
-        return userDao.findByName(name);
-    }
+	public User findByName(String name) {
+		return userDao.findByName(name);
+	}
+
+	@Override
+	public boolean isExists(User user) {
+    	if (user.getUsername() != null || !user.getUsername().isEmpty()) {
+    		if (user.getMail() != null || !user.getMail().isEmpty()) {
+				return userDao.isExists(user.getUsername(), user.getMail());
+			}
+		}
+    	return false;
+	}
 
     @Override
     public List<User> findAll() {
         return userDao.findAll();
     }
 
+	@Override
+	public List<Role> findAllRoles() {
+		return roleService.findAll();
+	}
+
     @Override
     public void addUser(User user) {
-		user.setActive(true);
-		Role userRole = roleService.findByName("USER");
-		List<Role> roleList = new ArrayList<>();
-		roleList.add(userRole);
-        user.setUserRoles(roleList);
-    	userDao.save(user);
+		if (!isExists(user)) {
+			user.setActive(true);
+			user.setPassword("{noop}" + user.getPassword());
+			List<Role> roleList = new ArrayList<>();
+			Role userRole = roleService.findByName("USER");
+			roleList.add(userRole);
+			user.setUserRoles(roleList);
+			userDao.save(user);
+		} else {
+			//todo User is already exists exception
+		}
     }
 
     @Override
-    public void update(User user) {
-        userDao.update(user);
-    }
+	public void update(User user) {
+		userDao.update(user);
+	}
 
     @Override
     public void delete(long id) {

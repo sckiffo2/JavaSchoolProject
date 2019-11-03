@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class StationScheduleDTO {
+public class StationScheduleDTO implements Comparable<StationScheduleDTO>{
 
 	private final String TIME_FORMAT_PATTERN = "HH:mm";
 
@@ -40,6 +40,23 @@ public class StationScheduleDTO {
 			return departure.format(formatter);
 		}
 		return "-";
+	}
+
+	@Override
+	public int compareTo(StationScheduleDTO o) {
+		if (arrival != null) {
+			if (o.arrival != null) {
+				return arrival.compareTo(o.arrival);
+			} else {
+				return arrival.compareTo(o.departure);
+			}
+		} else {
+			if (o.arrival != null) {
+				return departure.compareTo(o.arrival);
+			} else {
+				return departure.compareTo(o.departure);
+			}
+		}
 	}
 
 	@Override

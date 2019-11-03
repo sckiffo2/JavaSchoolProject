@@ -1,5 +1,6 @@
 package com.voronov.controllers;
 
+import com.voronov.entities.User;
 import com.voronov.service.serviceInterfaces.LoginService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,6 +36,11 @@ public class LoginController {
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
 		return "redirect:/";
+	}
+
+	@RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
+	public String accessDeniedRedirect(ModelMap model) {
+		return "redirect:/access-denied";
 	}
 
 	@RequestMapping(value = "/access-denied", method = RequestMethod.GET)

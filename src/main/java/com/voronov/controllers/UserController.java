@@ -10,7 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @Setter
@@ -41,30 +44,35 @@ public class UserController {
     @GetMapping("/user/edit/{id}")
     public String updatePage(@PathVariable int id, Model model) {
         model.addAttribute(userService.findById(id));
+        model.addAttribute("roles", userService.findAllRoles());
         return "userEdit";
     }
 
     @PostMapping("user/edit/updateUser")
-    public String update(@RequestParam String id,
-                         @RequestParam String username,
-                         @RequestParam String password,
-                         @RequestParam String mail,
+    public String update(@RequestParam String username,
+						 @RequestParam String mail,
                          @RequestParam(required=false) Boolean active) {
-        User user = userService.findById(Integer.parseInt(id));
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setMail(mail);
-        if (active == null) {
-            active = false;
-        }
-        user.setActive(active);
+        User user = userService.findByName(username);
+		user.setUsername(username);
+		user.setActive(active);
         userService.update(user);
         return "redirect:/user";
     }
 
-    @GetMapping("/user/delete/{id}")
-    public String delete(@PathVariable int id) {
-        userService.delete(id);
-        return "redirect:/user";
-    }
+	@RequestMapping(value = "/registration", method = RequestMethod.GET)
+	public String registrationPage(Model model) {
+
+		return "registration";
+	}
+
+	@PostMapping("/registerUser")
+	public String save(@RequestParam String username,
+					   @RequestParam String password,
+					   @RequestParam String mail, Model model,
+					   HttpServletRequest request) {
+		User user = new User(username, password, mail);
+		userService.addUser(user);
+		String referer = request.getHeader("Referer");
+		return "redirect:/login";
+	}
 }

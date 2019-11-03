@@ -1,48 +1,19 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" %>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>AnyWayTicket</title>
-        <link href="resources\css\index.css" rel="stylesheet" type="text/css"/>
-    </head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html;charset=UTF-8"%>
+
+    <c:set var="title" value="AnyWayTicket" />
+    <jsp:include page="parts/head.jsp">
+        <jsp:param name="title" value="${title}"/>
+    </jsp:include>
     <body>
-    <div class="header">
-        <div>AnyWayTicket - any day, any way.</div>
-        <div>login/logout will be here. --->>>></div>
-        <div>
-            <a href="<c:url value="/logout" />">Logout</a>
+        <jsp:include page="parts/sidemenu.jsp"/>
+
+        <div class="main">
+            <jsp:include page="parts/header.jsp"/>
+            <div class="info">
+                <h1>Добро пожаловать!</h1>
+                <p> У нас самые лучшие билеты куда угодно!</p>
+            </div>
         </div>
-    </div>
-    <div class="sidebar">
-        <div class="side-menu">
-            <ul class="side-menu-ul">
-                <li>
-                    <a href="tripSearch">Поиск рейса</a>
-                </li>
-                <li>
-                    <a href="scheduleOfStation">Расписание</a>
-                </li>
-                <li class="active">
-                    <a href="station">Станции</a>
-                </li>
-                <li>
-                    <a href="route">Маршруты</a>
-                </li>
-                <li>
-                    <a href="trip">Рейсы</a>
-                </li>
-                <li>
-                    <a href="passenger">Пассажиры рейса</a>
-                </li>
-                <li>
-                    <a href="user">Пользователи</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <div class="content">
-        <h1>Main Page</h1>
-    </div>
     </body>
 </html>

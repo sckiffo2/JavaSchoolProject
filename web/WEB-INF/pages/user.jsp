@@ -44,7 +44,7 @@
                 <a href="user\edit\<c:url value="${user.getId()}"/>">Изменить</a>
             </td>
             <td>
-                <a href="user\delete\<c:url value="${user.getId()}"/>">Удалить</a>
+                <a href="user\editRole\<c:url value="${user.getId()}"/>">Роли пользователя</a>
             </td>
         </tr>
     </c:forEach>
