@@ -26,7 +26,7 @@ public interface TicketService {
 
 	List<Ticket> findByTripId(long id);
 
-	List<TicketScheduleDTO> findTripsByStationsAndDate(String departureStation, String arrivalStation, LocalDate departureDate);
+	List<TicketScheduleDTO> findTripsByStationsAndDate(String departureStation, String arrivalStation, String departureDate);
 
 	List<List<Integer>> findFreePlaces(long tripId, String departureStationId, String arrivalStationId);
 

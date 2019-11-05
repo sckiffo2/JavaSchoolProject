@@ -21,8 +21,6 @@ import javax.servlet.http.HttpServletResponse;
 @Setter
 public class LoginController {
 
-	@Autowired
-	private LoginService loginService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage() {

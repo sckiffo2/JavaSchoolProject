@@ -3,6 +3,7 @@ package com.voronov.service;
 import com.voronov.dao.DAOinterfaces.TripDao;
 import com.voronov.entities.*;
 import com.voronov.dto.TicketScheduleDTO;
+import com.voronov.service.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.StationService;
 import com.voronov.service.serviceInterfaces.TripService;
@@ -116,6 +117,10 @@ public class TripServiceImpl implements TripService {
 
 	public void createTrip(String routeNumber, LocalDate date) {
 		Route route = routeService.findByNumber(routeNumber);
+		Trip tripToCheck = findByRouteIdAndDate(route.getId(), date);
+		if (tripToCheck != null) {
+			throw new BusinessLogicException("Такой рейс уже существует.");
+		}
 		Trip trip = new Trip(route, date);
 		List<TripStation> stationsList = new ArrayList<>();
 		for (RouteStation routeStation : route.getStationsOnRoute()) {

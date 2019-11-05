@@ -7,6 +7,8 @@ import com.voronov.service.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.*;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,8 @@ import java.util.stream.IntStream;
 @Setter
 @NoArgsConstructor
 public class TicketServiceImpl implements TicketService {
+
+	private static final Logger logger = LoggerFactory.getLogger(TicketServiceImpl.class);
 
 	final static int STOP_SELL_TICKETS = 10;
 	@Autowired
@@ -48,9 +52,29 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public List<TicketScheduleDTO> findTripsByStationsAndDate(String departureStation, String arrivalStation, LocalDate date) {
-		long departureStationId = stationService.findByName(departureStation).getId();
-		long arrivalStationId = stationService.findByName(arrivalStation).getId();
+	public List<TicketScheduleDTO> findTripsByStationsAndDate(String departureStationName, String arrivalStationName, String stringDate) {
+		logger.debug("method start");
+		LocalDate date = null;
+		try {
+			date = LocalDate.parse(stringDate);
+		} catch (Exception e) {
+			logger.error("BusinessLogicException Введена неверная дата, удостоверьтесь в правильности ввода.");
+			throw new BusinessLogicException("Введена неверная дата, удостоверьтесь в правильности ввода.");
+		}
+
+		Station departureStation = stationService.findByName(departureStationName);
+		Station arrivalStation = stationService.findByName(arrivalStationName);
+		if (departureStation == null) {
+			logger.error("BusinessLogicException Станции отправления с таким названием не существует.");
+			throw new BusinessLogicException("Станции отправления с таким названием не существует.");
+		}
+		if (arrivalStation == null) {
+			logger.error("BusinessLogicException Станции прибытия с таким названием не существует.");
+			throw new BusinessLogicException("Станции прибытия с таким названием не существует.");
+		}
+		long departureStationId = departureStation.getId();
+		long arrivalStationId = arrivalStation.getId();
+		logger.debug("method end, call tripService.findTripsByStationsAndDate()");
 		return tripService.findTripsByStationsAndDate(departureStationId, arrivalStationId, date);
 	}
 
@@ -77,6 +101,7 @@ public class TicketServiceImpl implements TicketService {
 			if (tripStation.getStation().getId().equals(departureStation.getId())  ) {
 				departureStationIndex = tripStation.getIndexInRoute();
 				if (tripStation.getDepartureTime().minusMinutes(10).isBefore(LocalDateTime.now())) {
+					logger.error("BusinessLogicException До отправления поезда осталось менее 10 минут, бронирование билета невозможно.");
 					throw new BusinessLogicException("До отправления поезда осталось менее 10 минут, бронирование билета невозможно.");
 				}
 			} else if (tripStation.getStation().getId().equals(arrivalStation.getId())) {
@@ -113,6 +138,7 @@ public class TicketServiceImpl implements TicketService {
 		if (isPlaceFree(trip, wagonNumber, placeNumber)) {
 			ticketDao.save(ticketToBook);
 		} else {
+			logger.error("BusinessLogicException Увы данное место уже кто-то забронировал.");
 			throw new BusinessLogicException("Увы данное место уже кто-то забронировал.");
 		}
 	}
@@ -127,6 +153,7 @@ public class TicketServiceImpl implements TicketService {
 		Passenger passengerInDatabase = passengerService.findByPassengerData(passenger.getFirstName(), passenger.getLastName(), passenger.getBirthDate());
 		Ticket ticket = findTicketByTripAndPlace(tripId, wagon, place);
 		if (ticket.getPassenger() != null || ticket.getBookedTill() == null) {
+			logger.error("BusinessLogicException Данный билет уже выкуплен.");
 			throw new BusinessLogicException("Данный билет уже выкуплен.");
 		}
 		if (passengerInDatabase == null) {
@@ -140,24 +167,27 @@ public class TicketServiceImpl implements TicketService {
 				ticket.setBookedTill(null);
 				ticketDao.update(ticket);
 			} else {
+				logger.error("BusinessLogicException До отправления поездла остается менее 10 минут. Покупка билета невозможна.");
 				throw new BusinessLogicException("До отправления поездла остается менее 10 минут. Покупка билета невозможна.");
 			}
 		} else {
+			logger.error("BusinessLogicException Данный пассажир уже зарегистрирован на рейс.");
 			throw new BusinessLogicException("Данный пассажир уже зарегистрирован на рейс.");
 		}
 	}
 
 
 	public boolean isTooLateToBuyTicket(Trip trip, long departureStationId) {
+		logger.debug("Check if departure in less than 10min.");
 		TripStation tripStation =  trip.getStationsOnTrip()
 				.stream()
 				.filter(x -> x.getStation().getId() == departureStationId)
 				.findAny()
 				.get();
 
-		boolean before = LocalDateTime.now().isAfter(tripStation.getDepartureTime().minusMinutes(STOP_SELL_TICKETS));
-		System.out.println();
-		return before;
+		boolean late = LocalDateTime.now().isAfter(tripStation.getDepartureTime().minusMinutes(STOP_SELL_TICKETS));
+		logger.debug("tooLate : " + late);
+		return late;
 	}
 
 	@Override

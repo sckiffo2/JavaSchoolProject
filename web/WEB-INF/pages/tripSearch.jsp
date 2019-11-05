@@ -28,10 +28,14 @@
                                 <h4>Поиск рейса</h4>
                             </div>
                             <div class="card-body">
-                                <form method="POST" action="getTrip" class="form-horizontal">
+                                <form method="POST" action="${pageContext.request.contextPath}/tripSearch"
+                                      class="form-horizontal">
                                     <div class="form-group row">
+                                        <label for="station1">Станция отправления</label>
                                         <div class="col-sm-10">
-                                            <input list="stations1" id="station1" name="departureStation" class="col-sm-2" placeholder="Выберите станцию отправления" required/>
+                                            <input list="stations1" id="station1" name="departureStation"
+                                                   class="form-control" placeholder="Выберите станцию отправления"
+                                                   required/>
                                             <datalist id="stations1">
                                                 <c:forEach var="station" items="${stations}">
                                                     <option value="${station.getName()}"></option>
@@ -40,8 +44,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label for="station2">Станция прибытия</label>
                                         <div class="col-sm-10">
-                                            <input list="stations2" id="station2" name="arrivalStation" class="col-sm-2" placeholder="Выберите станцию прибытия" required/>
+                                            <input list="stations2" id="station2" name="arrivalStation"
+                                                   class="form-control" placeholder="Выберите станцию прибытия"
+                                                   required/>
                                             <datalist id="stations2">
                                                 <c:forEach var="station" items="${stations}">
                                                     <option value="${station.getName()}"></option>
@@ -52,7 +59,8 @@
                                     <div class="form-group row">
                                         <label for="date" class="col-sm-2"> Дата отправления</label>
                                         <div class="col-sm-10">
-                                            <input type="date" name="stringDate" id="date" required>
+                                            <input type="date" name="stringDate" class="form-control" id="date"
+                                                   required>
                                         </div>
                                     </div>
                                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -88,7 +96,8 @@
                                                                 <c:out value="${dto.getArrivalTimeString()}"/>
                                                             </td>
                                                             <td>
-                                                                <a href="freeplaces/<c:out value="${dto.tripId}" />">Забронировать билет</a>
+                                                                <a href="freeplaces/<c:out value="${dto.tripId}" />">Забронировать
+                                                                    билет</a>
                                                             </td>
                                                         </tr>
                                                         </c:forEach>

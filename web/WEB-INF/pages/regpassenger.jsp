@@ -14,7 +14,7 @@
                 <div class="breadcrumb-holder">
                     <div class="container-fluid">
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.jsp">Главная страница</a></li>
+                            <li class="breadcrumb-item"><a href="/AnyWayTicket/">Главная</a></li>
                             <li class="breadcrumb-item active">Регистрация пассажира</li>
                         </ul>
                     </div>

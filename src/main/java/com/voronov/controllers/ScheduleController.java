@@ -33,11 +33,10 @@ public class ScheduleController {
 		} catch (Exception e) {
 			throw new IllegalArgumentException("Введена неверная дата");
 		}
-		long id = stationService.findByName(name).getId();
 
 		model.addAttribute("station", name);
 		model.addAttribute("date", stringDate);
-		model.addAttribute("schedule", stationService.getScheduleOfStation(id, date));
+		model.addAttribute("schedule", stationService.getScheduleOfStation(name, date));
 		model.addAttribute("stations", stationService.findAll());
 		return "scheduleOfStation";
 	}

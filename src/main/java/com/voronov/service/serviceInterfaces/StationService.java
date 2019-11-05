@@ -17,7 +17,7 @@ public interface StationService {
 
 	Station findByName(String name);
 
-	List<StationScheduleDTO> getScheduleOfStation(long id, LocalDate date);
+	List<StationScheduleDTO> getScheduleOfStation(String name, LocalDate date);
 
 	void save(Station station);
 

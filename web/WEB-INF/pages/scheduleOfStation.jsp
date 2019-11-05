@@ -31,7 +31,7 @@
                                 <form method="POST" action="${pageContext.request.contextPath}/scheduleOfStation" class="form-horizontal">
                                     <div class="form-group row">
                                         <div class="col-sm-10">
-                                            <input list="stations" id="station" name="name" placeholder="Выберите станцию" required/>
+                                            <input list="stations" id="station" name="name" class="form-control" placeholder="Выберите станцию" required/>
                                             <datalist id="stations">
                                                 <c:forEach var="station" items="${stations}">
                                                     <option value="${station.getName()}"></option>
@@ -42,7 +42,7 @@
                                     <div class="form-group row">
                                         <label for="date" class="col-sm-2">Дата</label>
                                         <div class="col-sm-10">
-                                            <input type="date" name="stringDate" id="date" required>
+                                            <input type="date" name="stringDate" class="form-control" id="date" required>
                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                         </div>
                                     </div>

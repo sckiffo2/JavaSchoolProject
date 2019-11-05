@@ -14,7 +14,7 @@
         <div class="breadcrumb-holder">
             <div class="container-fluid">
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.jsp">Главная страница</a></li>
+                    <li class="breadcrumb-item"><a href="/AnyWayTicket/">Главная</a></li>
                     <li class="breadcrumb-item active">Пассажиры</li>
                 </ul>
             </div>
@@ -31,7 +31,7 @@
                                 <form method="POST" action="getPassengers" class="form-horizontal">
                                     <div class="form-group row">
                                         <div class="col-sm-10">
-                                            <input list="routes" id="route" name="number" placeholder="Выберите поезд" required/>
+                                            <input list="routes" id="route" name="number" class="form-control" placeholder="Выберите поезд" required/>
                                             <datalist id="routes">
                                                 <c:forEach var="route" items="${routes}">
                                                     <option value="${route.number}">${route.name}</option>
@@ -42,7 +42,7 @@
                                     <div class="form-group row">
                                         <label for="date" class="col-sm-2"> Время прибытия</label>
                                         <div class="col-sm-10">
-                                            <input type="date" name="date" id="date" required>
+                                            <input type="date" name="date" class="form-control" id="date" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-10">

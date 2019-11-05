@@ -31,16 +31,21 @@ public class StationDaoImpl implements StationDao {
 	@Override
 	public Station findByName(String name) {
 		Station station = null;
+		List<Station> list = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 			Query query = session.createQuery("from Station S where S.name = :name", Station.class);
 			query.setParameter("name", name);
-			station = (Station) query.getSingleResult();
+			list = query.getResultList();
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return station;
+		if (list != null && list.size() == 1) {
+			station = list.get(0);
+			return station;
+		}
+		return null;
 	}
 
 	@Override

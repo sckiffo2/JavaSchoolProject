@@ -1,13 +1,16 @@
 package com.voronov.service;
 
-import com.voronov.dto.StationScheduleDTO;
 import com.voronov.dao.DAOinterfaces.StationDao;
+import com.voronov.dto.StationScheduleDTO;
 import com.voronov.entities.Station;
 import com.voronov.entities.Trip;
+import com.voronov.service.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.StationService;
 import com.voronov.service.serviceInterfaces.TripService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +24,8 @@ import java.util.List;
 @Service
 @NoArgsConstructor
 public class StationServiceImpl implements StationService {
+
+	private static final Logger logger = LoggerFactory.getLogger(StationServiceImpl.class);
 
 	@Autowired
 	private StationDao stationDao;
@@ -38,9 +43,17 @@ public class StationServiceImpl implements StationService {
 	}
 
 	@Override
-	public List<StationScheduleDTO> getScheduleOfStation(long id, LocalDate date) {
+	public List<StationScheduleDTO> getScheduleOfStation(String name, LocalDate date) {
+		logger.debug("start");
+		Station station = findByName(name);
+		if (station == null) {
+			logger.error("BusinessLogicException Станции с таким названием не существует.");
+			throw new BusinessLogicException("Станции с таким названием не существует.");
+		}
 
-		List<Trip> tripsOfStation = tripService.findTripsByStationId(id);
+		List<StationScheduleDTO> result = new ArrayList<>();
+
+		List<Trip> tripsOfStation = tripService.findTripsByStationId(station.getId());
 
 		List<StationScheduleDTO> subResult = new ArrayList<>();
 		for (Trip trip : tripsOfStation) {
@@ -61,7 +74,6 @@ public class StationServiceImpl implements StationService {
 			subResult.add(scheduleRow);
 		}
 
-		List<StationScheduleDTO> result = new ArrayList<>();
 		for (StationScheduleDTO row: subResult) {
 			if ((row.getArrival() != null && row.getArrival().toLocalDate().equals(date)) ||
 					row.getDeparture() != null && row.getDeparture().toLocalDate().equals(date)){
@@ -69,12 +81,13 @@ public class StationServiceImpl implements StationService {
 			}
 		}
 		Collections.sort(result);
-
+		logger.debug("end");
 		return result;
 	}
 
 	@Override
 	public void save(Station station) {
+		logger.debug("");
 		stationDao.save(station);
 	}
 
@@ -91,6 +104,7 @@ public class StationServiceImpl implements StationService {
 
 	@Override
 	public List<Station> findAll() {
+		logger.debug("");
 		return stationDao.findAll();
 	}
 

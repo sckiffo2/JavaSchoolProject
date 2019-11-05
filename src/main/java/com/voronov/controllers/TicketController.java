@@ -28,7 +28,7 @@ public class TicketController {
 		return "tripSearch";
 	}
 
-	@PostMapping("getTrip")
+	@PostMapping("/tripSearch")
 	public String findTrip(@RequestParam String departureStation,
 						   @RequestParam String arrivalStation,
 						   @RequestParam String stringDate,
@@ -36,8 +36,7 @@ public class TicketController {
 		session.setAttribute("departureStation", departureStation);
 		session.setAttribute("arrivalStation", arrivalStation);
 		model.addAttribute("stations", ticketService.findAllStations());
-		LocalDate date = LocalDate.parse(stringDate);
-		model.addAttribute("TicketScheduleDTO", ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, date));
+		model.addAttribute("TicketScheduleDTO", ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, stringDate));
 		return "tripSearch";
 	}
 

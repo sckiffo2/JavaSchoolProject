@@ -34,20 +34,25 @@ public class TripDaoImpl implements TripDao {
 	@SuppressWarnings("unchecked")
 	public Trip findByRouteIdAndDate(long id, LocalDate date) {
 		Trip result = null;
-
+		List<Trip> list = null;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 
 			Query query = session.createQuery("from Trip T where T.route.id = :id and T.startDate = :date", Trip.class);
 			query.setParameter("id", id);
 			query.setParameter("date", date);
+			list = query.getResultList();
 			result = (Trip)query.getSingleResult();
 
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result;
+		if (list != null && list.size() >= 1) {
+			result = list.get(0);
+			return result;
+		}
+		return null;
 	}
 
 	@Override
