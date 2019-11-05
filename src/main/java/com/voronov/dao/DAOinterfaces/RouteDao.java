@@ -16,6 +16,8 @@ public interface RouteDao {
 
 	List<Route> findRoutesByStationId(long id);
 
+	boolean isExist(String number);
+
 	void save(Route route);
 
 	void update(Route route);

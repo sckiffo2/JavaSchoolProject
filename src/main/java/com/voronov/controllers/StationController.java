@@ -34,9 +34,8 @@ public class StationController {
 
 	@PostMapping("/station/save")
 	public String save(@RequestParam String name) {
-		Station station = new Station(name);
 
-		stationService.save(station);
+		stationService.save(name);
 		return "redirect:/station";
 	}
 

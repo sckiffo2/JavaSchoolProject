@@ -80,6 +80,7 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public List<List<Integer>> findFreePlaces(long tripId, String departureStationName, String arrivalStationName) {
+		logger.debug("method start");
 		Station departureStation = stationService.findByName(departureStationName);
 		Station arrivalStation = stationService.findByName(arrivalStationName);
 
@@ -121,11 +122,13 @@ public class TicketServiceImpl implements TicketService {
 			}
 			placesList.get(ticket.getWagonNumber() - 1).remove(new Integer(ticket.getPlace()));
 		}
+		logger.debug("method end");
 		return placesList;
 	}
 
 	@Override
 	public void bookTicket(long tripId, String departureStationName, String arrivalStationName, int wagonNumber, int placeNumber) {
+		logger.debug("method start");
 		Ticket ticketToBook = new Ticket();
 		ticketToBook.setBookedTill(LocalDateTime.now().plusMinutes(10));
 		Trip trip = tripService.findById(tripId);
@@ -141,15 +144,18 @@ public class TicketServiceImpl implements TicketService {
 			logger.error("BusinessLogicException Увы данное место уже кто-то забронировал.");
 			throw new BusinessLogicException("Увы данное место уже кто-то забронировал.");
 		}
+		logger.debug("method end");
 	}
 
 	@Override
 	public boolean isPlaceFree(Trip trip, int wagon, int place) {
+		logger.debug("check if this place free");
 		return ticketDao.isExists(trip, wagon, place);
 	}
 
 	@Override
 	public void registerPassengerToTrip(Passenger passenger, long tripId, int wagon, int place) {
+		logger.debug("Starting to register passenger on trip");
 		Passenger passengerInDatabase = passengerService.findByPassengerData(passenger.getFirstName(), passenger.getLastName(), passenger.getBirthDate());
 		Ticket ticket = findTicketByTripAndPlace(tripId, wagon, place);
 		if (ticket.getPassenger() != null || ticket.getBookedTill() == null) {

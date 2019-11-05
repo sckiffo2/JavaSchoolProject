@@ -2,6 +2,7 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.RouteDao;
 import com.voronov.entities.Route;
+import com.voronov.service.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.RouteService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,8 +40,18 @@ public class RouteServiceImpl implements RouteService {
 	}
 
 	@Override
-	public void save(Route route) {
-		routeDao.save(route);
+	public boolean isExist(String number) {
+		return routeDao.isExist(number);
+	}
+
+	@Override
+	public void save(String number, String name, String pattern) {
+		if (!isExist(number)) {
+			routeDao.save(new Route(number, name, pattern));
+		} else {
+			throw new BusinessLogicException("Маршрут с таким номером уже существует");
+		}
+
 	}
 
 	@Override

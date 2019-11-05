@@ -86,9 +86,18 @@ public class StationServiceImpl implements StationService {
 	}
 
 	@Override
-	public void save(Station station) {
+	public boolean isExist(String name) {
+		return stationDao.isExist(name);
+	}
+
+	@Override
+	public void save(String name) {
 		logger.debug("");
-		stationDao.save(station);
+		if (!isExist(name)) {
+			stationDao.save(new Station(name));
+		} else {
+			throw new BusinessLogicException("Станция с таким названием уже существует");
+		}
 	}
 
 	@Override
@@ -104,7 +113,6 @@ public class StationServiceImpl implements StationService {
 
 	@Override
 	public List<Station> findAll() {
-		logger.debug("");
 		return stationDao.findAll();
 	}
 

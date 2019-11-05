@@ -42,9 +42,8 @@ public class RouteController {
 	public String save(@RequestParam String number,
 					   @RequestParam String name,
 					   @RequestParam String pattern) {
-		Route route = new Route(number, name, pattern);
 
-		routeService.save(route);
+		routeService.save(number, name, pattern);
 		return "redirect:/route";
 	}
 
@@ -94,15 +93,7 @@ public class RouteController {
 									@RequestParam String arrivalDay,
 									@RequestParam String departureDay,
 									RedirectAttributes redirectAttributes) {
-		if (id.equals("") || station.equals("") || (arrival.equals("") && departure.equals(""))) {
 
-		}
-		if (arrivalDay.isEmpty()) {
-			arrivalDay = "0";
-		}
-		if (departureDay.isEmpty()) {
-			departureDay = "0";
-		}
 		routeStationService.save(id, station, arrival, departure, arrivalDay, departureDay);
 		return "redirect:/route/editStations/"+ id;
 	}

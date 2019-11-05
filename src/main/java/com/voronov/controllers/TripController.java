@@ -35,7 +35,13 @@ public class TripController {
 	public String save(@RequestParam String routeNumber,
 					   @RequestParam String date,
 					   Model model) {
-		LocalDate localDate = LocalDate.parse(date);
+		LocalDate localDate;
+		try {
+			localDate = LocalDate.parse(date);
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Введена неверная дата");
+		}
+
 		tripService.createTrip(routeNumber, localDate);
 
 		List<Route> routes = tripService.findAllRoutes();

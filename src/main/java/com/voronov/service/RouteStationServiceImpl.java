@@ -5,6 +5,7 @@ import com.voronov.dao.DAOinterfaces.RouteStationDao;
 import com.voronov.entities.Route;
 import com.voronov.entities.RouteStation;
 import com.voronov.entities.Station;
+import com.voronov.service.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.RouteStationService;
 import com.voronov.service.serviceInterfaces.StationService;
@@ -22,8 +23,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class RouteStationServiceImpl implements RouteStationService {
-
 	final private int SECONDS_IN_DAY = 86400;
+
 	@Autowired
 	private RouteStationDao routeStationDao;
 
@@ -42,6 +43,17 @@ public class RouteStationServiceImpl implements RouteStationService {
 	public void save(String strId, String stationName, String strArrival, String strDeparture, String arrivalDayNumber, String departureDayNumber) {
 		RouteStation routeStation = new RouteStation();
 
+		if (arrivalDayNumber.isEmpty()) {
+			arrivalDayNumber = "0";
+		}
+		if (departureDayNumber.isEmpty()) {
+			departureDayNumber = "0";
+		}
+
+		if (strArrival.isEmpty() && strDeparture.isEmpty()) {
+			throw new BusinessLogicException("У станции должно присутствовать, либо время отправления, либо время прибытия");
+		}
+
 		Route route = routeService.findById(Long.parseLong(strId));
 		Station station =  stationService.findByName(stationName);
 
@@ -49,7 +61,6 @@ public class RouteStationServiceImpl implements RouteStationService {
 			int arrival = LocalTime.parse(strArrival).toSecondOfDay() + SECONDS_IN_DAY * Integer.parseInt(arrivalDayNumber);
 			routeStation.setArrivalTime(arrival);
 		}
-
 		if (!strDeparture.isEmpty()) {
 			int departure = LocalTime.parse(strDeparture).toSecondOfDay() + SECONDS_IN_DAY * Integer.parseInt(departureDayNumber);
 			routeStation.setDepartureTime(departure);

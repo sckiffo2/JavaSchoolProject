@@ -17,5 +17,5 @@ public interface StationDao {
 
 	void delete(Station station);
 
-
+	boolean isExist(String name);
 }

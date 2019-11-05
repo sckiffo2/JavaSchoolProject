@@ -82,6 +82,23 @@ public class StationDaoImpl implements StationDao {
 	}
 
 	@Override
+	public boolean isExist(String name) {
+		boolean result = false;
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+
+			Query query = session.createQuery("select count(*) from Station S where S.name = :name");
+			query.setParameter("name", name);
+			result = (long)query.getSingleResult() == 1;
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
 	public List<Station> findAll() {
 		List<Station> result = null;
 

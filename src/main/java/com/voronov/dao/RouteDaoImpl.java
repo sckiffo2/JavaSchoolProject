@@ -98,6 +98,23 @@ public class RouteDaoImpl implements RouteDao {
 	}
 
 	@Override
+	public boolean isExist(String number) {
+		boolean result = false;
+		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+			session.beginTransaction();
+
+			Query query = session.createQuery("select count(*) from Route R where R.number = :number");
+			query.setParameter("number", number);
+			result = (long)query.getSingleResult() == 1;
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
 	public void save(Route route) {
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();

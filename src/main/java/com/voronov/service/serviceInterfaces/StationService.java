@@ -19,7 +19,9 @@ public interface StationService {
 
 	List<StationScheduleDTO> getScheduleOfStation(String name, LocalDate date);
 
-	void save(Station station);
+	boolean isExist(String name);
+
+	void save(String name);
 
 	void update(Station station);
 

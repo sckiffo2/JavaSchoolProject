@@ -48,6 +48,13 @@ public class UserController {
         return "userEdit";
     }
 
+	@GetMapping("/user/editRole/{id}")
+	public String updateRolePage(@PathVariable int id, Model model) {
+		model.addAttribute(userService.findById(id));
+		model.addAttribute("roles", userService.findAllRoles());
+		return "userEditRole";
+	}
+
     @PostMapping("user/edit/updateUser")
     public String update(@RequestParam String username,
 						 @RequestParam String mail,

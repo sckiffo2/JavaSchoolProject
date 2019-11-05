@@ -42,7 +42,6 @@ public class TripDaoImpl implements TripDao {
 			query.setParameter("id", id);
 			query.setParameter("date", date);
 			list = query.getResultList();
-			result = (Trip)query.getSingleResult();
 
 			session.getTransaction().commit();
 		} catch (Exception e) {

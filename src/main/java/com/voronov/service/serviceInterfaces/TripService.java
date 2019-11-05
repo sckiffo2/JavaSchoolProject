@@ -22,6 +22,8 @@ public interface TripService {
 
 	void createTrip(String routeName, LocalDate date);
 
+	void createTripsBySchedule();
+
 	void delete(long id);
 
 	List<Trip> findAll();
@@ -33,6 +35,8 @@ public interface TripService {
 	void setTripDao(TripDao tripDao);
 
 	void setStationService(StationService stationService);
+
+	void setTripStationService(TripStationService tripStationService);
 
 	void setRouteService(RouteService routeService);
 }

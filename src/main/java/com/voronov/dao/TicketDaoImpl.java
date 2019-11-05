@@ -9,6 +9,8 @@ import lombok.Setter;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -19,6 +21,7 @@ import java.util.List;
 @NoArgsConstructor
 public class TicketDaoImpl implements TicketDao {
 
+	private static final Logger logger = LoggerFactory.getLogger(TicketDaoImpl.class);
 	@Override
 	public Ticket findById(long id) {
 		Ticket ticket = null;
@@ -86,17 +89,19 @@ public class TicketDaoImpl implements TicketDao {
 
 	@Override
 	public void deleteLongBookedTickets() {
+		int result = 0;
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 
 			Query query = session.createQuery("delete Ticket T where T.bookedTill is not null and T.bookedTill < :timeNow");
 			query.setParameter("timeNow", LocalDateTime.now());
-			int result = query.executeUpdate();
+			result = query.executeUpdate();
 
 			session.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		logger.debug("tickets removed: " + result);
 	}
 
 

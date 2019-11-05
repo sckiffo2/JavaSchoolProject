@@ -10,12 +10,15 @@ import com.voronov.service.serviceInterfaces.TripService;
 import com.voronov.service.serviceInterfaces.TripStationService;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,6 +26,9 @@ import java.util.stream.Collectors;
 @Setter
 @NoArgsConstructor
 public class TripServiceImpl implements TripService {
+	public static final int TRIP_SCHEDULE_DAYS = 30;
+
+	private static final Logger logger = LoggerFactory.getLogger(TripServiceImpl.class);
 
 	@Autowired
 	private TripDao tripDao;
@@ -115,10 +121,14 @@ public class TripServiceImpl implements TripService {
 		return tripDao.findTripStationsByTripId(id);
 	}
 
+	@Override
 	public void createTrip(String routeNumber, LocalDate date) {
 		Route route = routeService.findByNumber(routeNumber);
-		Trip tripToCheck = findByRouteIdAndDate(route.getId(), date);
-		if (tripToCheck != null) {
+		if (route == null) {
+			throw new BusinessLogicException("Рейса с таким номером не существует.");
+		}
+
+		if (existsByRouteNumberAndDate(route, date)) {
 			throw new BusinessLogicException("Такой рейс уже существует.");
 		}
 		Trip trip = new Trip(route, date);
@@ -139,6 +149,67 @@ public class TripServiceImpl implements TripService {
 		}
 		tripDao.save(trip);
 		stationsList.forEach(tripStationService::save);
+	}
+
+	@Override
+	public void createTripsBySchedule() {
+		logger.debug("Начинаем автоматическое создание рейсов...");
+		int tripsCreated = 0;
+		List<Route> allRoutes = findAllRoutes();
+
+		for (Route route : allRoutes) {
+			String schedulePattern = route.getSchedulePattern();
+			if (schedulePattern != null) {
+				String[] pattern = schedulePattern.split(";");
+				LocalDate futureDate = LocalDate.now().plusDays(TRIP_SCHEDULE_DAYS);
+				boolean dateIsValid = false;
+				if (pattern[0].equals("EVERYDAY")) {
+					dateIsValid = true;
+				}
+				if (pattern[0].equals("EVEN")) {
+					if (futureDate.getDayOfMonth() % 2 == 0) {
+						dateIsValid = true;
+					}
+				}
+				if (pattern[0].equals("ODD")) {
+					if (futureDate.getDayOfMonth() % 2 != 0) {
+						dateIsValid = true;
+					}
+				}
+				if (pattern[0].equals("WEEK")) {
+					List<String> list = Arrays.asList(pattern);
+					int dayOfWeek = futureDate.getDayOfWeek().getValue();
+					if (list.contains(Integer.toString(dayOfWeek))) {
+						dateIsValid = true;
+					}
+				}
+				if (pattern[0].equals("MONTH")) {
+					List<String> list = Arrays.asList(pattern);
+					int dayOfMonth = LocalDate.now().getDayOfMonth();
+					if (list.contains(Integer.toString(dayOfMonth))) {
+						dateIsValid = true;
+					}
+				}
+				if (dateIsValid) {
+					try {
+						createTrip(route.getNumber(), futureDate);
+						tripsCreated++;
+					} catch (BusinessLogicException e) {
+						logger.debug("По какой-то причине такой рейс в этот день уже существует. Не будем создавать будликат");
+					}
+				}
+			}
+		}
+		logger.debug("Создано : " + tripsCreated);
+	}
+
+	public boolean existsByRouteNumberAndDate(Route route, LocalDate date) {
+
+		Trip tripToCheck = findByRouteIdAndDate(route.getId(), date);
+		if (tripToCheck != null) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override

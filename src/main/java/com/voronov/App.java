@@ -29,6 +29,9 @@ public class App {
 		ticketService.setStationService(stationService);
 		ticketService.setTripService(tripService);
 		userService.setUserDao(new UserDaoImpl());
+		tripService.setTripStationService(new TripStationServiceImpl());
+		TripStationService tripStationService = new TripStationServiceImpl();
+		tripStationService.setTripStationDao(new TripStationDaoImpl());
 
 
 //		List<Trip> tripList = tripService.findByRouteId(1);
@@ -46,6 +49,7 @@ public class App {
 
 //		List<List<Integer>> list = ticketService.findFreePlaces(1, departureStation, arrivalStation);
 
+		tripService.createTripsBySchedule();
 
 //		User user = userService.findByName("admin");
 		System.out.println();
@@ -55,8 +59,6 @@ public class App {
 		//todo user login before take trip
 		//todo add succes ticket buy form
 		//todo ticket pricing
-		//todo login\logout change
-		//todo admin\manager menu visibility
 		//todo
 		//todo
 		//todo цена билета формируется из магич числа + цена зоны * кол-во зон. Цена одной зоны хранится в trip

@@ -17,7 +17,9 @@ public interface RouteService {
 
 	List<Route> findRoutesByStationId(long id);
 
-	void save(Route passenger);
+	boolean isExist(String name);
+
+	void save(String number, String name, String pattern);
 
 	void update(Route passenger);
 

@@ -11,7 +11,7 @@ public interface TicketDao {
 	@SuppressWarnings("unchecked")
 	List<Ticket> findAll();
 
-	public List<Ticket> findByTripId(long id);
+	List<Ticket> findByTripId(long id);
 
 	Ticket findTicketByTripAndPlace(long tripId, int wagon, int place);
 

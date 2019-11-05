@@ -1,6 +1,7 @@
 package com.voronov.scheduling;
 
 import com.voronov.service.serviceInterfaces.TicketService;
+import com.voronov.service.serviceInterfaces.TripService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class ScheduleTask {
 	@Autowired
 	TicketService ticketService;
 
+	@Autowired
+	TripService tripService;
+
 	//every 30 seconds (seconds, minutes, hours, day of month, month, day of week, year(optional))
 	@Scheduled(cron = "0 0/1 * * * ?")
 	public void deleteBookedTicketsSchedule() {
@@ -26,6 +30,7 @@ public class ScheduleTask {
 
 	@Scheduled(cron = "0 0 1 * * ?")
 	public void createTripSchedule() {
-		//todo auto create trips by schedule pattern of route
+		logger.debug("ScheduledTask: Auto create trips.");
+		tripService.createTripsBySchedule();
 	}
 }
