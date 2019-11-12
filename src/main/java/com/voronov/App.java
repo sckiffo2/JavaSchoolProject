@@ -4,7 +4,10 @@ import com.voronov.dao.*;
 import com.voronov.entities.*;
 import com.voronov.service.*;
 import com.voronov.service.serviceInterfaces.*;
+import com.voronov.utils.JmsSender;
+import com.voronov.utils.JmsTopic;
 
+import javax.jms.JMSException;
 import java.time.LocalDate;
 
 public class App {
@@ -33,7 +36,6 @@ public class App {
 		TripStationService tripStationService = new TripStationServiceImpl();
 		tripStationService.setTripStationDao(new TripStationDaoImpl());
 
-
 //		List<Trip> tripList = tripService.findByRouteId(1);
 //		List<Passenger> passengersList = passengerService.findPassengersOnTrip(1);
 //		List<Ticket> ticketList = ticketService.findByTripId(1);
@@ -49,11 +51,20 @@ public class App {
 
 //		List<List<Integer>> list = ticketService.findFreePlaces(1, departureStation, arrivalStation);
 
-		tripService.createTripsBySchedule();
+//		tripService.createTripsBySchedule();
 
 //		User user = userService.findByName("admin");
 		System.out.println();
+//		JmsSender sender = new JmsSender();
+		JmsTopic topicSender = new JmsTopic();
 
+
+		try {
+			topicSender.sendMessage();
+		} catch (Exception e ) {
+
+			e.printStackTrace();
+		}
 
 		//todo древние рейсы не отображаем (отмправление менее чем через 10 минут)
 		//todo user login before take trip
