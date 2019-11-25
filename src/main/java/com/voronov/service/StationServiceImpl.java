@@ -1,7 +1,7 @@
 package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.StationDao;
-import com.voronov.dto.StationScheduleDTO;
+import com.voronov.dto.StationScheduleDto;
 import com.voronov.entities.Station;
 import com.voronov.entities.Trip;
 import com.voronov.service.exceptions.BusinessLogicException;
@@ -43,7 +43,7 @@ public class StationServiceImpl implements StationService {
 	}
 
 	@Override
-	public List<StationScheduleDTO> getScheduleOfStation(String name, LocalDate date) {
+	public List<StationScheduleDto> getScheduleOfStation(String name, LocalDate date) {
 		logger.debug("start");
 		Station station = findByName(name);
 		if (station == null) {
@@ -51,15 +51,16 @@ public class StationServiceImpl implements StationService {
 			throw new BusinessLogicException("Станции с таким названием не существует.");
 		}
 
-		List<StationScheduleDTO> result = new ArrayList<>();
+		List<StationScheduleDto> result = new ArrayList<>();
 
 		List<Trip> tripsOfStation = tripService.findTripsByStationId(station.getId());
 
-		List<StationScheduleDTO> subResult = new ArrayList<>();
+		List<StationScheduleDto> subResult = new ArrayList<>();
 		for (Trip trip : tripsOfStation) {
-			StationScheduleDTO scheduleRow = new StationScheduleDTO();
+			StationScheduleDto scheduleRow = new StationScheduleDto();
 			scheduleRow.setRouteNumber(trip.getRoute().getNumber());
 			scheduleRow.setRouteName(trip.getRoute().getName());
+
 			if (trip.getRoute().getStationsOnRoute().get(0).getArrivalTime() != null) {
 				LocalDateTime arrivalTime = trip.getStartDate().atStartOfDay();
 				arrivalTime = arrivalTime.plusSeconds(trip.getRoute().getStationsOnRoute().get(0).getArrivalTime());
@@ -74,7 +75,7 @@ public class StationServiceImpl implements StationService {
 			subResult.add(scheduleRow);
 		}
 
-		for (StationScheduleDTO row: subResult) {
+		for (StationScheduleDto row: subResult) {
 			if ((row.getArrival() != null && row.getArrival().toLocalDate().equals(date)) ||
 					row.getDeparture() != null && row.getDeparture().toLocalDate().equals(date)){
 				result.add(row);
@@ -91,7 +92,7 @@ public class StationServiceImpl implements StationService {
 	}
 
 	@Override
-	public void save(String name) {
+	public void createStation(String name) {
 		logger.debug("");
 		if (!isExist(name)) {
 			stationDao.save(new Station(name));
@@ -101,14 +102,8 @@ public class StationServiceImpl implements StationService {
 	}
 
 	@Override
-	public void update(Station station) {
+	public void updateStation(Station station) {
 		stationDao.update(station);
-	}
-
-	@Override
-	public void delete(int id) {
-		Station deleteStation = stationDao.findById(id);
-		stationDao.delete(deleteStation);
 	}
 
 	@Override

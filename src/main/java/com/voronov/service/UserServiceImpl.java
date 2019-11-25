@@ -5,6 +5,7 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.voronov.dao.DAOinterfaces.UserDao;
 import com.voronov.entities.Role;
 import com.voronov.entities.User;
+import com.voronov.service.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.RoleService;
 import com.voronov.service.serviceInterfaces.UserService;
 import lombok.NoArgsConstructor;
@@ -70,7 +71,7 @@ public class UserServiceImpl implements UserService {
 			user.setUserRoles(roleList);
 			userDao.save(user);
 		} else {
-			//todo User is already exists exception
+			throw new BusinessLogicException("такой пользователь уже существует");
 		}
     }
 

@@ -50,7 +50,7 @@ public class TicketScheduleDTO {
 
 	@Override
 	public String toString() {
-		return "StationScheduleDTO{" +
+		return "StationScheduleDto{" +
 				"routeNumber='" + routeNumber + '\'' +
 				", routeName='" + routeName + '\'' +
 				", arrival=" + arrival +

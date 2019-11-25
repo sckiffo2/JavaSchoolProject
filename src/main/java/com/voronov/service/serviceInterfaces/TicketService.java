@@ -24,7 +24,7 @@ public interface TicketService {
 
 	Ticket findById(long id);
 
-	List<Ticket> findByTripId(long id);
+	List<Ticket> findAllTicketsByTripId(long id);
 
 	List<TicketScheduleDTO> findTripsByStationsAndDate(String departureStation, String arrivalStation, String departureDate);
 
@@ -35,6 +35,8 @@ public interface TicketService {
 	boolean isPlaceFree(Trip trip, int wagon, int place);
 
 	void registerPassengerToTrip(Passenger passenger, long tripId, int wagon, int place);
+
+	boolean isTooLateToBuyTicket(Trip trip, long departureStationId);
 
 	Ticket findTicketByTripAndPlace(long tripId, int wagon, int place);
 

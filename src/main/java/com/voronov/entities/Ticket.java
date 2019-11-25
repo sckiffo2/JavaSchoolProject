@@ -41,4 +41,12 @@ public class Ticket extends SuperEntity{
 
 	@Column(name = "booked_till")
     private LocalDateTime bookedTill;
+
+	public Ticket(Trip trip, Station departureStation, Station arrivalStation, int wagonNumber, int place) {
+		this.trip = trip;
+		this.departureStation = departureStation;
+		this.arrivalStation = arrivalStation;
+		this.wagonNumber = wagonNumber;
+		this.place = place;
+	}
 }

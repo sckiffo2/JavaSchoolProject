@@ -26,6 +26,8 @@ public class TicketServiceImpl implements TicketService {
 	private static final Logger logger = LoggerFactory.getLogger(TicketServiceImpl.class);
 
 	final static int STOP_SELL_TICKETS = 10;
+	final static int DEFAULT_WAGONS_AMOUNT = 15;
+	final static int DEFAULT_PLACES_AMOUNT = 36;
 	@Autowired
 	private TicketDao ticketDao;
 
@@ -47,7 +49,7 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public List<Ticket> findByTripId(long id) {
+	public List<Ticket> findAllTicketsByTripId(long id) {
 		return ticketDao.findByTripId(id);
 	}
 
@@ -84,15 +86,15 @@ public class TicketServiceImpl implements TicketService {
 		Station departureStation = stationService.findByName(departureStationName);
 		Station arrivalStation = stationService.findByName(arrivalStationName);
 
-	    int numberOfWagons = 15;
-		int numberOfPlacesInWagon = 36;
+	    int numberOfWagons = DEFAULT_WAGONS_AMOUNT;
+		int numberOfPlacesInWagon = DEFAULT_PLACES_AMOUNT;
 		List<List<Integer>> placesList = new ArrayList<>(numberOfWagons);
 		for (int i = 0; i < numberOfWagons; i++) {
 			List<Integer> wagonPlaces = IntStream.rangeClosed(1, numberOfPlacesInWagon).boxed().collect(Collectors.toList());
 			placesList.add(wagonPlaces);
 		}
 
-		List<Ticket> ticketsOfTrip = findByTripId(tripId);
+		List<Ticket> ticketsOfTrip = findAllTicketsByTripId(tripId);
 		List<TripStation> stationsOfTrip = tripService.findTripStations(tripId);
 
 		int departureStationIndex = 0;
@@ -132,7 +134,7 @@ public class TicketServiceImpl implements TicketService {
 		Ticket ticketToBook = new Ticket();
 		ticketToBook.setBookedTill(LocalDateTime.now().plusMinutes(10));
 		Trip trip = tripService.findById(tripId);
-		ticketToBook.setTrip(tripService.findById(tripId));
+		ticketToBook.setTrip(trip);
 		ticketToBook.setDepartureStation(stationService.findByName(departureStationName));
 		ticketToBook.setArrivalStation(stationService.findByName(arrivalStationName));
 		ticketToBook.setWagonNumber(wagonNumber);
@@ -149,8 +151,12 @@ public class TicketServiceImpl implements TicketService {
 
 	@Override
 	public boolean isPlaceFree(Trip trip, int wagon, int place) {
-		logger.debug("check if this place free");
-		return ticketDao.isExists(trip, wagon, place);
+		if ((wagon > 0 && wagon < 16) && (place > 0 && place < 37)) {
+			boolean placeIsFree = ticketDao.isExists(trip, wagon, place);
+			logger.debug("Checking is place " + place + " of wagon " + wagon + " free : " + placeIsFree);
+			return placeIsFree;
+		}
+		return false;
 	}
 
 	@Override
@@ -182,18 +188,17 @@ public class TicketServiceImpl implements TicketService {
 		}
 	}
 
-
+	@Override
 	public boolean isTooLateToBuyTicket(Trip trip, long departureStationId) {
-		logger.debug("Check if departure in less than 10min.");
 		TripStation tripStation =  trip.getStationsOnTrip()
 				.stream()
 				.filter(x -> x.getStation().getId() == departureStationId)
 				.findAny()
 				.get();
 
-		boolean late = LocalDateTime.now().isAfter(tripStation.getDepartureTime().minusMinutes(STOP_SELL_TICKETS));
-		logger.debug("tooLate : " + late);
-		return late;
+		boolean result = LocalDateTime.now().isAfter(tripStation.getDepartureTime().minusMinutes(STOP_SELL_TICKETS));
+		logger.debug("Check if departure in less than 10min. Result = " + result);
+		return result;
 	}
 
 	@Override

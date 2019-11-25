@@ -1,6 +1,6 @@
 package com.voronov.service.serviceInterfaces;
 
-import com.voronov.dto.StationScheduleDTO;
+import com.voronov.dto.StationScheduleDto;
 import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.entities.Station;
 
@@ -17,15 +17,13 @@ public interface StationService {
 
 	Station findByName(String name);
 
-	List<StationScheduleDTO> getScheduleOfStation(String name, LocalDate date);
+	List<StationScheduleDto> getScheduleOfStation(String name, LocalDate date);
 
 	boolean isExist(String name);
 
-	void save(String name);
+	void createStation(String name);
 
-	void update(Station station);
-
-	void delete(int id);
+	void updateStation(Station station);
 
 	List<Station> findAll();
 }

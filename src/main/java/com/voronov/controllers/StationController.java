@@ -35,7 +35,7 @@ public class StationController {
 	@PostMapping("/station/save")
 	public String save(@RequestParam String name) {
 
-		stationService.save(name);
+		stationService.createStation(name);
 		return "redirect:/station";
 	}
 
@@ -46,17 +46,11 @@ public class StationController {
 	}
 
 	@PostMapping("station/edit/updateStation")
-	public String update(@RequestParam String id,
+	public String updateStation(@RequestParam String id,
 						 @RequestParam String name) {
 		Station station = stationService.findById(Integer.parseInt(id));
 		station.setName(name);
-		stationService.update(station);
-		return "redirect:/station";
-	}
-
-	@GetMapping("/station/delete/{id}")
-	public String delete(@PathVariable int id) {
-		stationService.delete(id);
+		stationService.updateStation(station);
 		return "redirect:/station";
 	}
 }

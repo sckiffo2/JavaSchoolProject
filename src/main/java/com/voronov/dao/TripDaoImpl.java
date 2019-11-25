@@ -139,20 +139,4 @@ public class TripDaoImpl implements TripDao {
 			e.printStackTrace();
 		}
 	}
-
-	@Override
-	public List<Trip> findAllFutureTrips() {
-		List<Trip> result = null;
-
-		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
-			session.beginTransaction();
-			Query query = session.createQuery("from Trip T where T.startDate > :now", Trip.class);
-			query.setParameter("now", LocalDate.now());
-			result = query.getResultList();
-			session.getTransaction().commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
 }

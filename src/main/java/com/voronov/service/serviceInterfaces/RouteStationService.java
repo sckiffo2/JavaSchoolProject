@@ -11,11 +11,11 @@ public interface RouteStationService {
 
 	RouteStation findById(long id);
 
-	void save(String strId, String stationName, String strArrival, String strDeparture, String arrivalDayNumber, String departureDayNumber);
+	void save(long strId, String stationName, String strArrival, String strDeparture, String arrivalDayNumber, String departureDayNumber);
 
 	void update(RouteStation station);
 
-	void delete(int id);
+	void delete(long id);
 
 	List<RouteStation> findAll();
 

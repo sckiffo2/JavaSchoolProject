@@ -2,6 +2,7 @@
 .idea/
 out/
 target/
+logs/
 
 *.war
 *.jar

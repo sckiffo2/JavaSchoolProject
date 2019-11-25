@@ -21,7 +21,6 @@ public class ScheduleTask {
 	@Autowired
 	TripService tripService;
 
-	//every 30 seconds (seconds, minutes, hours, day of month, month, day of week, year(optional))
 	@Scheduled(cron = "0 0/1 * * * ?")
 	public void deleteBookedTicketsSchedule() {
 		logger.debug("ScheduledTask: deleting tickets what booked too long.");

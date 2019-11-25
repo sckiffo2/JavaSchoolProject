@@ -8,6 +8,7 @@ import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.StationService;
 import com.voronov.service.serviceInterfaces.TripService;
 import com.voronov.service.serviceInterfaces.TripStationService;
+import com.voronov.utils.JmsSender;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.slf4j.Logger;
@@ -15,11 +16,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.jms.JMSException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -41,6 +41,9 @@ public class TripServiceImpl implements TripService {
 
 	@Autowired
 	private TripStationService tripStationService;
+
+	@Autowired
+	private JmsSender sender;
 
 	@Override
 	public Trip findById(long id) {
@@ -69,7 +72,6 @@ public class TripServiceImpl implements TripService {
 		for (Trip trip : tripsWithBothStations) {
 			TripStation departureStation = null;
 			TripStation arrivalStation = null;
-
 			for (TripStation tripStation : trip.getStationsOnTrip()){
 				if (tripStation.getDepartureTime() != null && tripStation.getDepartureTime().toLocalDate().equals(date)) {
 					if (tripStation.getStation().getId() == departureStationId) {
@@ -80,7 +82,6 @@ public class TripServiceImpl implements TripService {
 					arrivalStation = tripStation;
 				}
 			}
-
 			if (departureStation != null && arrivalStation != null &&
 					departureStation.getIndexInRoute() < arrivalStation.getIndexInRoute()) {
 				resultTrips.add(trip);
@@ -88,7 +89,6 @@ public class TripServiceImpl implements TripService {
 		}
 
 		List<TicketScheduleDTO> result = new ArrayList<>();
-
 		for (Trip trip : resultTrips) {
 			TicketScheduleDTO ticketScheduleDTO = new TicketScheduleDTO();
 			ticketScheduleDTO.setTripId(trip.getId());
@@ -107,7 +107,6 @@ public class TripServiceImpl implements TripService {
 			}
 			result.add(ticketScheduleDTO);
 		}
-
 		return result;
 	}
 
@@ -128,7 +127,7 @@ public class TripServiceImpl implements TripService {
 			throw new BusinessLogicException("Рейса с таким номером не существует.");
 		}
 
-		if (existsByRouteNumberAndDate(route, date)) {
+		if (existsByRouteAndDate(route, date)) {
 			throw new BusinessLogicException("Такой рейс уже существует.");
 		}
 		Trip trip = new Trip(route, date);
@@ -203,8 +202,8 @@ public class TripServiceImpl implements TripService {
 		logger.debug("Создано : " + tripsCreated);
 	}
 
-	public boolean existsByRouteNumberAndDate(Route route, LocalDate date) {
-
+	@Override
+	public boolean existsByRouteAndDate(Route route, LocalDate date) {
 		Trip tripToCheck = findByRouteIdAndDate(route.getId(), date);
 		if (tripToCheck != null) {
 			return true;
@@ -213,9 +212,17 @@ public class TripServiceImpl implements TripService {
 	}
 
 	@Override
-	public void delete(long id) {
-		Trip deleteTrip = tripDao.findById(id);
-		tripDao.delete(deleteTrip);
+	public void update(long id, boolean canceled, int delay) {
+		Trip updateTrip = tripDao.findById(id);
+		updateTrip.setCanceled(canceled);
+		updateTrip.setDelay(delay);
+		tripDao.update(updateTrip);
+
+		try {
+			sender.sendMessage();
+		} catch (JMSException e) {
+			logger.error("sending JMS message failed");
+		}
 	}
 
 	@Override
@@ -224,8 +231,15 @@ public class TripServiceImpl implements TripService {
 	}
 
 	@Override
-	public List<Trip> findAllFutureTrips() {
-		return tripDao.findAllFutureTrips();
+	public List<Trip> findAllActualTrips() {
+		List<Trip> allTrips = tripDao.findAll();
+
+		List<Trip> allActualTrips = allTrips.stream().filter(x -> x.getStationsOnTrip()
+				.stream()
+				.anyMatch(y -> (y.getDepartureTime() != null && y.getDepartureTime().plusMinutes(10).isAfter(LocalDateTime.now())) ||
+						(y.getArrivalTime() != null && y.getArrivalTime().plusMinutes(10).isAfter(LocalDateTime.now())))
+		).sorted().collect(Collectors.toList());
+		return allActualTrips;
 	}
 
 	@Override

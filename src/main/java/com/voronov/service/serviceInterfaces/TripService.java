@@ -24,11 +24,13 @@ public interface TripService {
 
 	void createTripsBySchedule();
 
-	void delete(long id);
+	boolean existsByRouteAndDate(Route route, LocalDate date);
+
+	void update(long id, boolean canceled, int delay);
 
 	List<Trip> findAll();
 
-	List<Trip> findAllFutureTrips();
+	List<Trip> findAllActualTrips();
 
 	List<Route> findAllRoutes();
 

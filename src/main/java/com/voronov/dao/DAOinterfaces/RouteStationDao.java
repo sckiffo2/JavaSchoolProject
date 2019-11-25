@@ -12,9 +12,9 @@ public interface RouteStationDao {
 
 	public List<RouteStation> findStationsOfRoute(long id);
 
-	void save(RouteStation route);
+	void save(RouteStation routeStation);
 
-	void update(RouteStation route);
+	void update(RouteStation routeStation);
 
-	void delete(RouteStation route);
+	void delete(RouteStation routeStation);
 }

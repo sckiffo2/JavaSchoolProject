@@ -1,7 +1,6 @@
 package com.voronov.entities;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -12,7 +11,6 @@ import java.time.format.DateTimeFormatter;
 @Table(name = "route_station")
 @Getter
 @Setter
-@NoArgsConstructor
 public class RouteStation extends SuperEntity {
 
 	@ManyToOne
@@ -31,6 +29,17 @@ public class RouteStation extends SuperEntity {
 
 	@Column(name = "index_in_route")
 	private int indexInRoute;
+
+	public RouteStation(Route route, Station station, Integer arrivalTime, Integer departureTime, int indexInRoute) {
+		this.route = route;
+		this.station = station;
+		this.arrivalTime = arrivalTime;
+		this.departureTime = departureTime;
+		this.indexInRoute = indexInRoute;
+	}
+
+	public RouteStation() {
+	}
 
 	public String getArrivalTimeToString() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");

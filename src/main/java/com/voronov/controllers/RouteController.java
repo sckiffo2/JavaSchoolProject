@@ -86,7 +86,7 @@ public class RouteController {
 	}
 
 	@PostMapping("route/editStations/addStationToRoute")
-	public String addStationToRoute(@RequestParam String id,
+	public String addStationToRoute(@RequestParam long id,
 									@RequestParam String station,
 									@RequestParam String arrival,
 									@RequestParam String departure,

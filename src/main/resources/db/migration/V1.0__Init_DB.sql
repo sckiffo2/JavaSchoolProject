@@ -100,6 +100,7 @@ create table trips
             primary key,
     start_date date                  not null,
     canceled   boolean default false not null,
+    delay integer default 0          not null,
     route_id   bigint
         constraint "FK_route_id"
             references routes

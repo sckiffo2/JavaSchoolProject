@@ -1,35 +1,33 @@
 package com.voronov.controllers;
 
-import com.voronov.dto.StationScheduleDTO;
-import com.voronov.service.serviceInterfaces.StationService;
+import com.voronov.dto.RemoteScheduleDto;
+import com.voronov.entities.Station;
+import com.voronov.service.serviceInterfaces.RemoteScheduleService;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.util.List;
+
+import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController()
 @Setter
 public class RemoteScheduleController {
 	@Autowired
-	private StationService stationService;
+	private RemoteScheduleService remoteScheduleService;
 
-	@RequestMapping(value = "/getSchedule", method = RequestMethod.GET)
-	public List<StationScheduleDTO> getInitialSchedule(@RequestParam String name,
-													   @RequestParam String stringDate,
-													   Model model) {
-//		String name = "Москва";
-//		LocalDate date = LocalDate.parse("2019-11-23");
+	@RequestMapping(value = "/getSchedule", produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+	public List<RemoteScheduleDto> getInitialSchedule(@RequestParam Long id) {
 
-		LocalDate date = null;
-		try {
-			date = LocalDate.parse(stringDate);
-		} catch (Exception e) {
+		return remoteScheduleService.getSchedule(id);
+	}
 
-		}
-		return stationService.getScheduleOfStation(name, date);
+	@RequestMapping(value = "/getStation", produces = APPLICATION_JSON_VALUE ,method = RequestMethod.GET)
+	public Station getStation(@RequestParam Long id) {
+		return remoteScheduleService.getStation(id);
 	}
 }

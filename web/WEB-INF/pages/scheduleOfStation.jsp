@@ -63,7 +63,8 @@
                                                                 <th>Название поезда</th>
                                                                 <th>Время прибытия</th>
                                                                 <th>Время отправления</th>
-                                                                <th></th>
+                                                                <th>Статус рейса</th>
+                                                                <th>Опоздание</th>
                                                             </tr>
                                                             <c:forEach var="scheduleRow" items="${schedule}">
                                                                 <tr>
@@ -74,10 +75,16 @@
                                                                         <c:out value="${scheduleRow.routeName}"/>
                                                                     </td>
                                                                     <td>
-                                                                            ${scheduleRow.getArrivalTimeString()}
+                                                                            ${scheduleRow.getArrivalTimeToString()}
                                                                     </td>
                                                                     <td>
-                                                                            ${scheduleRow.getDepartureTimeString()}
+                                                                            ${scheduleRow.getDepartureTimeToString()}
+                                                                    </td>
+                                                                    <td>
+                                                                            ${scheduleRow.getCanceledToString()}
+                                                                    </td>
+                                                                    <td>
+                                                                            ${scheduleRow.getDelayToString()}
                                                                     </td>
                                                                 </tr>
                                                             </c:forEach>

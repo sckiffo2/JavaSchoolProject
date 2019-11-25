@@ -15,13 +15,16 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Trip extends SuperEntity {
+public class Trip extends SuperEntity implements Comparable<Trip>{
 
 	@Column(name = "start_date")
 	private LocalDate startDate;
 
 	@Column(name = "canceled")
 	private boolean canceled;
+
+	@Column(name = "delay")
+	private int delay = 0;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
@@ -44,5 +47,20 @@ public class Trip extends SuperEntity {
 	public Trip(Route route, LocalDate startDate) {
 		this.route = route;
 		this.startDate = startDate;
+	}
+
+	public Trip(LocalDate startDate, boolean canceled, int delay) {
+		this.startDate = startDate;
+		this.canceled = canceled;
+		this.delay = delay;
+	}
+
+	@Override
+	public int compareTo(Trip o) {
+		int c = this.startDate.compareTo(o.startDate);
+		if (c == 0) {
+			return this.route.getNumber().compareTo(o.route.getNumber());
+		}
+		return c;
 	}
 }

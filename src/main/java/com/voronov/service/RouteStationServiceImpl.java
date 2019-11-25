@@ -40,8 +40,12 @@ public class RouteStationServiceImpl implements RouteStationService {
 	}
 
 	@Override
-	public void save(String strId, String stationName, String strArrival, String strDeparture, String arrivalDayNumber, String departureDayNumber) {
+	public void save(long strId, String stationName, String strArrival, String strDeparture, String arrivalDayNumber, String departureDayNumber) {
 		RouteStation routeStation = new RouteStation();
+
+		if (strArrival.isEmpty() && strDeparture.isEmpty()) {
+			throw new BusinessLogicException("У станции должно присутствовать, либо время отправления, либо время прибытия");
+		}
 
 		if (arrivalDayNumber.isEmpty()) {
 			arrivalDayNumber = "0";
@@ -49,12 +53,7 @@ public class RouteStationServiceImpl implements RouteStationService {
 		if (departureDayNumber.isEmpty()) {
 			departureDayNumber = "0";
 		}
-
-		if (strArrival.isEmpty() && strDeparture.isEmpty()) {
-			throw new BusinessLogicException("У станции должно присутствовать, либо время отправления, либо время прибытия");
-		}
-
-		Route route = routeService.findById(Long.parseLong(strId));
+		Route route = routeService.findById(strId);
 		Station station =  stationService.findByName(stationName);
 
 		if (!strArrival.isEmpty()) {
@@ -68,7 +67,6 @@ public class RouteStationServiceImpl implements RouteStationService {
 
 		routeStation.setRoute(route);
 		routeStation.setStation(station);
-
 		List<RouteStation> routeStationsList = routeStationDao.findStationsOfRoute(route.getId());
 		routeStation.setIndexInRoute(routeStationsList.size());
 		routeStationDao.save(routeStation);
@@ -80,7 +78,7 @@ public class RouteStationServiceImpl implements RouteStationService {
 	}
 
 	@Override
-	public void delete(int id) {
+	public void delete(long id) {
 		RouteStation deleteRouteStation = routeStationDao.findById(id);
 		routeStationDao.delete(deleteRouteStation);
 	}
