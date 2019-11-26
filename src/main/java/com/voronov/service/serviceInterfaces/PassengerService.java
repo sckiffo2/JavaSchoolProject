@@ -10,6 +10,9 @@ public interface PassengerService {
 
 	void setPassengerDao(PassengerDao passengerDao);
 
+
+	List<Passenger> findAll();
+
 	Passenger findById(long id);
 
 	Passenger findByPassengerData(String firstName, String lastName, LocalDate birthDate);
@@ -24,5 +27,4 @@ public interface PassengerService {
 
 	void delete(int id);
 
-	List<Passenger> findAll();
 }
