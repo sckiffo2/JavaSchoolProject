@@ -29,7 +29,7 @@ public class ScheduleTask {
 
 	@Scheduled(cron = "0 0 1 * * ?")
 	public void createTripSchedule() {
-		logger.debug("ScheduledTask: Auto create trips.");
+		logger.debug("ScheduledTask: Auto save trips.");
 		tripService.createTripsBySchedule();
 	}
 }

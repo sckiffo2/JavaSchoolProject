@@ -20,6 +20,6 @@ public class Role extends SuperEntity {
 
 	@Override
 	public String toString() {
-		return "role";
+		return role;
 	}
 }

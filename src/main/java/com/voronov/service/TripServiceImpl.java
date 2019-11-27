@@ -3,7 +3,7 @@ package com.voronov.service;
 import com.voronov.dao.DAOinterfaces.TripDao;
 import com.voronov.entities.*;
 import com.voronov.dto.TicketScheduleDTO;
-import com.voronov.service.exceptions.BusinessLogicException;
+import com.voronov.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.StationService;
 import com.voronov.service.serviceInterfaces.TripService;
@@ -62,14 +62,14 @@ public class TripServiceImpl implements TripService {
 		}
 
 		Station secondStation = stationService.findById(arrivalStationId);
-
 		List<Trip> tripsWithStationOne = tripDao.findTripsByStationId(departureStationId);
-		List<Trip> tripsWithBothStations = tripsWithStationOne.stream()
-				.filter(x -> x.getStations().contains(secondStation))
-				.collect(Collectors.toList()
-				);
+		List<Trip> tripsWithBothStations = tripsWithStationOne.stream().filter(x -> x.getStations()
+				.contains(secondStation)).collect(Collectors.toList());
 		List<Trip> resultTrips = new ArrayList<>();
 		for (Trip trip : tripsWithBothStations) {
+			if (trip.isCanceled()) {
+				continue;
+			}
 			TripStation departureStation = null;
 			TripStation arrivalStation = null;
 			for (TripStation tripStation : trip.getStationsOnTrip()){
@@ -87,7 +87,6 @@ public class TripServiceImpl implements TripService {
 				resultTrips.add(trip);
 			}
 		}
-
 		List<TicketScheduleDTO> result = new ArrayList<>();
 		for (Trip trip : resultTrips) {
 			TicketScheduleDTO ticketScheduleDTO = new TicketScheduleDTO();
@@ -121,7 +120,7 @@ public class TripServiceImpl implements TripService {
 	}
 
 	@Override
-	public void createTrip(String routeNumber, LocalDate date) {
+	public void save(String routeNumber, LocalDate date) {
 		Route route = routeService.findByNumber(routeNumber);
 		if (route == null) {
 			throw new BusinessLogicException("Рейса с таким номером не существует.");
@@ -155,7 +154,6 @@ public class TripServiceImpl implements TripService {
 		logger.debug("Начинаем автоматическое создание рейсов...");
 		int tripsCreated = 0;
 		List<Route> allRoutes = findAllRoutes();
-
 		for (Route route : allRoutes) {
 			String schedulePattern = route.getSchedulePattern();
 			if (schedulePattern != null) {
@@ -191,7 +189,7 @@ public class TripServiceImpl implements TripService {
 				}
 				if (dateIsValid) {
 					try {
-						createTrip(route.getNumber(), futureDate);
+						save(route.getNumber(), futureDate);
 						tripsCreated++;
 					} catch (BusinessLogicException e) {
 						logger.debug("По какой-то причине такой рейс в этот день уже существует. Не будем создавать будликат");
@@ -217,7 +215,7 @@ public class TripServiceImpl implements TripService {
 		updateTrip.setCanceled(canceled);
 		updateTrip.setDelay(delay);
 		tripDao.update(updateTrip);
-
+		logger.info("sending JMS message successful");
 		try {
 			sender.sendMessage();
 		} catch (JMSException e) {

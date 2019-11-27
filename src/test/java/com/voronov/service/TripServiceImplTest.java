@@ -56,15 +56,6 @@ public class TripServiceImplTest {
 	}
 
 	@Test
-	public void findById() {
-	}
-
-	@Test
-	public void findByRouteIdAndDate() {
-	}
-
-
-	@Test
 	public void findTripsByStationsAndDate() {
 		long departureStationId = 1L;
 		long arrivalStationId = 2L;
@@ -95,15 +86,6 @@ public class TripServiceImplTest {
 		assertEquals(1,tripsResult.size());
 	}
 
-
-	@Test
-	public void findTripsByStationId() {
-	}
-
-	@Test
-	public void findTripStations() {
-	}
-
 	@Test
 	public void createTrip() {
 		String routeNumber = "1A";
@@ -118,14 +100,9 @@ public class TripServiceImplTest {
 
 		when(routeService.findByNumber(routeNumber)).thenReturn(route1);
 		doReturn(false).when(service).existsByRouteAndDate(route1, date);
-//		Trip trip = new Trip(route1, date);
-//		TripStation ts1 = new TripStation(trip, st1, date.atStartOfDay().plusSeconds(600), date.atStartOfDay().plusSeconds(700), 0);
-//		TripStation ts2 = new TripStation(trip, st1, date.atStartOfDay().plusSeconds(800), date.atStartOfDay().plusSeconds(900), 1);
-//		trip1.setStationsOnTrip(new ArrayList<>(Arrays.asList(ts1, ts2)));
 
-		service.createTrip(routeNumber, date);
+		service.save(routeNumber, date);
 		verify(tripStationService, times(route1.getStationsOnRoute().size())).save(new TripStation());
-
 	}
 
 	@Test
@@ -142,7 +119,7 @@ public class TripServiceImplTest {
 		doReturn(routes).when(service).findAllRoutes();
 
 		service.createTripsBySchedule();
-		verify(service,times(4)).createTrip(anyString(), eq(futureDate));
+		verify(service,times(4)).save(anyString(), eq(futureDate));
 	}
 
 	@Test
@@ -154,10 +131,6 @@ public class TripServiceImplTest {
 		verify(service,times(1)).findByRouteIdAndDate(anyLong(), anyObject());
 		doReturn(false).when(service).existsByRouteAndDate(anyObject(), anyObject());
 		assertFalse(service.existsByRouteAndDate(anyObject(), anyObject()));
-	}
-
-	@Test
-	public void delete() {
 	}
 
 	@Test
@@ -205,7 +178,7 @@ public class TripServiceImplTest {
 
 	@Test
 	public void findAllRoutes() {
-//		service.findAllRoutes();
-//		verify(routeService, times(1)).findAll();
+		service.findAllRoutes();
+		verify(routeService, times(1)).findAll();
 	}
 }

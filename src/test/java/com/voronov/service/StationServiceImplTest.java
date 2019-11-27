@@ -6,7 +6,7 @@ import com.voronov.entities.Route;
 import com.voronov.entities.RouteStation;
 import com.voronov.entities.Station;
 import com.voronov.entities.Trip;
-import com.voronov.service.exceptions.BusinessLogicException;
+import com.voronov.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.StationService;
 import com.voronov.service.serviceInterfaces.TripService;
 import org.junit.After;
@@ -100,21 +100,21 @@ public class StationServiceImplTest {
 
 	@Test
 	public void createStation_success() {
-		service.createStation("test-test-station");
+		service.save("test-test-station");
 		verify(dao, times(1)).save(new Station("test-test-station"));
 	}
 
 	@Test(expected = BusinessLogicException.class)
 	public void createStation_fail() {
 		when(dao.isExist("Москва")).thenReturn(true);
-		service.createStation("Москва");
+		service.save("Москва");
 		verify(dao, times(0)).save(new Station("test-test-station"));
 	}
 
 	@Test
 	public void updateStation() {
 		Station station = new Station("test");
-		service.updateStation(station);
+		service.update(station);
 		verify(dao, times(1)).update(station);
 	}
 

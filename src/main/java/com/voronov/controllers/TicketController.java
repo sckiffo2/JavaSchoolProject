@@ -4,6 +4,8 @@ import com.voronov.entities.Passenger;
 import com.voronov.entities.Ticket;
 import com.voronov.service.serviceInterfaces.TicketService;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,12 +21,15 @@ import java.time.LocalDate;
 @Setter
 public class TicketController {
 
+	private static final Logger logger = LoggerFactory.getLogger(TicketController.class);
+
 	@Autowired
 	TicketService ticketService;
 
 	@GetMapping("/tripSearch")
 	public String tripPage(Model model) {
 		model.addAttribute("stations", ticketService.findAllStations());
+		logger.info("/tripSearch page invoked");
 		return "tripSearch";
 	}
 
@@ -37,6 +42,7 @@ public class TicketController {
 		session.setAttribute("arrivalStation", arrivalStation);
 		model.addAttribute("stations", ticketService.findAllStations());
 		model.addAttribute("TicketScheduleDTO", ticketService.findTripsByStationsAndDate(departureStation, arrivalStation, stringDate));
+		logger.info("lets find trip for stations " + departureStation + arrivalStation + " at " + stringDate);
 		return "tripSearch";
 	}
 
@@ -47,6 +53,7 @@ public class TicketController {
 		String arrivalStation = (String) session.getAttribute("arrivalStation");
 		session.setAttribute("tripId", tripId);
 		model.addAttribute("tripPlaces", ticketService.findFreePlaces(tripId,departureStation, arrivalStation));
+		logger.info("checking free places for trip id = " + tripId);
 		return "freePlaces";
 	}
 
@@ -61,6 +68,7 @@ public class TicketController {
 		session.removeAttribute(arrivalStation);
 		session.setAttribute("wagon", wagon);
 		session.setAttribute("place", place);
+		logger.info("booking ticket to trip:" + tripId + " place " + place + " in wagon " + wagon);
 		return "regpassenger";
 	}
 
@@ -78,6 +86,8 @@ public class TicketController {
 		ticketService.registerPassengerToTrip(passenger, tripId, wagon, place);
 		Ticket ticket = ticketService.findTicketByTripAndPlace(tripId, wagon, place);
 		model.addAttribute("ticket", ticket);
+		logger.info("registering passenger to trip " + tripId + " ticket " + ticket.getId() + firstName +
+				" " + lastName + " " + birthDate);
 		return "ticketSuccesRegister";
 	}
 }

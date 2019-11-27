@@ -1,17 +1,14 @@
 package com.voronov.controllers;
 
 
-import com.voronov.service.exceptions.BusinessLogicException;
-import org.springframework.core.annotation.AnnotationUtils;
+import com.voronov.exceptions.BusinessLogicException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
-//@ControllerAdvice
-//  On this @ControllerAdvice
+@ControllerAdvice
 public class GlobalControllerExceptionHandler {
 
 	public static final String DEFAULT_ERROR_VIEW = "ErrorDefault";

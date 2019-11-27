@@ -4,7 +4,7 @@ import com.voronov.dao.DAOinterfaces.StationDao;
 import com.voronov.dto.StationScheduleDto;
 import com.voronov.entities.Station;
 import com.voronov.entities.Trip;
-import com.voronov.service.exceptions.BusinessLogicException;
+import com.voronov.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.StationService;
 import com.voronov.service.serviceInterfaces.TripService;
 import lombok.NoArgsConstructor;
@@ -72,6 +72,7 @@ public class StationServiceImpl implements StationService {
 				scheduleRow.setDeparture(departureTime);
 			}
 			scheduleRow.setCanceled(trip.isCanceled());
+			scheduleRow.setDelay(trip.getDelay());
 			subResult.add(scheduleRow);
 		}
 
@@ -92,7 +93,7 @@ public class StationServiceImpl implements StationService {
 	}
 
 	@Override
-	public void createStation(String name) {
+	public void save(String name) {
 		logger.debug("");
 		if (!isExist(name)) {
 			stationDao.save(new Station(name));
@@ -102,7 +103,7 @@ public class StationServiceImpl implements StationService {
 	}
 
 	@Override
-	public void updateStation(Station station) {
+	public void update(Station station) {
 		stationDao.update(station);
 	}
 

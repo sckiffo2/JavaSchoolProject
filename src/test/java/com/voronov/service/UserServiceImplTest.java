@@ -12,8 +12,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 
-import static org.junit.Assert.*;
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 public class UserServiceImplTest {
@@ -45,7 +43,7 @@ public class UserServiceImplTest {
 		doReturn(false).when(service).isExists(anyObject());
 		Role role = new Role("USER");
 		when(roleService.findByName("USER")).thenReturn(role);
-		service.addUser(user);
+		service.save(user);
 
 		verify(dao, times(1)).save(user);
 	}

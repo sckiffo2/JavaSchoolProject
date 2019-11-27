@@ -52,6 +52,14 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
+                                        <label for="role" class="col-sm-2">Роли пользователя</label><br>
+                                        <div class="col-sm-10" id="role">
+                                            <input type="radio" name="role" value="USER" checked>USER
+                                            <input type="radio" name="role" value="MANAGER">MANAGER
+                                            <input type="radio" name="role" value="ADMIN">ADMIN
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <div class="col-sm-10">
                                             <input type="submit" class="btn btn-primary" value="Сохранить"/>
                                         </div>

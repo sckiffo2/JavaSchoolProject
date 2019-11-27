@@ -49,7 +49,7 @@ public class UserDaoImpl implements UserDao {
 		try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
 			session.beginTransaction();
 
-			Query query = session.createQuery("select count(*) from User U where U.username = :username and U.mail = :mail");
+			Query query = session.createQuery("select count(*) from User U where U.username = :username or U.mail = :mail");
 			query.setParameter("username", username);
 			query.setParameter("mail", mail);
 			result = !((long)query.getSingleResult() == 0);

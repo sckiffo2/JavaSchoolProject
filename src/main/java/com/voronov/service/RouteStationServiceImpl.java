@@ -5,7 +5,7 @@ import com.voronov.dao.DAOinterfaces.RouteStationDao;
 import com.voronov.entities.Route;
 import com.voronov.entities.RouteStation;
 import com.voronov.entities.Station;
-import com.voronov.service.exceptions.BusinessLogicException;
+import com.voronov.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.RouteStationService;
 import com.voronov.service.serviceInterfaces.StationService;
@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalTime;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 

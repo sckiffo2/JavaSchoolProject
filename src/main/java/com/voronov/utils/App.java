@@ -1,10 +1,11 @@
-package com.voronov;
+package com.voronov.utils;
 
 import com.voronov.dao.*;
 import com.voronov.entities.*;
 import com.voronov.service.*;
 import com.voronov.service.serviceInterfaces.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,15 +36,15 @@ public class App {
 		TripStationService tripStationService = new TripStationServiceImpl();
 		tripStationService.setTripStationDao(new TripStationDaoImpl());
 
-		List<Trip> list = tripService.findAllActualTrips();
-		list = list.stream().filter(x -> x.getStationsOnTrip()
-				.stream()
-				.anyMatch(y -> (y.getDepartureTime() != null && y.getDepartureTime().plusMinutes(10).isAfter(LocalDateTime.now())) ||
-								(y.getArrivalTime() != null && y.getArrivalTime().plusMinutes(10).isAfter(LocalDateTime.now())))
-		).collect(Collectors.toList());
+//		List<Trip> list = tripService.findAllActualTrips();
+//		list = list.stream().filter(x -> x.getStationsOnTrip()
+//				.stream()
+//				.anyMatch(y -> (y.getDepartureTime() != null && y.getDepartureTime().plusMinutes(10).isAfter(LocalDateTime.now())) ||
+//								(y.getArrivalTime() != null && y.getArrivalTime().plusMinutes(10).isAfter(LocalDateTime.now())))
+//		).collect(Collectors.toList());
+//
 
-		System.out.println();
-
+		//todo second app background
 		//todo remove sout from second app
 		//todo redo remote schedule and schedule logic of today schedule (trip already started in past but still on the way)
 		//todo check error handling

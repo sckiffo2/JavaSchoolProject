@@ -34,19 +34,16 @@
                                         </label>
                                         <div class="col-sm-10">
                                             <div class="form-group row">
-                                                <input type="text" name="username"
-                                                       class="form-control" id="username"
-                                                       placeholder="Введите имя пользователя"/>
+                                                <input type="text" name="username" class="form-control" id="username" placeholder="Введите имя пользователя"
+                                                       pattern="[A-Za-z1-9_]{6,20}" title="6-20 символов, латинские буквы, цыфры, подчеркивание"/>
                                             </div>
                                             <div class="form-group row">
-                                                <input type="text" name="password"
-                                                       class="form-control" id="password"
-                                                       placeholder="Введите пароль"/>
+                                                <input type="password" name="password" class="form-control" id="password" placeholder="Введите пароль"
+                                                       pattern="^.{6,20}$" title="6-20 символов"/>
                                             </div>
                                             <div class="form-group row">
-                                                <input type="text" name="mail"
-                                                       class="form-control" id="mail"
-                                                       placeholder="Введите eMail"/>
+                                                <input type="text" name="mail" class="form-control" id="mail" placeholder="Введите eMail"
+                                                       pattern="[^@]+@[^\.]+\..+" title="user@example.com"/>
                                             </div>
                                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                                         </div>
@@ -84,11 +81,10 @@
                                                                     <c:out value="${user.mail}"/>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="user\edit\<c:url value="${user.getId()}"/>">Изменить</a>
+                                                                    <c:out value="${user.userRoles}"/>
                                                                 </td>
                                                                 <td>
-                                                                    <a href="user\editRole\<c:url value="${user.getId()}"/>">Роли
-                                                                        пользователя</a>
+                                                                    <a href="user\edit\<c:url value="${user.getId()}"/>">Редактировать пользователя</a>
                                                                 </td>
                                                             </tr>
                                                         </c:forEach>

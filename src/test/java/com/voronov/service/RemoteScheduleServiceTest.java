@@ -25,6 +25,6 @@ public class RemoteScheduleServiceTest {
 	}
 	@Test
 	public void getSchedule() {
-		//todo getSchedule test
+
 	}
 }

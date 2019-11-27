@@ -1,4 +1,4 @@
-package com.voronov.service.exceptions;
+package com.voronov.exceptions;
 
 public class BusinessLogicException extends RuntimeException {
 	public BusinessLogicException(String errorMessage) {

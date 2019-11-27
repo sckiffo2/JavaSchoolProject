@@ -3,7 +3,7 @@ package com.voronov.service;
 import com.voronov.dao.DAOinterfaces.TicketDao;
 import com.voronov.entities.*;
 import com.voronov.dto.TicketScheduleDTO;
-import com.voronov.service.exceptions.BusinessLogicException;
+import com.voronov.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.*;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -26,6 +28,7 @@ public class TicketServiceImpl implements TicketService {
 	private static final Logger logger = LoggerFactory.getLogger(TicketServiceImpl.class);
 
 	final static int STOP_SELL_TICKETS = 10;
+	final static int TIME_TO_REGISTER_TICKET = 10;
 	final static int DEFAULT_WAGONS_AMOUNT = 15;
 	final static int DEFAULT_PLACES_AMOUNT = 36;
 	@Autowired
@@ -81,6 +84,7 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
+	@Transactional(isolation= Isolation.READ_COMMITTED)
 	public List<List<Integer>> findFreePlaces(long tripId, String departureStationName, String arrivalStationName) {
 		logger.debug("method start");
 		Station departureStation = stationService.findByName(departureStationName);
@@ -129,10 +133,11 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
+	@Transactional(isolation= Isolation.SERIALIZABLE, rollbackFor=BusinessLogicException.class)
 	public void bookTicket(long tripId, String departureStationName, String arrivalStationName, int wagonNumber, int placeNumber) {
 		logger.debug("method start");
 		Ticket ticketToBook = new Ticket();
-		ticketToBook.setBookedTill(LocalDateTime.now().plusMinutes(10));
+		ticketToBook.setBookedTill(LocalDateTime.now().plusMinutes(TIME_TO_REGISTER_TICKET));
 		Trip trip = tripService.findById(tripId);
 		ticketToBook.setTrip(trip);
 		ticketToBook.setDepartureStation(stationService.findByName(departureStationName));

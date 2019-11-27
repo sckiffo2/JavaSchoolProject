@@ -2,7 +2,7 @@ package com.voronov.service;
 
 import com.voronov.dao.DAOinterfaces.TicketDao;
 import com.voronov.entities.*;
-import com.voronov.service.exceptions.BusinessLogicException;
+import com.voronov.exceptions.BusinessLogicException;
 import com.voronov.service.serviceInterfaces.PassengerService;
 import com.voronov.service.serviceInterfaces.StationService;
 import com.voronov.service.serviceInterfaces.TicketService;
@@ -181,10 +181,6 @@ public class TicketServiceImplTest {
 		TripStation ts1 = new TripStation(trip1, station, null, LocalDateTime.now().minusMinutes(11), 0);
 		trip1.setStationsOnTrip(new ArrayList<TripStation>(Arrays.asList(ts1)));
 		assertTrue(service.isTooLateToBuyTicket(trip1, 1L));
-	}
-
-	@Test
-	public void findTicketByTripAndPlace() {
 	}
 
 	@Test

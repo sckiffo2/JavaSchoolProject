@@ -12,6 +12,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,14 +49,16 @@ public class RemoteScheduleServiceImpl implements RemoteScheduleService {
 			if (tripStation.getArrivalTime() != null) {
 				LocalDateTime arrivalTime = tripStation.getArrivalTime();
 				scheduleRow.setArrival(arrivalTime.toString());
-				if (arrivalTime.plusMinutes(10).isAfter(LocalDateTime.now())) {
+				if (arrivalTime.toLocalDate().isEqual(LocalDate.now()) ||
+						arrivalTime.toLocalDate().isEqual(LocalDate.now().plusDays(1))) {
 					isTripActual = true;
 				}
 			}
 			if (tripStation.getDepartureTime() != null) {
 				LocalDateTime departureTime = tripStation.getDepartureTime();
 				scheduleRow.setDeparture(departureTime.toString());
-				if (departureTime.plusMinutes(10).isAfter(LocalDateTime.now())) {
+				if (departureTime.toLocalDate().isEqual(LocalDate.now()) ||
+						departureTime.toLocalDate().isEqual(LocalDate.now().plusDays(1))) {
 					isTripActual = true;
 				}
 			}
@@ -63,12 +66,16 @@ public class RemoteScheduleServiceImpl implements RemoteScheduleService {
 				result.add(scheduleRow);
 			}
 		}
-
 		return result;
 	}
 
 	@Override
 	public Station getStation(long id) {
 		return stationService.findById(id);
+	}
+
+	@Override
+	public List<Station> getAllStations() {
+		return stationService.findAll();
 	}
 }

@@ -30,6 +30,7 @@
                             <div class="card-body">
                                 <form method="POST" action="getPassengers" class="form-horizontal">
                                     <div class="form-group row">
+                                        <label for="routes" class="col-sm-2">Поезд</label>
                                         <div class="col-sm-10">
                                             <input list="routes" id="route" name="number" class="form-control" placeholder="Выберите поезд" required/>
                                             <datalist id="routes">
@@ -40,7 +41,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="date" class="col-sm-2"> Время прибытия</label>
+                                        <label for="date" class="col-sm-2"> Дата отправления</label>
                                         <div class="col-sm-10">
                                             <input type="date" name="date" class="form-control" id="date" required>
                                         </div>

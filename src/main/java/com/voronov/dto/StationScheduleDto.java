@@ -29,11 +29,55 @@ public class StationScheduleDto implements Comparable<StationScheduleDto>{
 	private int delay = 0;
 
 	public String getCanceledToString() {
-		return canceled ? "отменен" : "активен";
+		if (canceled) {
+			return "отменен";
+		} else {
+			return "активен";
+		}
 	}
 
 	public String getDelayToString() {
-		return delay != 0 ? delay + "минут" : "вовремя";
+		if (canceled) {
+			return "отменен";
+		}
+		if (delay == 0) {
+			return "вовремя";
+		}
+		int delayHours = delay / 60;
+		int delayMinutes = delay % 60;
+		String result = "";
+		switch (delayHours) {
+			case 0:
+				break;
+			case 1:
+				result = delayHours + " час";
+				break;
+			case 2:
+			case 3:
+			case 4:
+				result = delayHours + " часа";
+				break;
+			default:
+				return "более 5 часов";
+		}
+		if (delayMinutes > 10 && delayMinutes < 21) {
+			result += " "  + delayMinutes + " минут";
+			return result;
+		}
+		switch (delayMinutes % 10) {
+			case 1:
+				result += " "  + delayMinutes + " минута";
+				break;
+			case 2:
+			case 3:
+			case 4:
+				result += " "  + delayMinutes + " минуты";
+				break;
+			default:
+				result += " "  + delayMinutes + " минут";
+				break;
+		}
+		return result;
 	}
 
 	public String getArrivalTimeToString() {

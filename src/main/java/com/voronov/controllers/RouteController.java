@@ -5,6 +5,8 @@ import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.RouteStationService;
 import com.voronov.service.serviceInterfaces.StationService;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,9 @@ import java.util.List;
 @Controller()
 @Setter
 public class RouteController {
+
+	private static final Logger logger = LoggerFactory.getLogger(RouteController.class);
+
 	@Autowired
 	@Qualifier("routeServiceImpl")
 	private RouteService routeService;
@@ -35,6 +40,7 @@ public class RouteController {
 		List<Route> routes = routeService.findAll();
 		modelAndView.addObject("routes", routes);
 		modelAndView.setViewName("route");
+		logger.info("invoked /route routes found:" + routes.size());
 		return modelAndView;
 	}
 
@@ -44,12 +50,14 @@ public class RouteController {
 					   @RequestParam String pattern) {
 
 		routeService.save(number, name, pattern);
+		logger.info("added route with number:" + number);
 		return "redirect:/route";
 	}
 
 	@GetMapping("/route/edit/{id}")
 	public String updatePage(@PathVariable int id, Model model) {
 		model.addAttribute("route", routeService.findById(id));
+		logger.info("invoked /route/edit/" + id);
 		return "routeEdit";
 	}
 
@@ -59,6 +67,7 @@ public class RouteController {
 						 @RequestParam String name,
 						 @RequestParam String pattern) {
 		Route route = routeService.findById(Integer.parseInt(id));
+		logger.info("updating route with number" + route.getNumber());
 		route.setNumber(number);
 		route.setName(name);
 		route.setSchedulePattern(pattern);
@@ -95,12 +104,14 @@ public class RouteController {
 									RedirectAttributes redirectAttributes) {
 
 		routeStationService.save(id, station, arrival, departure, arrivalDay, departureDay);
+		logger.info("added station to route:" + station);
 		return "redirect:/route/editStations/"+ id;
 	}
 
 	@GetMapping("/route/delete/{id}")
 	public String delete(@PathVariable int id) {
 		routeService.delete(id);
+		logger.info("deleting route with id:" + id);
 		return "redirect:/route/";
 	}
 }

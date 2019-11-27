@@ -3,6 +3,8 @@ package com.voronov.controllers;
 import com.voronov.entities.Route;
 import com.voronov.service.serviceInterfaces.TripService;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,8 @@ import java.util.List;
 @Setter
 public class TripController {
 
+	private static final Logger logger = LoggerFactory.getLogger(TripController.class);
+
 	@Autowired
 	TripService tripService;
 
@@ -27,6 +31,7 @@ public class TripController {
 		ModelAndView modelAndView = new ModelAndView();
 		model.addAttribute("routes", tripService.findAllRoutes());
 		model.addAttribute("trips", tripService.findAllActualTrips());
+		logger.info("/trip page invoked");
 		return "trip";
 	}
 
@@ -41,10 +46,11 @@ public class TripController {
 			throw new IllegalArgumentException("Введена неверная дата");
 		}
 
-		tripService.createTrip(routeNumber, localDate);
+		tripService.save(routeNumber, localDate);
 
 		List<Route> routes = tripService.findAllRoutes();
 		model.addAttribute("routes", routes);
+		logger.info("adding trip for route "+ routeNumber + " at " + date);
 		return "redirect:/trip";
 	}
 
@@ -60,6 +66,7 @@ public class TripController {
 					   @RequestParam int delay,
 					   Model model) {
 		tripService.update(id, canceled, delay);
+		logger.info("updating trip " + id + " canceled is:" + canceled + " delay is:" + delay);
 		return "redirect:/trip";
 	}
 }

@@ -4,6 +4,8 @@ import com.voronov.service.serviceInterfaces.PassengerService;
 import com.voronov.service.serviceInterfaces.RouteService;
 import com.voronov.service.serviceInterfaces.TripService;
 import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import java.time.LocalDate;
 @Controller
 @Setter
 public class PassengerController {
+
+	private static final Logger logger = LoggerFactory.getLogger(PassengerController.class);
 
 	@Autowired
 	private PassengerService passengerService;
@@ -43,6 +47,7 @@ public class PassengerController {
 			LocalDate localDate = LocalDate.parse(date);
 			long tripId = tripService.findByRouteIdAndDate(routeId, localDate).getId();
 			model.addAttribute("passengers",passengerService.findPassengersOnTrip(tripId));
+			logger.info("checked passengers of trip:" + tripId);
 		} else {
 			return "ErrorDefault";
 		}
